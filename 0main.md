@@ -65,7 +65,8 @@ in the reflog (`git log -g`), they might be in lost&found (`git fsck
     children and without green labels):
 
     ```shell
-gitk --all --date-order $(git log -g --pretty=%H)```
+gitk --all --date-order $(git log -g --pretty=%H)
+```
 
 * Lost and found
 
@@ -86,7 +87,8 @@ gitk --all --date-order $(git log -g --pretty=%H)```
 	commits. Look for dots without children and without green labels.
 
 	```shell
-gitk --all --date-order $(git fsck --no-reflog | grep "dangling commit" | awk '{print $3;}')```
+gitk --all --date-order $(git fsck --no-reflog | grep "dangling commit" | awk '{print $3;}')
+```
 
     * Dangling Blob
 
@@ -107,7 +109,8 @@ then forgotten about it.  You can use the `git stash list` command
 or inspect them visually using:
 
 ```shell
-gitk --all --date-order $(git stash list | awk -F: '{print $1};')```
+gitk --all --date-order $(git stash list | awk -F: '{print $1};')
+```
 
 
 
