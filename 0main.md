@@ -5,66 +5,69 @@ This is a fairly common question, and there isn't a One True Answer,
 but still, this represents a consensus from #git
 
 
-1. Don't panic
+[panic] 1. Don't panic
 ----------------------------------
 
 Tools, resources, reflog and other locations for missing data
 
 
-1. Backups
+[backups] 1. Backups
 ----------------------------------
 
 Take backups
 
 
-1. Chose a workflow
+[workflow] 1. Chose a workflow
 ----------------------------------
 
 A standard workflow is best.
 
-1.1. Branch workflows
-1.1. Distributed workflows
-1.1. Security model
-1.1. Master repository
+* Branch workflows
+
+    Choosing the branch workflow helps you answer the following questions:
+
+    * Where do users make changes?
+    * How can you identify (and backport) groups of related change?
+
+* Distributed workflows
+* Security model
+* Master repository
 
 
-1. Dividing work into repositories
+[division] 1. Dividing work into repositories
 ----------------------------------
 
-1.1. One concept per repository.
-
-1.1. Repository for large binary files
-
-1.1. Separate repository for continual changes to history
-
-1.1. Group concepts into a superproject
+* One concept per repository.
+* Repository for large binary files
+* Separate repository for continual changes to history
+* Group concepts into a superproject
 
 Use git-submodules or gitslave to group multiple concepts.
 
 
-1. Useful commit messages
+[commit_messages] 1. Useful commit messages
 ----------------------------------
 
 
-1. Integration with external tools
+[integration] 1. Integration with external tools
 ----------------------------------
 
-1.1. Web views
-1.1. Bug tracking
-1.1. IRC/chat rooms
+* Web views
+* Bug tracking
+* IRC/chat rooms
 
 
-1. Keeping up to date
+[merging] 1. Keeping up to date
 ----------------------------------
 
 Overlap with workflow.  Not everyone agrees with these ideas (but they
 should!)
 
-1.1. Pulling with --rebase
-1.1. Rebasing (when possible)
-1.1. Merging without speeding
+* Pulling with --rebase
+* Rebasing (when possible)
+* Merging without speeding
 
-1. Cleaning
+[cleaning] 1. Cleaning
 ----------------------------------
 
 Clean up your git repro every so often.
