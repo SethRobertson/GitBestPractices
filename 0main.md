@@ -104,14 +104,25 @@ gitk --all --date-order $(git fsck --no-reflog | grep "dangling commit" | awk '{
 
 * Stashes
 
-Finally, you may have stashed the data instead of committing it and
-then forgotten about it.  You can use the `git stash list` command
-or inspect them visually using:
+    Finally, you may have stashed the data instead of committing it and
+    then forgotten about it.  You can use the `git stash list` command
+    or inspect them visually using:
 
-```shell
+    ```shell
 gitk --all --date-order $(git stash list | awk -F: '{print $1};')
 ```
 
+* Misplaced
+
+    Another option is that your commit is not lost.  Perhaps the
+    commit was just made on a different branch from what you remember.
+    Using `git log -Sfoo --all` and `gitk --all --date-order` to try
+    and hunt for your commits on known branches.
+
+* Look elsewhere
+
+    Finally, you should check your backups, testing copies, ask the other
+    people who have a copy of the repo, and look in other repos.
 
 
 1. Backups
@@ -140,6 +151,15 @@ A standard workflow is best.
     See the following references for more information on branch
     workflows.
 
+    * [Pro Git branching models](http://progit.org/book/ch3-4.html)
+    * [Git-flow branching model](http://nvie.com/posts/a-successful-git-branching-model/)
+        With [the associated gitflow tool](https://github.com/nvie/gitflow)
+    * [Gitworkflows man page](http://jk.gs/gitworkflows.html)
+    * [A Git Workflow for Agile Teams](http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html)
+    * [What git branching models actually work](http://stackoverflow.com/questions/2621610/what-git-branching-models-actually-work)
+    * [Our New Git Branching Model](http://blogs.remobjects.com/blogs/mh/2011/08/25/p2940)
+
+
     However, also understand that everyone already has an implicit
     private branch due to their cloned repository: they can do work
     locally do a `git pull --rebase` when they are done, perform final
@@ -149,13 +169,29 @@ A standard workflow is best.
     optionally reset your primary branch back to @{u}.  Once you push
     you lose that ability.
 
+    Some people have been very successful with just master and
+    $RELEASE branches ($RELEASE branch for QA and polishing, master
+    for features, specific to each released version.)  Other people
+    have been very successful with many feature branches, integration
+    branches, QA, and release branches.  The faster the release cycle
+    and the more experimental the changes, the more branches will be
+    useful—continuous releases or large refactoring project seem to
+    suggest larger numbers of branches (note the number of branches is
+    the tail, not the dog: more branches will not make you release
+    faster).
+
 * Distributed workflows
 
-    Choosing a distributed workflow 
+    Choosing a distributed workflow
 
 
 * Release workflow
 * Security model
+
+    You might ask why security is not a top level item and is near the
+    end of the workflow section.  Well that is because in an ideal
+    world your security should support your workflow.
+
 * Master repository
 
 
@@ -229,11 +265,24 @@ not attempt any of these things without understanding
     about local versions of configuration
     files](https://gist.github.com/1423106)
 
+
 1. Sausage Making
 ------------------------------
 
 Some people like to hide the sausage making, or in other words pretend
 that their commits 
+
+
+1. Copyright
+------------------------------
+
+Copyright ⓒ 2012 Seth Robertson
+
+Creative Commons Attribution-ShareAlike 2.5 Generic (CC BY-SA 2.5)
+
+http://creativecommons.org/licenses/by-sa/2.5/
+
+I would appreciate changes being sent back to me.
 
 
 1. Comments
