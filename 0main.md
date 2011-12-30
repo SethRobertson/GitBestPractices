@@ -64,7 +64,7 @@ in the reflog (`git log -g`), they might be in lost&found (`git fsck
     the repository using the following command (Look for dots without
     children and without green labels):
 
-    ````gitk --all --date-order `git log -g --pretty=%H`
+    ````gitk --all --date-order $(git log -g --pretty=%H)
 
 * Lost and found
 
@@ -84,7 +84,7 @@ in the reflog (`git log -g`), they might be in lost&found (`git fsck
 	The following command helps you visualize these dangling
 	commits. Look for dots without children and without green labels.
 
-	````gitk --all --date-order `git fsck --no-reflog | grep "dangling commit" | awk '{print $3;}'
+	````gitk --all --date-order $(git fsck --no-reflog | grep "dangling commit" | awk '{print $3;}')
 
     * Dangling Blob
 
@@ -104,7 +104,7 @@ Finally, you may have stashed the data instead of committing it and
 then forgotten about it.  You can use the `git stash list` command
 or inspect them visually using:
 
-````gitk --all --date-order `git stash list | awk -F: '{print $1};'`
+````gitk --all --date-order $(git stash list | awk -F: '{print $1};')
 
 
 
