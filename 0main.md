@@ -187,134 +187,126 @@ do so.
 Some people have called git a tool to create a SCM workflow instead of
 an SCM tool.  There is some truth to this.
 
-* Branch workflows
+### Branch workflows
 
-    Answering the following questions helps you choose a branch workflow:
+Answering the following questions helps you choose a branch workflow:
 
-    * Where do important phases of development occur?
-    * How can you identify (and backport) groups of related change?
-    * What happens when emergency patches are required?
+* Where do important phases of development occur?
+* How can you identify (and backport) groups of related change?
+* What happens when emergency patches are required?
 
-    ---
+See the following references for more information on branch
+workflows.
 
-    See the following references for more information on branch
-    workflows.
+* [Pro Git branching models](http://progit.org/book/ch3-4.html)
+* [Git-flow branching model](http://nvie.com/posts/a-successful-git-branching-model/)
+    With [the associated gitflow tool](https://github.com/nvie/gitflow)
+* [Gitworkflows man page](http://jk.gs/gitworkflows.html)
+* [A Git Workflow for Agile Teams](http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html)
+* [What git branching models actually work](http://stackoverflow.com/questions/2621610/what-git-branching-models-actually-work)
+* [Our New Git Branching Model](http://blogs.remobjects.com/blogs/mh/2011/08/25/p2940)
 
-    * [Pro Git branching models](http://progit.org/book/ch3-4.html)
-    * [Git-flow branching model](http://nvie.com/posts/a-successful-git-branching-model/)
-        With [the associated gitflow tool](https://github.com/nvie/gitflow)
-    * [Gitworkflows man page](http://jk.gs/gitworkflows.html)
-    * [A Git Workflow for Agile Teams](http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html)
-    * [What git branching models actually work](http://stackoverflow.com/questions/2621610/what-git-branching-models-actually-work)
-    * [Our New Git Branching Model](http://blogs.remobjects.com/blogs/mh/2011/08/25/p2940)
+However, also understand that everyone already has an implicit
+private branch due to their cloned repository: they can do work
+locally do a `git pull --rebase` when they are done, perform final
+testing, and then push their work out.  If you run into a
+situation where you might need the benefits of a feature branch
+before you are done, you can even retroactively commit&branch then
+optionally reset your primary branch back to @{u}.  Once you push
+you lose that ability.
 
-    ---
+Some people have been very successful with just master and
+$RELEASE branches ($RELEASE branch for QA and polishing, master
+for features, specific to each released version.)  Other people
+have been very successful with many feature branches, integration
+branches, QA, and release branches.  The faster the release cycle
+and the more experimental the changes, the more branches will be
+useful—continuous releases or large refactoring project seem to
+suggest larger numbers of branches (note the number of branches is
+the tail, not the dog: more branches will not make you release
+faster).
 
-    However, also understand that everyone already has an implicit
-    private branch due to their cloned repository: they can do work
-    locally do a `git pull --rebase` when they are done, perform final
-    testing, and then push their work out.  If you run into a
-    situation where you might need the benefits of a feature branch
-    before you are done, you can even retroactively commit&branch then
-    optionally reset your primary branch back to @{u}.  Once you push
-    you lose that ability.
+Oh, and decide branch naming conventions.  Don't be afraid of / in
+the branch name when appropriate.
 
-    Some people have been very successful with just master and
-    $RELEASE branches ($RELEASE branch for QA and polishing, master
-    for features, specific to each released version.)  Other people
-    have been very successful with many feature branches, integration
-    branches, QA, and release branches.  The faster the release cycle
-    and the more experimental the changes, the more branches will be
-    useful—continuous releases or large refactoring project seem to
-    suggest larger numbers of branches (note the number of branches is
-    the tail, not the dog: more branches will not make you release
-    faster).
+### Distributed workflows
 
-    Oh, and decide branch naming conventions.  Don't be afraid of / in
-    the branch name when appropriate.
+Answering the following questions helps you choose a distributed
+workflow:
 
-* Distributed workflows
+* Who is allowed to publish to the master repository?
+* What is the process between a developer finishing coding and the code being released to the end-user?
+* Are there distinct groups which work on distinct sections of the codebase and only integrate at epochs?  (Outsourcing)
+* Is everyone inside the same administrative domain?
 
-    Answering the following questions helps you choose a distributed
-    workflow:
+See the following references for more information on distributed
+workflows.
 
-    * Who is allowed to publish to the master repository?
-    * What is the process between a developer finishing coding and the code being released to the end-user?
-    * Are there distinct groups which work on distinct sections of the codebase and only integrate at epochs?  (Outsourcing)
-    * Is everyone inside the same administrative domain?
+* [Pro Git distributed models](http://progit.org/book/ch5-1.html)
+* [Gitworkflows man page](http://jk.gs/gitworkflows.html)
 
-    ---
+Cathedrals (traditional corporate development models) often want
+p    to have (or to pretend to have) the one true centralized
+repository.  Bazaars (linux, and the Github-promoted workflow)
+often want to have many repositories with some method to notify a
+higher authority that you have work to integrate (pull requests).
 
-    See the following references for more information on distributed
-    workflows.
+However, even if you go for, say, a traditional corporate
+centralized development model, don't forbid self-organized teams
+to create their own repositories for their own tactical reasons.
+Even having to fill out a justification form is probably too
+cumbersome.
 
-    * [Pro Git distributed models](http://progit.org/book/ch5-1.html)
-    * [Gitworkflows man page](http://jk.gs/gitworkflows.html)
+### Release workflow
 
-    ---
+Deciding on your release workflow (how to get the code to the
+customer) is another important area to decide on.  I will not
+touch on this much, but it can have an effect on how you use git.
+Obviously branching and distributed workflows might affect this,
+but less obviously, it may affect how and when you perform
+tagging.
 
-    Cathedrals (traditional corporate development models) often want
-    to have (or to pretend to have) the one true centralized
-    repository.  Bazaars (linux, and the Github-promoted workflow)
-    often want to have many repositories with some method to notify a
-    higher authority that you have work to integrate (pull requests).
+At first glance, it is a no-brainer.  When you release something
+you tag something.  However, tags should be treated as immutable
+once you push.  Well, that only makes sense, you might think to
+yourself.  Consider this.  Five minutes after everyone has signed
+off on the 2.0 release, it has been tagged and pushed, but before
+any customer has seen the resulting product someone comes running
+in "OMFG, the foobar is broken when you frobnoz the baz."  What do
+you do?  Do you skip release 2.0 and tag 2.0.1?  Do you do a
+take-back and go to ever developers repo and delete the 2.0 tag?
 
-    However, even if you go for, say, a traditional corporate
-    centralized development model, don't forbid self-organized teams
-    to create their own repositories for their own tactical reasons.
-    Even having to fill out a justification form is probably too
-    cumbersome.
+Two ideas for your consideration.  Instead of a release tag, use a
+release branch (and then stop committing to that branch after
+release, disabling write access to it in gitolite or something).
+Another idea, use an internal tag name which is not directly
+derived from the version number which marketing wishes to declare
+to the outside world.  Both are problematic in practice, but less
+so than pure marketing-version tags.
 
-* Release workflow
+### Security model
 
-    Deciding on your release workflow (how to get the code to the
-    customer) is another important area to decide on.  I will not
-    touch on this much, but it can have an effect on how you use git.
-    Obviously branching and distributed workflows might affect this,
-    but less obviously, it may affect how and when you perform
-    tagging.
+You might ask why security is not a top level item and is near the
+end of the workflow section.  Well that is because in an ideal
+world your security should support your workflow not be an
+impediment to it.
 
-    At first glance, it is a no-brainer.  When you release something
-    you tag something.  However, tags should be treated as immutable
-    once you push.  Well, that only makes sense, you might think to
-    yourself.  Consider this.  Five minutes after everyone has signed
-    off on the 2.0 release, it has been tagged and pushed, but before
-    any customer has seen the resulting product someone comes running
-    in "OMFG, the foobar is broken when you frobnoz the baz."  What do
-    you do?  Do you skip release 2.0 and tag 2.0.1?  Do you do a
-    take-back and go to ever developers repo and delete the 2.0 tag?
+For instance, did you decide certain branches should only have
+certain people being allowed to access it?  Did you decide that
+certain repositories should only have certain people able to
+access/write to them?
 
-    Two ideas for your consideration.  Instead of a release tag, use a
-    release branch (and then stop committing to that branch after
-    release, disabling write access to it in gitolite or something).
-    Another idea, use an internal tag name which is not directly
-    derived from the version number which marketing wishes to declare
-    to the outside world.  Both are problematic in practice, but less
-    so than pure marketing-version tags.
+While git allows users to set up many different types of access
+control, access methods, and the like; the best for most
+pp    deployments might be to set up a centralized git master repository
+with a gitolite manager to provide fine grained access control
+with ssh based authentication and encryption.
 
-* Security model
-
-    You might ask why security is not a top level item and is near the
-    end of the workflow section.  Well that is because in an ideal
-    world your security should support your workflow not be an
-    impediment to it.
-
-    For instance, did you decide certain branches should only have
-    certain people being allowed to access it?  Did you decide that
-    certain repositories should only have certain people able to
-    access/write to them?
-
-    While git allows users to set up many different types of access
-    control, access methods, and the like; the best for most
-    deployments might be to set up a centralized git master repository
-    with a gitolite manager to provide fine grained access control
-    with ssh based authentication and encryption.
-
-    Of course, security is more than access control.  It is also
-    assurance that what you release is what was written by the people
-    it should be written by, and what was tested.  Git provides you
-    this for free, but certain formal users may wish to use signed
-    tags.  Watch for signed pushes in a future version of git.
+Of course, security is more than access control.  It is also
+assurance that what you release is what was written by the people
+it should be written by, and what was tested.  Git provides you
+this for free, but certain formal users may wish to use signed
+tags.  Watch for signed pushes in a future version of git.
 
 
 ## Dividing work into repositories
