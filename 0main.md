@@ -387,12 +387,69 @@ simply because they were there.  Try to avoid doing so.
 
 ## Useful commit messages
 
+Creating insightful and descriptive commit messages is one of the best
+things you can do for others who use the repository.  It lets people
+quickly understand changes without having to read code.  When doing
+history archeology to answer some question, good commit messages
+likewise become very important.
+
+The normal git rule of using the first line to provide a short (72
+character) summary of the change is also very good.  Looking at the
+output of `gitk` or `git log --oneline` might help you understand why.
+
+While this touches with the next topic of integration with external
+tools, including bug/issue/request tracking numbers in your commit
+messages provides a great deal of associated information to people
+trying to understand what is going on.
+
 
 ## Integration with external tools
 
 * Web views
+
+This is pretty standard stuff, but still a best practice.  Setting up
+a tool like gitweb (or cgit or whatever) to allow URL reference to
+commits (among other visualization interfaces it provides) gives
+people a great way to refer to commits in email and conversations.  If
+someone can click on a link vs having to fire up git and pull down the
+latest changes and start up some visualization tool they are much more
+likely to help you.
+
 * Bug tracking
+
+Industry best practice suggests that you should have a bug tracking
+system.  Hopefully you do.  Well, I'm hear to tell you that
+integrating your bug tracking system with git makes the two systems
+one thousand times more effective.  Specifically, come up with a
+standard for tagging commits with bug numbers (eg. "Bug 1234: Adjust
+the frobnoz down by .5") and then have a receive hook on the upstream
+repo which automatically appends that commit information to the
+ticket. If you really love your developers, develop syntax which lets
+them close the ticket as part of the commit message (eg. "Bug 1235r:
+Adjust the frobnoz up by .25").
+
+The easier a system is for people to use, the more likely they will
+use it.  Being able to see the context which caused the commit to
+happen (or contrary-wise, being able to find the commit which solved a
+problem) is incredibly useful.  When you send out your commit
+announcements, make sure to hyperlink the bug tracker in the commit
+message, and likewise in the tracker message, hyperlink to the web
+view of the commit.
+
+Notes: some commits can apply to multiple bugs.  Generate a standard
+and code to handle this standard. Also, if you do hour tracking, you
+may want a syntax to handle that.  (eg. "Bug 12346w/5: Bug 12347rw/3:
+Adjust the frobnoz up by .3")
+
 * IRC/chat rooms
+
+This is not a global best practice, but for certain sized
+organizations may be very useful.  Specifically, to have a chat room
+(IRC) to discuss issues and problems, and to have a robot in that chat
+room to provide assistance.  When someone talks about Bug 1234,
+provide a hyperlink to that ticket.  When someone pushes some commits,
+announce those commits.  All sorts of things are possible, but there
+is a fine line between usefulness and overwhelming noise.
 
 
 ## Keeping up to date
