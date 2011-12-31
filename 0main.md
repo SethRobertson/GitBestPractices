@@ -590,6 +590,20 @@ negative effects of each and why they might be in a best practices
 
     This is cutting your safety belt.
 
+* use git as a backup tool
+
+    Yes people have done it successfully, but usually with lots of
+    scripts around it and with some toothing pains.  Git was not
+    written as a dedicated backup tool, and such tools do exist.
+
+* use git as a web deployment tool
+
+    Yes it can be done in a sufficiently simple/non-critical
+    environment with something like
+    http://toroid.org/ams/git-website-howto to help.  However, this
+    does not give you atomic updates, synchronized db updates, or
+    other accouterments of an industrial deployment system.
+
 * commit large binary files (when possible)
 
     Large is currently relative to the amount of free RAM you have.
