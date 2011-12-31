@@ -497,8 +497,8 @@ merge` with a non-@{u} (upstream) branch.  The reason this is not good
 is because it loses information.  Specifically it loses track of which
 branch is the first parent and which is not.  If you don't ever want
 to look back into history, then it does not matter.  However, if you
-might want to say ``which branch was this commit originally committed
-onto,'' if you use fast-forwarding that question is impossible to
+might want to say "which branch was this commit originally committed
+onto," if you use fast-forwarding that question is impossible to
 answer since git will pick one branch or the other (the first parent
 or second parent) as the one which both branches activities were
 performed on and the other (original) parent's branch will be
