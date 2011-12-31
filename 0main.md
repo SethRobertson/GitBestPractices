@@ -94,7 +94,11 @@ gitk --all --date-order $(git fsck --no-reflog | grep "dangling commit" | awk '{
 
 	A dangling blob is a file which was not attached to a commit. This
 	is often caused by `git add`s which were superceded before commit
-	or merge conflicts. Inspect these files with `git show SHA`
+	or merge conflicts. Inspect these files with
+
+	```shell
+git show SHA
+```
 
     * Dangling Tree
 
@@ -147,7 +151,7 @@ data should all be present though.  When performing git experiments
 involving the working directory, a copy instead of a clone may be more
 appropriate.
 
-However, if you want a pure git solution, something like, which clones
+However, if you want a "pure git" solution, something like, which clones
 everything in a directory of repos, this may be what you need:
 
 ```shell
@@ -162,16 +166,30 @@ rm -f /tmp/.gitmissing1 /tmp/.gitmissing2
 for f in */.; do (cd $$f; echo $$f; git fetch); done
 ```
 
+
 ## Don't change published history
 
+Once you `git push` (or in theory someone pulls from your repo, but
+people who pull from a working repo often deserve what they) your
+changes to the authoritative upstream repository or otherwise make the
+commits or tags publicly visible, you should ideally consider those
+commits etched in diamond for all eternity.  If you later find out
+that you messed up, make new commits which fix the problems (possibly
+by revert, possibly by patching, etc).
 
-## Chose a workflow
+Yes, of course git allows you to rewrite public history, but it is
+problematic for everyone and and thus it is just not best practice to
+do so.
 
-A standard workflow is best.
+
+## Choose a workflow
+
+Some people have called git a tool to create a SCM workflow instead of
+an SCM tool.  There is some truth to this.
 
 * Branch workflows
 
-    Choosing the branch workflow helps you answer the following questions:
+    Answering the following questions helps you choose a branch workflow:
 
     * Where do important phases of development occur?
     * How can you identify (and backport) groups of related change?
@@ -209,19 +227,87 @@ A standard workflow is best.
     the tail, not the dog: more branches will not make you release
     faster).
 
+    Oh, and decide branch naming conventions.  Don't be afraid of / in
+    the branch name when appropriate.
+
 * Distributed workflows
 
-    Choosing a distributed workflow
+    Answering the following questions helps you choose a distributed
+    workflow:
 
+    * Who is allowed to publish to the master repository?
+    * What is the process between a developer finishing coding and the code being released to the end-user?
+    * Are there distinct groups which work on distinct sections of the codebase and only integrate at epochs?  (Outsourcing)
+    * Is everyone inside the same administrative domain?
+
+    See the following references for more information on distributed
+    workflows.
+
+    * [Pro Git distributed models](http://progit.org/book/ch5-1.html)
+    * [Gitworkflows man page](http://jk.gs/gitworkflows.html)
+
+    Cathedrals (traditional corporate development models) often want
+    to have (or to pretend to have) the one true centralized
+    repository.  Bazaars (linux, and the Github-promoted workflow)
+    often want to have many repositories with some method to notify a
+    higher authority that you have work to integrate (pull requests).
+
+    However, even if you go for, say, a traditional corporate
+    centralized development model, don't forbid self-organized teams
+    to create their own repositories for their own tactical reasons.
+    Even having to fill out a justification form is probably too
+    cumbersome.
 
 * Release workflow
+
+    Deciding on your release workflow (how to get the code to the
+    customer) is another important area to decide on.  I will not
+    touch on this much, but it can have an effect on how you use git.
+    Obviously branching and distributed workflows might affect this,
+    but less obviously, it may affect how and when you perform
+    tagging.
+
+    At first glance, it is a no-brainer.  When you release something
+    you tag something.  However, tags should be treated as immutable
+    once you push.  Well, that only makes sense, you might think to
+    yourself.  Consider this.  Five minutes after everyone has signed
+    off on the 2.0 release, it has been tagged and pushed, but before
+    any customer has seen the resulting product someone comes running
+    in "OMFG, the foobar is broken when you frobnoz the baz."  What do
+    you do?  Do you skip release 2.0 and tag 2.0.1?  Do you do a
+    take-back and go to ever developers repo and delete the 2.0 tag?
+
+    Two ideas for your consideration.  Instead of a release tag, use a
+    release branch (and then stop committing to that branch after
+    release, disabling write access to it in gitolite or something).
+    Another idea, use an internal tag name which is not directly
+    derived from the version number which marketing wishes to declare
+    to the outside world.  Both are problematic in practice, but less
+    so than pure marketing-version tags.
+
 * Security model
 
     You might ask why security is not a top level item and is near the
     end of the workflow section.  Well that is because in an ideal
-    world your security should support your workflow.
+    world your security should support your workflow not be an
+    impediment to it.
 
-* Master repository
+    For instance, did you decide certain branches should only have
+    certain people being allowed to access it?  Did you decide that
+    certain repositories should only have certain people able to
+    access/write to them?
+
+    While git allows users to set up many different types of access
+    control, access methods, and the like; the best for most
+    deployments might be to set up a centralized git master repository
+    with a gitolite manager to provide fine grained access control
+    with ssh based authentication and encryption.
+
+    Of course, security is more than access control.  It is also
+    assurance that what you release is what was written by the people
+    it should be written by, and what was tested.  Git provides you
+    this for free, but certain formal users may wish to use signed
+    tags.  Watch for signed pushes in a future version of git.
 
 
 ## Dividing work into repositories
@@ -271,6 +357,13 @@ In this list of things to *not* do, it is important to remember that
 there are legitimate reasons to do all of these.  However, you should
 not attempt any of these things without understanding
 
+* Do not commit anything which can be regenerated from other things than were committed.
+* Commit configuration files
+
+    Specifically configuration files which might change from
+    environment to environment or for any reasons. See [Information
+    about local versions of configuration
+    files](https://gist.github.com/1423106)
 * Use git-grafts
 * Use git-replace
 * Rewrite public history
@@ -280,12 +373,21 @@ not attempt any of these things without understanding
 * Use reset without committing/stashing
 * Prune the reflog
 * Expire "now"
-* Commit configuration files
+* Commit large binary files (when possible)
 
-    Specifically configuration files which might change from
-    environment to environment or for any reasons. See [Information
-    about local versions of configuration
-    files](https://gist.github.com/1423106)
+    Large is currently relative to the amount of free RAM you have.
+    Remember that not everyone may be using the same memory
+    configuration you are.
+
+    Consider using [Git annex](http://git-annex.branchable.com/) or [Git media](https://github.com/schacon/git-media)
+
+* Create very large repositories (when possible)
+
+    Git can be slow in the face of large repositories. There are
+    git-config options which can help. `pack.threads=1;
+    pack.deltaCacheSize=1; pack.windowMemory=512m;
+    core.packedGitWindowSize=16m; core.packedGitLimit=128m.` Other
+    likely ones exist.
 
 
 ## Sausage Making
