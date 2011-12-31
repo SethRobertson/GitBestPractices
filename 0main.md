@@ -38,7 +38,7 @@ Personally, I commit early and often and then let the sausage making
 be seen by all.  Just look at the history of this gist!
 
 
-1. Don't panic
+1. Don\'t panic
 ----------------------------------
 
 As long as you have committed your work (or in many cases even added
@@ -128,8 +128,40 @@ gitk --all --date-order $(git stash list | awk -F: '{print $1};')
 1. Backups
 ----------------------------------
 
-Take backups
+Everyone always recommends taking backups as best practice, and I am
+going to do the same.  However, you already may have a highly
+redundant distributed ad-hoc backup system in place!  This is because
+essentially every clone is a backup.  In many cases, you may want to
+use a clone for git experiments to perfect your method before trying
+it for real (this is most useful for `git filter-branch` and similar
+commands where your goal is to permanently destroy history without
+recourse—if you mess it up you may not have recourse). Still, perhaps
+you want a more formal system.
 
+Traditional backups are still appropriate.  A normal tarball, cp,
+rsync, zip, rar or similar backup copy will be a perfectly fine
+backup.  As long as the underlying filesystem doesn't reorder git I/O
+dramatically, the resulting copy of .git will be consistent under
+almost all circumstances.  Of course, if you have a backup from in the
+middle of a git operation, you might need to do some recovery.  The
+data should all be present though.  When performing git experiments
+involving the working directory, a copy instead of a clone may be more
+appropriate.
+
+However, if you want a pure git solution, something like, which clones
+everything in a directory of repos, this may be what you need:
+
+```shell
+cd /src/backupgit
+ls -F . | grep / > /tmp/.gitmissing1
+ssh -n git.example.com ls -F /src/git/. | grep / > /tmp/.gitmissing2
+diff /tmp/.gitmissing1 /tmp/.gitmissing2 | egrep '^>' |
+  while read x f; do
+    git clone --bare --mirror ssh://git.example.com/src/git/$$f $$f
+  done
+rm -f /tmp/.gitmissing1 /tmp/.gitmissing2
+for f in */.; do (cd $$f; echo $$f; git fetch); done
+```
 
 1. Don't change published history
 ----------------------------------
@@ -239,7 +271,7 @@ should!)
 1. Do
 ----------------------------------
 
-* Experiment!  (in a clone)
+* Experiment!  (in a clone or copy)
 
 
 1. Don't
@@ -283,6 +315,12 @@ Creative Commons Attribution-ShareAlike 2.5 Generic (CC BY-SA 2.5)
 http://creativecommons.org/licenses/by-sa/2.5/
 
 I would appreciate changes being sent back to me.
+
+
+1. Thanks
+------------------------------
+
+Thanks to the experts on #git for feedback and ideas.
 
 
 1. Comments
