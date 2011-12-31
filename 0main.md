@@ -195,7 +195,7 @@ an SCM tool.  There is some truth to this.
     * How can you identify (and backport) groups of related change?
     * What happens when emergency patches are required?
 
----
+    ---
 
     See the following references for more information on branch
     workflows.
@@ -208,7 +208,7 @@ an SCM tool.  There is some truth to this.
     * [What git branching models actually work](http://stackoverflow.com/questions/2621610/what-git-branching-models-actually-work)
     * [Our New Git Branching Model](http://blogs.remobjects.com/blogs/mh/2011/08/25/p2940)
 
----
+    ---
 
     However, also understand that everyone already has an implicit
     private branch due to their cloned repository: they can do work
@@ -243,10 +243,10 @@ an SCM tool.  There is some truth to this.
     * Are there distinct groups which work on distinct sections of the codebase and only integrate at epochs?  (Outsourcing)
     * Is everyone inside the same administrative domain?
 
+    ---
+
     See the following references for more information on distributed
     workflows.
-
-    ---
 
     * [Pro Git distributed models](http://progit.org/book/ch5-1.html)
     * [Gitworkflows man page](http://jk.gs/gitworkflows.html)
@@ -319,13 +319,77 @@ an SCM tool.  There is some truth to this.
 
 ## Dividing work into repositories
 
-* One concept per repository.
-* Repository for large binary files
-* Separate repository for continual changes to history
+Repositories sometimes get used to store things that they should not,
+simply because they were there.  Try to avoid doing so.
+
+* One conceptual group per repository.
+
+    Does this mean one per product, program, library, class?  Only you
+    can say.  However, dividing stuff up later is annoying and leads
+    to rewriting public history or duplicative or missing history.
+    Dividing it up correctly beforehand is much better.
+
+* Read access control is at the repo level
+
+    If someone has access to a repository, they have access to the
+    entire repo, all branches, all history, everything.  If you need
+    to compartmentalize read access, separate the compartments into
+    different repositories.
+
+* Separate repositories for files which might be needed by multiple projects
+
+    This promotes sharing and code reuse, and is highly recommended.
+
+* Separate repositories for large binary files
+
+    Git doesn't handle large binary files ideally yet and large
+    repositories can be slow.  If you must commit them, separating
+    them out into their own repository can make things more efficient.
+
+* Separate repositories for planned continual history rewrites
+
+    You will note that I have already recommended against rewriting
+    public history.  Well, there are times when doing that just makes
+    sense.  One example might be a cache of pre-built binaries so that
+    most people don't need to rebuild them.  Yet older versions of
+    this cache (or at least older versions not at tag boundaries) may
+    be entirely useless and so you want to pretend they never happened
+    to save space.  You can rebase, filter, or squash these unwanted
+    commits away, but this is rewriting history and can cause problem.
+    So if you really must do so, isolate these files into a repository
+    so that at least everything else will not be affected.q
+
 * Group concepts into a superproject
 
-Use git-submodules or gitslave to group multiple concepts.
+    Once you have divided, now you need to conquer. You can assemble
+    multiple individual repositories into a superproject to group all
+    of the concepts together to create your unified work.
 
+    There are two main methods of doing this.
+
+    * git-submodules
+
+        Git submodules is the native git approach which provides a
+        strong binding between the superproject repository and the
+        subproject repositories for every commit.  This leads to a
+        baroque and annoying process for updating the subproject.
+        However, if you do not control the subproject (solvable by
+        "forking") or like to perform blame-based history archeology
+        where you want to find out the absolute correspondence between
+        the different projects at every commit, it is very useful.
+
+    * gitslave
+
+        [gitslave](http://gitslave.sf.net) is a useful tool to add a
+        subsidiary git repositories to a git superproject when you
+        control and develop on the subprojects at more or less the
+        same time as the superproject, and furthermore when you
+        typically want to tag, branch, push, pull, etc all
+        repositories at the same time.  There is no strict
+        correspondence between superproject and subproject
+        repositories except at tag boundaries (though if you need to
+        look back into history you can usually guess pretty well and
+        in any case this is rarely needed).
 
 ## Useful commit messages
 
