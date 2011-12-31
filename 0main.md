@@ -25,13 +25,14 @@ you fail to commit and then do something poorly thought out, you can
 run into trouble.  Additionally, having periodic checkpoints means
 that you can understand how you broke something.
 
-People resist this out of some sense that this is ugly and might lead
+People resist this out of some sense that this is ugly, limits
+`git-bisect`ion functionality, confusing to observers, and might lead
 to accusations of stupidity.  Well, I'm here to tell you that
 resisting this is ignorant.  *Commit Early And Often*.  If, after you
 are done, you want to pretend to the outside world that your work
 sprung complete from your mind into the repository in utter perfection
 with each concept fully thought out and divided into individual
-concept-commits, well git supports that, see Sausage Making below.
+concept-commits, well git supports that: see Sausage Making below.
 However, don't let tomorrow's beauty stop you from performing
 continuous commits today.
 
@@ -43,7 +44,7 @@ be seen by all.  Just look at the history of this gist!
 
 As long as you have committed your work (or in many cases even added
 it with `git add`) your work will not be lost for at least two weeks
-unless you really work at it.
+unless you really work at it (run commands which manually purge it).
 
 When attempting to find your lost commits, first make *sure* you will
 not lose any current work.  You should commit or stash your current
@@ -607,10 +608,15 @@ demand this, but that is not necessarily a good reason for you to
 demand this as well.
 
 What is a good reason is if you feel you may be cherry-picking commits
-a lot.  Having one or a small number of commits to pick instead of one
-here, one there, and half of this other one make your problem much
-much harder later (and typically will lead to merge conflicts when the
-doner branch is finally merged in).
+a lot (though this too if often a sign of bad workflow).  Having one
+or a small number of commits to pick instead of one here, one there,
+and half of this other one make your problem much much harder later
+(and typically will lead to merge conflicts when the doner branch is
+finally merged in).
+
+Another good reason is to ensure each commit compiles (important for
+git-bisect), represents a different easily understood concept
+(important for archeology).
 
 `git rebase -i`, `git add -p`, and `git reset -p` can fix commits up
 in post-production by splitting different concepts, merging fixes to
