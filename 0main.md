@@ -248,7 +248,7 @@ workflows.
 * [Gitworkflows man page](http://jk.gs/gitworkflows.html)
 
 Cathedrals (traditional corporate development models) often want
-p    to have (or to pretend to have) the one true centralized
+to have (or to pretend to have) the one true centralized
 repository.  Bazaars (linux, and the Github-promoted workflow)
 often want to have many repositories with some method to notify a
 higher authority that you have work to integrate (pull requests).
