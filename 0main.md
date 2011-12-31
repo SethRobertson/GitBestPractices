@@ -568,10 +568,19 @@ negative effects of each and why they might be in a best practices
     other repository is deleted/moved.  See [git-clone manual
     page](http://jk.gs/gitworkflows.html).
 
-* use reset without committing/stashing
+* use reset (--hard || -merge) without committing/stashing
 
-    This can often overwrite the working directory without hope or
+    This can often overwrite the working directory without hope of
     recourse.
+
+* use checkout in file mode
+
+    This will overwrite some (or potentially all with .) of the
+    working directory without hope of recourse.
+
+* use `git clean` without previously running with "-n" first
+
+    This will delete untracked files without hope of recourse.
 
 * prune the reflog
 
