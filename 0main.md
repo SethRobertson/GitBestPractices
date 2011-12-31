@@ -6,157 +6,157 @@ but still, this represents a consensus from #git
 
 ## 1. Read about git
 
-Knowing where to look is half the battle.  I strongly urge everyone to
-read (and support) the Pro Git book.  The other resources are highly
-recommended by various people as well.
+    Knowing where to look is half the battle.  I strongly urge everyone to
+    read (and support) the Pro Git book.  The other resources are highly
+    recommended by various people as well.
 
-* [Pro Git](http://progit.org/book/)
-* [Git for Computer Scientists](http://eagain.net/articles/git-for-computer-scientists/)
-* [Git from the Bottom Up](http://ftp.newartisans.com/pub/git.from.bottom.up.pdf)
-* [Git for Web Designers](http://www.webdesignerdepot.com/2009/03/intro-to-git-for-web-designers/)
-* [Other resources](http://git-scm.com/documentation)
-* [Git wiki](http://git.wiki.kernel.org/)
+    * [Pro Git](http://progit.org/book/)
+    * [Git for Computer Scientists](http://eagain.net/articles/git-for-computer-scientists/)
+    * [Git from the Bottom Up](http://ftp.newartisans.com/pub/git.from.bottom.up.pdf)
+    * [Git for Web Designers](http://www.webdesignerdepot.com/2009/03/intro-to-git-for-web-designers/)
+    * [Other resources](http://git-scm.com/documentation)
+    * [Git wiki](http://git.wiki.kernel.org/)
 
 
 ## 1. Commit early and often
 
-Git only takes full responsibility for your data when you commit.  If
-you fail to commit and then do something poorly thought out, you can
-run into trouble.  Additionally, having periodic checkpoints means
-that you can understand how you broke something.
+    Git only takes full responsibility for your data when you commit.  If
+    you fail to commit and then do something poorly thought out, you can
+    run into trouble.  Additionally, having periodic checkpoints means
+    that you can understand how you broke something.
 
-People resist this out of some sense that this is ugly and might lead
-to accusations of stupidity.  Well, I'm here to tell you that
-resisting this is ignorant.  *Commit Early And Often*.  If, after you
-are done, you want to pretend to the outside world that your work
-sprung complete from your mind into the repository in utter perfection
-with each concept fully thought out and divided into individual
-concept-commits, well git supports that, see Sausage Making below.
-However, don't let tomorrow's beauty stop you from performing
-continuous commits today.
+    People resist this out of some sense that this is ugly and might lead
+    to accusations of stupidity.  Well, I'm here to tell you that
+    resisting this is ignorant.  *Commit Early And Often*.  If, after you
+    are done, you want to pretend to the outside world that your work
+    sprung complete from your mind into the repository in utter perfection
+    with each concept fully thought out and divided into individual
+    concept-commits, well git supports that, see Sausage Making below.
+    However, don't let tomorrow's beauty stop you from performing
+    continuous commits today.
 
-Personally, I commit early and often and then let the sausage making
-be seen by all.  Just look at the history of this gist!
+    Personally, I commit early and often and then let the sausage making
+    be seen by all.  Just look at the history of this gist!
 
 
 ## 1. Don't panic
 
-As long as you have committed your work (or in many cases even added
-it with `git add`) your work will not be lost for at least two weeks
-unless you really work at it.
+    As long as you have committed your work (or in many cases even added
+    it with `git add`) your work will not be lost for at least two weeks
+    unless you really work at it.
 
-When attempting to find your lost commits, first make *sure* you will
-not lose any current work.  You should commit or stash your current
-work before performing any recovery efforts which might destroy your
-current work.
+    When attempting to find your lost commits, first make *sure* you will
+    not lose any current work.  You should commit or stash your current
+    work before performing any recovery efforts which might destroy your
+    current work.
 
-There are three places where "lost" changes can be hiding. They might be
-in the reflog (`git log -g`), they might be in lost&found (`git fsck
---unreachable`), or they might have been stashed (`git stash list`).
+    There are three places where "lost" changes can be hiding. They might be
+    in the reflog (`git log -g`), they might be in lost&found (`git fsck
+    --unreachable`), or they might have been stashed (`git stash list`).
 
-* reflog
+    * reflog
 
-    The reflog is where you should look first and by default.  It
-    shows you each commit which modified the git repository.  You can
-    use it to find the commit name (SHA-1) of the state of the
-    repository before (and after) you typed that command.  While you
-    are free to go through the reflog manually, you can also visualize
-    the repository using the following command (Look for dots without
-    children and without green labels):
+	The reflog is where you should look first and by default.  It
+	shows you each commit which modified the git repository.  You can
+	use it to find the commit name (SHA-1) of the state of the
+	repository before (and after) you typed that command.  While you
+	are free to go through the reflog manually, you can also visualize
+	the repository using the following command (Look for dots without
+	children and without green labels):
 
-    ```shell
+	```shell
 gitk --all --date-order $(git log -g --pretty=%H)
 ```
 
-* Lost and found
+    * Lost and found
 
-    Commits or other git data which are no longer reachable though any
-    reference name (branch, tag, etc) are called "dangling" and may be
-    found using fsck.  There are legitimate reasons why objects may be
-    dangling through standard actions and normally over 99% of them are
-    entirely uninteresting for this reason.
+	Commits or other git data which are no longer reachable though any
+	reference name (branch, tag, etc) are called "dangling" and may be
+	found using fsck.  There are legitimate reasons why objects may be
+	dangling through standard actions and normally over 99% of them are
+	entirely uninteresting for this reason.
 
-    * Dangling Commit
+	* Dangling Commit
 
-	These are the most likely candidates for finding lost data. A
-	dangling commit is a commit no longer reachable by any branch or
-	tag. This can happen due to resets and rebases and are
-	normal. `git show SHA` will let you inspect them.
+	    These are the most likely candidates for finding lost data. A
+	    dangling commit is a commit no longer reachable by any branch or
+	    tag. This can happen due to resets and rebases and are
+	    normal. `git show SHA` will let you inspect them.
 
-	The following command helps you visualize these dangling
-	commits. Look for dots without children and without green labels.
+	    The following command helps you visualize these dangling
+	    commits. Look for dots without children and without green labels.
 
-	```shell
+	    ```shell
 gitk --all --date-order $(git fsck --no-reflog | grep "dangling commit" | awk '{print $3;}')
 ```
 
-    * Dangling Blob
+	* Dangling Blob
 
-	A dangling blob is a file which was not attached to a commit. This
-	is often caused by `git add`s which were superceded before commit
-	or merge conflicts. Inspect these files with `git show SHA`
+	    A dangling blob is a file which was not attached to a commit. This
+	    is often caused by `git add`s which were superceded before commit
+	    or merge conflicts. Inspect these files with `git show SHA`
 
-    * Dangling Tree
+	* Dangling Tree
 
-	A dangling tree is a directory tree of files that was not attached
-	to a commit. These are rarely interesting, and often caused by
-	merge conflicts. Inspect these files with `git ls-tree -r SHA`
+	    A dangling tree is a directory tree of files that was not attached
+	    to a commit. These are rarely interesting, and often caused by
+	    merge conflicts. Inspect these files with `git ls-tree -r SHA`
 
-* Stashes
+    * Stashes
 
-    Finally, you may have stashed the data instead of committing it and
-    then forgotten about it.  You can use the `git stash list` command
-    or inspect them visually using:
+	Finally, you may have stashed the data instead of committing it and
+	then forgotten about it.  You can use the `git stash list` command
+	or inspect them visually using:
 
-    ```shell
+	```shell
 gitk --all --date-order $(git stash list | awk -F: '{print $1};')
 ```
 
-* Misplaced
+    * Misplaced
 
-    Another option is that your commit is not lost.  Perhaps the
-    commit was just made on a different branch from what you remember.
-    Using `git log -Sfoo --all` and `gitk --all --date-order` to try
-    and hunt for your commits on known branches.
+	Another option is that your commit is not lost.  Perhaps the
+	commit was just made on a different branch from what you remember.
+	Using `git log -Sfoo --all` and `gitk --all --date-order` to try
+	and hunt for your commits on known branches.
 
-* Look elsewhere
+    * Look elsewhere
 
-    Finally, you should check your backups, testing copies, ask the other
-    people who have a copy of the repo, and look in other repos.
+	Finally, you should check your backups, testing copies, ask the other
+	people who have a copy of the repo, and look in other repos.
 
 
 ## 1. Backups
 
-Everyone always recommends taking backups as best practice, and I am
-going to do the same.  However, you already may have a highly
-redundant distributed ad-hoc backup system in place!  This is because
-essentially every clone is a backup.  In many cases, you may want to
-use a clone for git experiments to perfect your method before trying
-it for real (this is most useful for `git filter-branch` and similar
-commands where your goal is to permanently destroy history without
-recourse—if you mess it up you may not have recourse). Still, perhaps
-you want a more formal system.
+    Everyone always recommends taking backups as best practice, and I am
+    going to do the same.  However, you already may have a highly
+    redundant distributed ad-hoc backup system in place!  This is because
+    essentially every clone is a backup.  In many cases, you may want to
+    use a clone for git experiments to perfect your method before trying
+    it for real (this is most useful for `git filter-branch` and similar
+    commands where your goal is to permanently destroy history without
+    recourse—if you mess it up you may not have recourse). Still, perhaps
+    you want a more formal system.
 
-Traditional backups are still appropriate.  A normal tarball, cp,
-rsync, zip, rar or similar backup copy will be a perfectly fine
-backup.  As long as the underlying filesystem doesn't reorder git I/O
-dramatically, the resulting copy of .git will be consistent under
-almost all circumstances.  Of course, if you have a backup from in the
-middle of a git operation, you might need to do some recovery.  The
-data should all be present though.  When performing git experiments
-involving the working directory, a copy instead of a clone may be more
-appropriate.
+    Traditional backups are still appropriate.  A normal tarball, cp,
+    rsync, zip, rar or similar backup copy will be a perfectly fine
+    backup.  As long as the underlying filesystem doesn't reorder git I/O
+    dramatically, the resulting copy of .git will be consistent under
+    almost all circumstances.  Of course, if you have a backup from in the
+    middle of a git operation, you might need to do some recovery.  The
+    data should all be present though.  When performing git experiments
+    involving the working directory, a copy instead of a clone may be more
+    appropriate.
 
-However, if you want a pure git solution, something like, which clones
-everything in a directory of repos, this may be what you need:
+    However, if you want a pure git solution, something like, which clones
+    everything in a directory of repos, this may be what you need:
 
-```shell
+    ```shell
 cd /src/backupgit
 ls -F . | grep / > /tmp/.gitmissing1
 ssh -n git.example.com ls -F /src/git/. | grep / > /tmp/.gitmissing2
 diff /tmp/.gitmissing1 /tmp/.gitmissing2 | egrep '^>' |
   while read x f; do
-    git clone --bare --mirror ssh://git.example.com/src/git/$$f $$f
+	git clone --bare --mirror ssh://git.example.com/src/git/$$f $$f
   done
 rm -f /tmp/.gitmissing1 /tmp/.gitmissing2
 for f in */.; do (cd $$f; echo $$f; git fetch); done
@@ -167,71 +167,71 @@ for f in */.; do (cd $$f; echo $$f; git fetch); done
 
 ## 1. Chose a workflow
 
-A standard workflow is best.
+    A standard workflow is best.
 
-* Branch workflows
+    * Branch workflows
 
-    Choosing the branch workflow helps you answer the following questions:
+	Choosing the branch workflow helps you answer the following questions:
 
-    * Where do important phases of development occur?
-    * How can you identify (and backport) groups of related change?
-    * What happens when emergency patches are required?
+	* Where do important phases of development occur?
+	* How can you identify (and backport) groups of related change?
+	* What happens when emergency patches are required?
 
-    See the following references for more information on branch
-    workflows.
+	See the following references for more information on branch
+	workflows.
 
-    * [Pro Git branching models](http://progit.org/book/ch3-4.html)
-    * [Git-flow branching model](http://nvie.com/posts/a-successful-git-branching-model/)
-        With [the associated gitflow tool](https://github.com/nvie/gitflow)
-    * [Gitworkflows man page](http://jk.gs/gitworkflows.html)
-    * [A Git Workflow for Agile Teams](http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html)
-    * [What git branching models actually work](http://stackoverflow.com/questions/2621610/what-git-branching-models-actually-work)
-    * [Our New Git Branching Model](http://blogs.remobjects.com/blogs/mh/2011/08/25/p2940)
-
-
-    However, also understand that everyone already has an implicit
-    private branch due to their cloned repository: they can do work
-    locally do a `git pull --rebase` when they are done, perform final
-    testing, and then push their work out.  If you run into a
-    situation where you might need the benefits of a feature branch
-    before you are done, you can even retroactively commit&branch then
-    optionally reset your primary branch back to @{u}.  Once you push
-    you lose that ability.
-
-    Some people have been very successful with just master and
-    $RELEASE branches ($RELEASE branch for QA and polishing, master
-    for features, specific to each released version.)  Other people
-    have been very successful with many feature branches, integration
-    branches, QA, and release branches.  The faster the release cycle
-    and the more experimental the changes, the more branches will be
-    useful—continuous releases or large refactoring project seem to
-    suggest larger numbers of branches (note the number of branches is
-    the tail, not the dog: more branches will not make you release
-    faster).
-
-* Distributed workflows
-
-    Choosing a distributed workflow
+	* [Pro Git branching models](http://progit.org/book/ch3-4.html)
+	* [Git-flow branching model](http://nvie.com/posts/a-successful-git-branching-model/)
+	    With [the associated gitflow tool](https://github.com/nvie/gitflow)
+	* [Gitworkflows man page](http://jk.gs/gitworkflows.html)
+	* [A Git Workflow for Agile Teams](http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html)
+	* [What git branching models actually work](http://stackoverflow.com/questions/2621610/what-git-branching-models-actually-work)
+	* [Our New Git Branching Model](http://blogs.remobjects.com/blogs/mh/2011/08/25/p2940)
 
 
-* Release workflow
-* Security model
+	However, also understand that everyone already has an implicit
+	private branch due to their cloned repository: they can do work
+	locally do a `git pull --rebase` when they are done, perform final
+	testing, and then push their work out.  If you run into a
+	situation where you might need the benefits of a feature branch
+	before you are done, you can even retroactively commit&branch then
+	optionally reset your primary branch back to @{u}.  Once you push
+	you lose that ability.
 
-    You might ask why security is not a top level item and is near the
-    end of the workflow section.  Well that is because in an ideal
-    world your security should support your workflow.
+	Some people have been very successful with just master and
+	$RELEASE branches ($RELEASE branch for QA and polishing, master
+	for features, specific to each released version.)  Other people
+	have been very successful with many feature branches, integration
+	branches, QA, and release branches.  The faster the release cycle
+	and the more experimental the changes, the more branches will be
+	useful—continuous releases or large refactoring project seem to
+	suggest larger numbers of branches (note the number of branches is
+	the tail, not the dog: more branches will not make you release
+	faster).
 
-* Master repository
+    * Distributed workflows
+
+	Choosing a distributed workflow
+
+
+    * Release workflow
+    * Security model
+
+	You might ask why security is not a top level item and is near the
+	end of the workflow section.  Well that is because in an ideal
+	world your security should support your workflow.
+
+    * Master repository
 
 
 ## 1. Dividing work into repositories
 
-* One concept per repository.
-* Repository for large binary files
-* Separate repository for continual changes to history
-* Group concepts into a superproject
+    * One concept per repository.
+    * Repository for large binary files
+    * Separate repository for continual changes to history
+    * Group concepts into a superproject
 
-Use git-submodules or gitslave to group multiple concepts.
+    Use git-submodules or gitslave to group multiple concepts.
 
 
 ## 1. Useful commit messages
@@ -239,79 +239,79 @@ Use git-submodules or gitslave to group multiple concepts.
 
 ## 1. Integration with external tools
 
-* Web views
-* Bug tracking
-* IRC/chat rooms
+    * Web views
+    * Bug tracking
+    * IRC/chat rooms
 
 
 ## 1. Keeping up to date
 
-Overlap with workflow.  Not everyone agrees with these ideas (but they
-should!)
+    Overlap with workflow.  Not everyone agrees with these ideas (but they
+    should!)
 
-* Pulling with --rebase
-* Rebasing (when possible)
-* Merging without speeding
+    * Pulling with --rebase
+    * Rebasing (when possible)
+    * Merging without speeding
 
 
 ## 1. Periodic maintenance
 
-* Clean up your git repro every so often.
-* Check your stash for forgotten work (`git stash list`)
+    * Clean up your git repro every so often.
+    * Check your stash for forgotten work (`git stash list`)
 
 
 ## 1. Do
 
-* Experiment!  (in a clone or copy)
+    * Experiment!  (in a clone or copy)
 
 
 ## 1. Don't
 
-In this list of things to *not* do, it is important to remember that
-there are legitimate reasons to do all of these.  However, you should
-not attempt any of these things without understanding
+    In this list of things to *not* do, it is important to remember that
+    there are legitimate reasons to do all of these.  However, you should
+    not attempt any of these things without understanding
 
-* Use git-grafts
-* Use git-replace
-* Rewrite public history
-* Change where a tag points
-* Use git-filter-branch
-* Use clone --shared or --reference
-* Use reset without committing/stashing
-* Prune the reflog
-* Expire "now"
-* Commit configuration files
+    * Use git-grafts
+    * Use git-replace
+    * Rewrite public history
+    * Change where a tag points
+    * Use git-filter-branch
+    * Use clone --shared or --reference
+    * Use reset without committing/stashing
+    * Prune the reflog
+    * Expire "now"
+    * Commit configuration files
 
-    Specifically configuration files which might change from
-    environment to environment or for any reasons. See [Information
-    about local versions of configuration
-    files](https://gist.github.com/1423106)
+	Specifically configuration files which might change from
+	environment to environment or for any reasons. See [Information
+	about local versions of configuration
+	files](https://gist.github.com/1423106)
 
 
 ## 1. Sausage Making
 
-Some people like to hide the sausage making, or in other words pretend
-that their commits
+    Some people like to hide the sausage making, or in other words pretend
+    that their commits
 
 
 ## 1. Copyright
 
-Copyright ⓒ 2012 Seth Robertson
+    Copyright ⓒ 2012 Seth Robertson
 
-Creative Commons Attribution-ShareAlike 2.5 Generic (CC BY-SA 2.5)
+    Creative Commons Attribution-ShareAlike 2.5 Generic (CC BY-SA 2.5)
 
-http://creativecommons.org/licenses/by-sa/2.5/
+    http://creativecommons.org/licenses/by-sa/2.5/
 
-I would appreciate changes being sent back to me.
+    I would appreciate changes being sent back to me.
 
 
 ## 1. Thanks
 
-Thanks to the experts on #git for feedback and ideas.
+    Thanks to the experts on #git for feedback and ideas.
 
 
 ## 1. Comments
 
-Comments and improvements welcome.
+    Comments and improvements welcome.
 
-Add them below, or discuss with SethRobertson (and others) on #git
+    Add them below, or discuss with SethRobertson (and others) on #git
