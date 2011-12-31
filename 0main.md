@@ -195,6 +195,8 @@ an SCM tool.  There is some truth to this.
     * How can you identify (and backport) groups of related change?
     * What happens when emergency patches are required?
 
+---
+
     See the following references for more information on branch
     workflows.
 
@@ -206,6 +208,7 @@ an SCM tool.  There is some truth to this.
     * [What git branching models actually work](http://stackoverflow.com/questions/2621610/what-git-branching-models-actually-work)
     * [Our New Git Branching Model](http://blogs.remobjects.com/blogs/mh/2011/08/25/p2940)
 
+---
 
     However, also understand that everyone already has an implicit
     private branch due to their cloned repository: they can do work
@@ -243,8 +246,12 @@ an SCM tool.  There is some truth to this.
     See the following references for more information on distributed
     workflows.
 
+    ---
+
     * [Pro Git distributed models](http://progit.org/book/ch5-1.html)
     * [Gitworkflows man page](http://jk.gs/gitworkflows.html)
+
+    ---
 
     Cathedrals (traditional corporate development models) often want
     to have (or to pretend to have) the one true centralized
