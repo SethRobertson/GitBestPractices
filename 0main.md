@@ -454,12 +454,58 @@ is a fine line between usefulness and overwhelming noise.
 
 ## Keeping up to date
 
-Overlap with workflow.  Not everyone agrees with these ideas (but they
-should!)
+This section has some overlap with workflow.  Exactly how and when you
+update your branches and repositories is very much associated with the
+desired workflow.  Also I will note that not everyone agrees with
+these ideas (but they should!)
 
 * Pulling with --rebase
+
+Whenever I pull, under most circumstances I `git pull --rebase`. This
+is because I like to see a linear history (my commit came after all
+commits that were pushed before it, instead of being developed in
+parallel).  It makes history visualization much simpler and `git
+bisect` easier to see and understand.
+
+Some people argue against this because the non-final commits may lose
+whatever testing those non-final commits might have had since the
+deltas would be applied to a new base.  This in turn might make
+git-bisect's job harder since some commits might refer to broken
+trees, but really this is only relevant to people who want to hide the
+sausage making.  Of course to really hide the sausage making you
+should still rebase (and test the intermediate commits, if any).
+
 * Rebasing (when possible)
+
+Whenever I have a private branch which I want to update, I use rebase
+(for the same reasons as above).  History is clean and simple.
+However, if you share this branch with other people, rebasing is
+rewriting public history and should/must be avoided.  You may only
+rebase commits that no-one else has seen (which is why `git pull
+--rebase` is safe).
+
 * Merging without speeding
+
+`git merge` has the concept of fast-forwarding, or realizing that the
+code you are trying to merge in is identical to the result of the code
+after the merge.  Thus instead of doing work, creating new commits,
+etc, git simply changes the branch pointers (fast forwards them) and
+calls it good.
+
+This is good when doing `git pull` but not so good when doing `git
+merge` with a non-@{u} (upstream) branch.  The reason this is not good
+is because it loses information.  Specifically it loses track of which
+branch is the first parent and which is not.  If you don't ever want
+to look back into history, then it does not matter.  However, if you
+might want to say ``which branch was this commit originally committed
+onto,'' if you use fast-forwarding that question is impossible to
+answer since git will pick one branch or the other (the first parent
+or second parent) as the one which both branches activities were
+performed on and the other (original) parent's branch will be
+anonymous.  There are typically worse things in the world, but you
+lose information that is not recoverable in any other way by a
+repository observer and in my book that is bad.  Use `git merge
+--no-ff`
 
 
 ## Periodic maintenance
@@ -468,34 +514,42 @@ should!)
 * Check your stash for forgotten work (`git stash list`)
 
 
-## Do
+## Experiment!
 
-* Experiment!  (in a clone or copy)
-
+When you have an idea or are not sure what something does, try it out!
+Ideally try it out in a clone or copy so that recovery is trivial.
+While you can normally completely recover from any git experiment
+involving data which has been fully committed, perhaps you have not
+committed yet or perhaps you are not sure whether something falls in
+the category of "trying hard" to destroy history.
 
 ## Don't
 
 In this list of things to *not* do, it is important to remember that
 there are legitimate reasons to do all of these.  However, you should
-not attempt any of these things without understanding
+not attempt any of these things without understanding the potential
+negative effects of each and why they might be in a best practices
+"Don't" list.
 
-* Do not commit anything which can be regenerated from other things than were committed.
-* Commit configuration files
+*DO NOT*
+
+* commit anything which can be regenerated from other things than were committed.
+* commit configuration files
 
     Specifically configuration files which might change from
     environment to environment or for any reasons. See [Information
     about local versions of configuration
     files](https://gist.github.com/1423106)
-* Use git-grafts
-* Use git-replace
-* Rewrite public history
-* Change where a tag points
-* Use git-filter-branch
-* Use clone --shared or --reference
-* Use reset without committing/stashing
-* Prune the reflog
-* Expire "now"
-* Commit large binary files (when possible)
+* use git-grafts
+* use git-replace
+* rewrite public history
+* change where a tag points
+* use git-filter-branch
+* use clone --shared or --reference
+* use reset without committing/stashing
+* prune the reflog
+* expire "now"
+* commit large binary files (when possible)
 
     Large is currently relative to the amount of free RAM you have.
     Remember that not everyone may be using the same memory
@@ -503,7 +557,7 @@ not attempt any of these things without understanding
 
     Consider using [Git annex](http://git-annex.branchable.com/) or [Git media](https://github.com/schacon/git-media)
 
-* Create very large repositories (when possible)
+* create very large repositories (when possible)
 
     Git can be slow in the face of large repositories. There are
     git-config options which can help. `pack.threads=1;
