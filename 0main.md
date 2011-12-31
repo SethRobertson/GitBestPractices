@@ -540,22 +540,54 @@ negative effects of each and why they might be in a best practices
     environment to environment or for any reasons. See [Information
     about local versions of configuration
     files](https://gist.github.com/1423106)
+
 * use git-grafts
+
+    This is deprecated in favor of git-replace.
+
 * use git-replace
+
+    But don't use git-replace either.
+
 * rewrite public history
+
+    See section about this topic
+
 * change where a tag points
+
+    This is another way to rewrite public history.
+
 * use git-filter-branch
+
+    Still another way to rewrite public history.
+
 * use clone --shared or --reference
+
+    This can lead to problems for non-normal git actions, or if the
+    other repository is deleted/moved.  See [git-clone manual
+    page](http://jk.gs/gitworkflows.html).
+
 * use reset without committing/stashing
+
+    This can often overwrite the working directory without hope or
+    recourse.
+
 * prune the reflog
+
+    This is removing your safety belt.
+
 * expire "now"
+
+    This is cutting your safety belt.
+
 * commit large binary files (when possible)
 
     Large is currently relative to the amount of free RAM you have.
     Remember that not everyone may be using the same memory
     configuration you are.
 
-    Consider using [Git annex](http://git-annex.branchable.com/) or [Git media](https://github.com/schacon/git-media)
+    Consider using [Git annex](http://git-annex.branchable.com/) or
+    [Git media](https://github.com/schacon/git-media)
 
 * create very large repositories (when possible)
 
@@ -569,7 +601,21 @@ negative effects of each and why they might be in a best practices
 ## Sausage Making
 
 Some people like to hide the sausage making, or in other words pretend
-that their commits
+to the outside world that their commits sprung full-formed in utter
+perfection into their git repository.  Certain large public projects
+demand this, but that is not necessarily a good reason for you to
+demand this as well.
+
+What is a good reason is if you feel you may be cherry-picking commits
+a lot.  Having one or a small number of commits to pick instead of one
+here, one there, and half of this other one make your problem much
+much harder later (and typically will lead to merge conflicts when the
+doner branch is finally merged in).
+
+`git rebase -i`, `git add -p`, and `git reset -p` can fix commits up
+in post-production by splitting different concepts, merging fixes to
+older commits, etc. See also [TopGit](http://repo.or.cz/w/topgit.git)
+and [StGit](http://www.procode.org/stgit/).
 
 
 ## Copyright
