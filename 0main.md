@@ -6,7 +6,7 @@ but still, this represents a consensus from #git
 
 
 1. Read about git
-----------------------------------
+----------
 
 Knowing where to look is half the battle.  I strongly urge everyone to
 read (and support) the Pro Git book.  The other resources are highly
@@ -15,13 +15,13 @@ recommended by various people as well.
 * [Pro Git](http://progit.org/book/)
 * [Git for Computer Scientists](http://eagain.net/articles/git-for-computer-scientists/)
 * [Git from the Bottom Up](http://ftp.newartisans.com/pub/git.from.bottom.up.pdf)
-* [Git for Web Designers](http://www.webdesignerdepot.com/2009/03/intro-to-git-for-web-designers/ )
+* [Git for Web Designers](http://www.webdesignerdepot.com/2009/03/intro-to-git-for-web-designers/)
 * [Other resources](http://git-scm.com/documentation)
 * [Git wiki](http://git.wiki.kernel.org/)
 
 
 1. Commit early and often
-----------------------------------
+----------
 
 Git only takes full responsibility for your data when you commit.  If
 you fail to commit and then do something poorly thought out, you can
@@ -43,7 +43,7 @@ be seen by all.  Just look at the history of this gist!
 
 
 1. Don't panic
-----------------------------------
+----------
 
 As long as you have committed your work (or in many cases even added
 it with `git add`) your work will not be lost for at least two weeks
@@ -306,7 +306,7 @@ not attempt any of these things without understanding
 ------------------------------
 
 Some people like to hide the sausage making, or in other words pretend
-that their commits 
+that their commits
 
 
 1. Copyright
