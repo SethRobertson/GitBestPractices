@@ -1,12 +1,10 @@
-Git Best Practices
-========================================================
+# Git Best Practices
 
 This is a fairly common question, and there isn't a One True Answer,
 but still, this represents a consensus from #git
 
 
-1. Read about git
-----------
+## 1. Read about git
 
 Knowing where to look is half the battle.  I strongly urge everyone to
 read (and support) the Pro Git book.  The other resources are highly
@@ -20,8 +18,7 @@ recommended by various people as well.
 * [Git wiki](http://git.wiki.kernel.org/)
 
 
-1. Commit early and often
-----------
+## 1. Commit early and often
 
 Git only takes full responsibility for your data when you commit.  If
 you fail to commit and then do something poorly thought out, you can
