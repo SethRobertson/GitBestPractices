@@ -42,8 +42,7 @@ Personally, I commit early and often and then let the sausage making
 be seen by all.  Just look at the history of this gist!
 
 
-1. Don't panic
-----------
+## 1. Don't panic
 
 As long as you have committed your work (or in many cases even added
 it with `git add`) your work will not be lost for at least two weeks
@@ -129,8 +128,7 @@ gitk --all --date-order $(git stash list | awk -F: '{print $1};')
     people who have a copy of the repo, and look in other repos.
 
 
-1. Backups
-----------------------------------
+## 1. Backups
 
 Everyone always recommends taking backups as best practice, and I am
 going to do the same.  However, you already may have a highly
@@ -167,12 +165,10 @@ rm -f /tmp/.gitmissing1 /tmp/.gitmissing2
 for f in */.; do (cd $$f; echo $$f; git fetch); done
 ```
 
-1. Don't change published history
-----------------------------------
+## 1. Don't change published history
 
 
-1. Chose a workflow
-----------------------------------
+## 1. Chose a workflow
 
 A standard workflow is best.
 
@@ -231,8 +227,7 @@ A standard workflow is best.
 * Master repository
 
 
-1. Dividing work into repositories
-----------------------------------
+## 1. Dividing work into repositories
 
 * One concept per repository.
 * Repository for large binary files
@@ -242,20 +237,17 @@ A standard workflow is best.
 Use git-submodules or gitslave to group multiple concepts.
 
 
-1. Useful commit messages
-----------------------------------
+## 1. Useful commit messages
 
 
-1. Integration with external tools
-----------------------------------
+## 1. Integration with external tools
 
 * Web views
 * Bug tracking
 * IRC/chat rooms
 
 
-1. Keeping up to date
-----------------------------------
+## 1. Keeping up to date
 
 Overlap with workflow.  Not everyone agrees with these ideas (but they
 should!)
@@ -265,21 +257,18 @@ should!)
 * Merging without speeding
 
 
-1. Periodic maintenance
-----------------------------------
+## 1. Periodic maintenance
 
 * Clean up your git repro every so often.
 * Check your stash for forgotten work (`git stash list`)
 
 
-1. Do
-----------------------------------
+## 1. Do
 
 * Experiment!  (in a clone or copy)
 
 
-1. Don't
-------------------------------
+## 1. Don't
 
 In this list of things to *not* do, it is important to remember that
 there are legitimate reasons to do all of these.  However, you should
@@ -302,15 +291,13 @@ not attempt any of these things without understanding
     files](https://gist.github.com/1423106)
 
 
-1. Sausage Making
-------------------------------
+## 1. Sausage Making
 
 Some people like to hide the sausage making, or in other words pretend
 that their commits
 
 
-1. Copyright
-------------------------------
+## 1. Copyright
 
 Copyright ⓒ 2012 Seth Robertson
 
@@ -321,14 +308,12 @@ http://creativecommons.org/licenses/by-sa/2.5/
 I would appreciate changes being sent back to me.
 
 
-1. Thanks
-------------------------------
+## 1. Thanks
 
 Thanks to the experts on #git for feedback and ideas.
 
 
-1. Comments
-------------------------------
+## 1. Comments
 
 Comments and improvements welcome.
 
