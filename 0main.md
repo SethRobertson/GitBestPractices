@@ -26,8 +26,8 @@ run into trouble.  Additionally, having periodic checkpoints means
 that you can understand how you broke something.
 
 People resist this out of some sense that this is ugly, limits
-`git-bisect`ion functionality, confusing to observers, and might lead
-to accusations of stupidity.  Well, I'm here to tell you that
+`git-bisect`ion functionality, is confusing to observers, and might
+lead to accusations of stupidity.  Well, I'm here to tell you that
 resisting this is ignorant.  *Commit Early And Often*.  If, after you
 are done, you want to pretend to the outside world that your work
 sprung complete from your mind into the repository in utter perfection
@@ -37,7 +37,8 @@ However, don't let tomorrow's beauty stop you from performing
 continuous commits today.
 
 Personally, I commit early and often and then let the sausage making
-be seen by all.  Just look at the history of this gist!
+be seen by all except in the most formal of circumstances.  Just look
+at the history of this gist!
 
 
 ## Don't panic
@@ -49,7 +50,9 @@ unless you really work at it (run commands which manually purge it).
 When attempting to find your lost commits, first make *sure* you will
 not lose any current work.  You should commit or stash your current
 work before performing any recovery efforts which might destroy your
-current work.
+current work.  After finding the commits you can reset, rebase,
+cherry-pick, merge, or otherwise do what is necessary to get the
+commit history and work tree you desire.
 
 There are three places where "lost" changes can be hiding. They might be
 in the reflog (`git log -g`), they might be in lost&found (`git fsck
@@ -145,12 +148,13 @@ you want a more formal system.
 Traditional backups are still appropriate.  A normal tarball, cp,
 rsync, zip, rar or similar backup copy will be a perfectly fine
 backup.  As long as the underlying filesystem doesn't reorder git I/O
-dramatically, the resulting copy of .git will be consistent under
-almost all circumstances.  Of course, if you have a backup from in the
-middle of a git operation, you might need to do some recovery.  The
-data should all be present though.  When performing git experiments
-involving the working directory, a copy instead of a clone may be more
-appropriate.
+dramatically, there is not a long time delay between the scanning of
+the directory and the retrieval of the files, the resulting copy of
+.git should be consistent under almost all circumstances.  Of course,
+if you have a backup from in the middle of a git operation, you might
+need to do some recovery.  The data should all be present though.
+When performing git experiments involving the working directory, a
+copy instead of a clone may be more appropriate.
 
 However, if you want a "pure git" solution, something like, which clones
 everything in a directory of repos, this may be what you need:
