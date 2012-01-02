@@ -273,15 +273,15 @@ Obviously branching and distributed workflows might affect this,
 but less obviously, it may affect how and when you perform
 tagging.
 
-At first glance, it is a no-brainer.  When you release something
-you tag something.  However, tags should be treated as immutable
-once you push.  Well, that only makes sense, you might think to
-yourself.  Consider this.  Five minutes after everyone has signed
-off on the 2.0 release, it has been tagged and pushed, but before
-any customer has seen the resulting product someone comes running
-in "OMFG, the foobar is broken when you frobnoz the baz."  What do
-you do?  Do you skip release 2.0 and tag 2.0.1?  Do you do a
-take-back and go to every repo of every developer and delete the 2.0 tag?
+At first glance, it is a no-brainer.  When you release something you
+tag something.  However, tags should be treated as immutable once you
+push.  Well, that only makes sense, you might think to yourself.
+Consider this.  Five minutes after everyone has signed off on the 2.0
+release, it has been tagged and pushed, but before any customer has
+seen the resulting product someone comes running in "OMFG, the foobar
+is broken when you frobnoz the baz."  What do you do?  Do you skip
+release 2.0 and tag 2.0.1?  Do you do a take-back and go to every repo
+of every developer and delete the 2.0 tag?
 
 Two ideas for your consideration.  Instead of a release tag, use a
 release branch (and then stop committing to that branch after
