@@ -281,7 +281,7 @@ off on the 2.0 release, it has been tagged and pushed, but before
 any customer has seen the resulting product someone comes running
 in "OMFG, the foobar is broken when you frobnoz the baz."  What do
 you do?  Do you skip release 2.0 and tag 2.0.1?  Do you do a
-take-back and go to ever developers repo and delete the 2.0 tag?
+take-back and go to every repo of every developer and delete the 2.0 tag?
 
 Two ideas for your consideration.  Instead of a release tag, use a
 release branch (and then stop committing to that branch after
@@ -356,7 +356,7 @@ simply because they were there.  Try to avoid doing so.
     to save space.  You can rebase, filter, or squash these unwanted
     commits away, but this is rewriting history and can cause problem.
     So if you really must do so, isolate these files into a repository
-    so that at least everything else will not be affected.q
+    so that at least everything else will not be affected.
 
 * Group concepts into a superproject
 
