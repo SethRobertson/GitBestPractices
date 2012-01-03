@@ -50,9 +50,10 @@ unless you really work at it (run commands which manually purge it).
 When attempting to find your lost commits, first make *sure* you will
 not lose any current work.  You should commit or stash your current
 work before performing any recovery efforts which might destroy your
-current work.  After finding the commits you can reset, rebase,
-cherry-pick, merge, or otherwise do what is necessary to get the
-commit history and work tree you desire.
+current work and perhaps take backups of it (see Backups below).
+After finding the commits you can reset, rebase, cherry-pick, merge,
+or otherwise do what is necessary to get the commit history and work
+tree you desire.
 
 There are three places where "lost" changes can be hiding. They might be
 in the reflog (`git log -g`), they might be in lost&found (`git fsck
