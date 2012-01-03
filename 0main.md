@@ -190,7 +190,15 @@ do so.
 ## Choose a workflow
 
 Some people have called git a tool to create a SCM workflow instead of
-an SCM tool.  There is some truth to this.
+an SCM tool.  There is some truth to this.  I am not going to
+specifically espouse one specific workflow as the best practice for
+using git since it depends heavily on the size and type of project and
+the skill of users, developers, and release engineers; however both
+reflexive avoidance of branches due to stupidity of other SCM systems
+and reflexive overuse of branches (since branches are actually easy
+with git) is most likely ignorance.  Pick the style which best suits
+your project and don't complain about user's tactical uses of private
+branches.
 
 ### Branch workflows
 
@@ -271,25 +279,26 @@ customer) is another important area to decide on.  I will not
 touch on this much, but it can have an effect on how you use git.
 Obviously branching and distributed workflows might affect this,
 but less obviously, it may affect how and when you perform
-tagging.
+tagging, and specifically the name of the tag you use.
 
 At first glance, it is a no-brainer.  When you release something you
-tag something.  However, tags should be treated as immutable once you
-push.  Well, that only makes sense, you might think to yourself.
-Consider this.  Five minutes after everyone has signed off on the 2.0
-release, it has been tagged and pushed, but before any customer has
-seen the resulting product someone comes running in "OMFG, the foobar
-is broken when you frobnoz the baz."  What do you do?  Do you skip
-release 2.0 and tag 2.0.1?  Do you do a take-back and go to every repo
-of every developer and delete the 2.0 tag?
+tag something, and I *highly* recommend this.  However, tags should be
+treated as immutable once you push.  Well, that only makes sense, you
+might think to yourself, but consider this: five minutes after
+everyone has signed off on the 2.0 release, it has been tagged
+Frobber_Release_2.0 and pushed, but before any customer has seen the
+resulting product someone comes running in "OMFG, the foobar is broken
+when you frobnoz the baz."  What do you do?  Do you skip release 2.0
+and tag 2.0.1?  Do you do a take-back and go to every repo of every
+developer and delete the 2.0 tag?
 
 Two ideas for your consideration.  Instead of a release tag, use a
-release branch (and then stop committing to that branch after
-release, disabling write access to it in gitolite or something).
-Another idea, use an internal tag name which is not directly
-derived from the version number which marketing wishes to declare
-to the outside world.  Both are problematic in practice, but less
-so than pure marketing-version tags.
+release branch (and then stop committing to that branch after release,
+disabling write access to it in gitolite or something).  Another idea,
+use an internal tag name which is not directly derived from the
+version number which marketing wishes to declare to the outside world.
+Ideally use both which limits the disadvantages of either technique,
+but less so than pure marketing-version tags.
 
 ### Security model
 
@@ -401,6 +410,10 @@ likewise become very important.
 The normal git rule of using the first line to provide a short (72
 character) summary of the change is also very good.  Looking at the
 output of `gitk` or `git log --oneline` might help you understand why.
+
+Also see [A Note About Git Commit
+Messages](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+for even more good ideas.
 
 While this touches with the next topic of integration with external
 tools, including bug/issue/request tracking numbers in your commit
