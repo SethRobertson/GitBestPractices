@@ -175,7 +175,7 @@ for f in */.; do (cd $$f; echo $$f; git fetch); done
 ## Don't change published history
 
 Once you `git push` (or in theory someone pulls from your repo, but
-people who pull from a working repo often deserve what they) your
+people who pull from a working repo often deserve what they get) your
 changes to the authoritative upstream repository or otherwise make the
 commits or tags publicly visible, you should ideally consider those
 commits etched in diamond for all eternity.  If you later find out
