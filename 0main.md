@@ -466,9 +466,16 @@ This is not a global best practice, but for certain sized
 organizations may be very useful.  Specifically, to have a chat room
 (IRC) to discuss issues and problems, and to have a robot in that chat
 room to provide assistance.  When someone talks about Bug 1234,
-provide a hyperlink to that ticket.  When someone pushes some commits,
-announce those commits.  All sorts of things are possible, but there
-is a fine line between usefulness and overwhelming noise.
+provide a hyperlink to that ticket.  When someone pushes some commits
+or adds a bug, it could announce same.  All sorts of things are
+possible (RFC lookups, MAC vendor lookups, Eliza psychoanalysis, etc)
+but there is a fine line between usefulness and overwhelming noise.
+
+If you use github, github provides an "IRC" "Service Hooks" which lets
+you get git announcements for free.  Said robot will not provide any
+additional value added services you might want.  [CIA](http://cia.vc)
+is another packaged commit announcement system and of course many IRC
+robot frameworks can be found with simple web searches.
 
 
 ## Keeping up to date
