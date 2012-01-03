@@ -608,7 +608,7 @@ negative effects of each and why they might be in a best practices
 
     This is cutting your safety belt.
 
-* use git as a backup tool
+* use git as a generic filesystem backup tool
 
     Yes people have done it successfully, but usually with lots of
     scripts around it and with some toothing pains.  Git was not
