@@ -488,26 +488,29 @@ perfection into their git repository.  Certain large public projects
 demand this, but that is not necessarily a good reason for you to
 demand this as well.
 
-What is a good reason is if you feel you may be cherry-picking commits
-a lot (though this too if often a sign of bad workflow).  Having one
-or a small number of commits to pick instead of one here, one there,
-and half of this other one make your problem much much harder later
-(and typically will lead to merge conflicts when the doner branch is
-finally merged in).
+What *is* a good reason to hide the sausage making is if you feel you
+may be cherry-picking commits a lot (though this too if often a sign
+of bad workflow).  Having one or a small number of commits to pick is
+much easier than having to find one commit here, one there, and half
+of this other one.  The latter approach makes your problem much much
+harder and typically will lead to merge conflicts when the doner
+branch is finally merged in.
 
 Another good reason is to ensure each commit compiles and/or passes
-regression tests (which is *extremely* important for simple git-bisect
-usage), and represents a different easily understood concept
-(important for archeology).
+regression tests, and represents a different easily understood concept
+(important for archeology).  The former allows git-bisect to chose any
+commit and have a good chance of that commit doing something useful,
+and the latter allows for easy change review, understanding, and
+cherry-picking.
 
 If you think about it, movies are made this way.  Scenes are shot out
 of temporal order, multiple times, and different bits are picked from
 this camera and that camera.  Without examining the analogy too
 closely, this is similar to how different git commits might be viewed.
 Once you have everything in the "can" (repository) you go back and in
-post-production, you edit and splice everything together for form
-individual cuts and scenes, sometimes even doing some digital editing
-of the resulting product.
+post-production, you edit and splice everything together to form
+individual cuts and scenes, sometimes perhaps even doing some digital
+editing of the resulting product.
 
 `git rebase -i`, `git add -p`, and `git reset -p` can fix commits up
 in post-production by splitting different concepts, merging fixes to
