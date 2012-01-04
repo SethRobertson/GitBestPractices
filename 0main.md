@@ -544,8 +544,18 @@ whatever testing those non-final commits might have had since the
 deltas would be applied to a new base.  This in turn might make
 git-bisect's job harder since some commits might refer to broken
 trees, but really this is only relevant to people who want to hide the
-sausage making.  Of course to really hide the sausage making you
-should still rebase (and test the intermediate commits, if any).
+sausage making.  Of course to *really* hide the sausage making you
+should still rebase and then test each intermediate commit to ensure
+it compiles and passes your regression tests (you do have regression
+tests, don't you?) so that a future bisector will have some strong
+hope that the commit will be usable.  After all, that future bisector
+might be you.
+
+Other people argue against this (especially in highly decentralized
+environments) because it explicitly records that the person who
+performed the merge tested that the two histories were combined
+properly (as opposed to the hidden history with implicit blame of
+rebase).
 
 You can make this the default with the "branch.<name>.rebase"
 configuration option (and more practically, by the
