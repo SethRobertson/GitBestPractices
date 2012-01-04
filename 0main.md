@@ -11,7 +11,7 @@ read (and support) the Pro Git book.  The other resources are highly
 recommended by various people as well.
 
 * [Pro Git](http://progit.org/book/)
-* [Git for Computer Scientists](http://eagain.net/articles/git-for-computer-scientists/)
+* [Git for Computer Scientists](http://eagain.net/articles/git-for-computer-scientists/) and a [different/updated version](http://sitaramc.github.com/gcs/)
 * [Git from the Bottom Up](http://ftp.newartisans.com/pub/git.from.bottom.up.pdf)
 * [Git for Web Designers](http://www.webdesignerdepot.com/2009/03/intro-to-git-for-web-designers/)
 * [Other resources](http://git-scm.com/documentation)
@@ -295,11 +295,12 @@ developer and delete the 2.0 tag?
 
 Two ideas for your consideration.  Instead of a release tag, use a
 release branch (and then stop committing to that branch after release,
-disabling write access to it in gitolite or something).  Another idea,
-use an internal tag name which is not directly derived from the
-version number which marketing wishes to declare to the outside world.
-Ideally use both which limits the disadvantages of either technique,
-but less so than pure marketing-version tags.
+disabling write access to it in
+[gitolite](https://github.com/sitaramc/gitolite) or something).
+Another idea, use an internal tag name which is not directly derived
+from the version number which marketing wishes to declare to the
+outside world.  Ideally use both which limits the disadvantages of
+either technique, but less so than pure marketing-version tags.
 
 ### Security model
 
@@ -314,10 +315,11 @@ certain repositories should only have certain people able to
 access/write to them?
 
 While git allows users to set up many different types of access
-control, access methods, and the like; the best for most
-deployments might be to set up a centralized git master repository
-with a gitolite manager to provide fine grained access control
-with ssh based authentication and encryption.
+control, access methods, and the like; the best for most deployments
+might be to set up a centralized git master repository with a
+[gitolite](https://github.com/sitaramc/gitolite) manager to provide
+fine grained access control with ssh based authentication and
+encryption.
 
 Of course, security is more than access control.  It is also
 assurance that what you release is what was written by the people
