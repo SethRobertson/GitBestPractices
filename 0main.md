@@ -559,7 +559,16 @@ negative effects of each and why they might be in a best practices
 
 *DO NOT*
 
-* commit anything which can be regenerated from other things than were committed.
+* commit anything which can be regenerated from other things that were committed.
+
+    Things that can be regenerated include binaries, object files,
+    jars, .class, flex/yacc generated code, etc.  Really the only
+    place there is room for disagreement about this is if something
+    might take hours to regenerate (rendered images, eg, but see
+    "Dividing work into repositories" for more best practices about
+    this) or autoconf generated files (so people can configure and
+    compile without autotools installed).
+
 * commit configuration files
 
     Specifically configuration files which might change from
