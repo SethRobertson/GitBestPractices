@@ -92,7 +92,7 @@ gitk --all --date-order $(git log -g --pretty=%H)
 	commits. Look for dots without children and without green labels.
 
 	```shell
-gitk --all --date-order $(git fsck --no-reflog | grep "dangling commit" | awk '{print $3;}')
+gitk --all --date-order $(git fsck | grep "dangling commit" | awk '{print $3;}')
 ```
 
     * Dangling Blob
