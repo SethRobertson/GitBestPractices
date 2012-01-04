@@ -729,6 +729,10 @@ negative effects of each and why they might be in a best practices
 
     Still another way to rewrite public history.
 
+    However, if you are going to use git-filter-branch, make sure you
+    end your command with ` --tag-name-filter cat -- --all` unless you
+    are really really sure you know what you are doing.
+
 * use clone --shared or --reference
 
     This can lead to problems for non-normal git actions, or if the
