@@ -534,6 +534,11 @@ commits that were pushed before it, instead of being developed in
 parallel).  It makes history visualization much simpler and `git
 bisect` easier to see and understand.
 
+A specific circumstance in which you should avoid using `git pull
+--rebase` is if you merged since your last push.  You might want to
+`git fetch; git rebase -p @{u}` (and check to make sure the merge was
+recreated properly) or do a normal merge in that circumstance.
+
 Some people argue against this because the non-final commits may lose
 whatever testing those non-final commits might have had since the
 deltas would be applied to a new base.  This in turn might make
@@ -541,6 +546,11 @@ git-bisect's job harder since some commits might refer to broken
 trees, but really this is only relevant to people who want to hide the
 sausage making.  Of course to really hide the sausage making you
 should still rebase (and test the intermediate commits, if any).
+
+You can make this the default with the "branch.<name>.rebase"
+configuration option (and more practically, by the
+"branch.autosetuprebase" configuration option).  See [man
+git-config](http://jk.gs/git-config.html).
 
 * Rebasing (when possible)
 
