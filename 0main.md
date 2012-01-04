@@ -617,31 +617,30 @@ negative effects of each and why they might be in a best practices
     about local versions of configuration
     files](https://gist.github.com/1423106)
 
-* use git-grafts
+* use git as a web deployment tool
 
-    This is deprecated in favor of git-replace.
+    Yes it can be done in a sufficiently simple/non-critical
+    environment with something like
+    http://toroid.org/ams/git-website-howto to help.  However, this
+    does not give you atomic updates, synchronized db updates, or
+    other accouterments of an industrial deployment system.
 
-* use git-replace
+* commit large binary files (when possible)
 
-    But don't use git-replace either.
+    Large is currently relative to the amount of free RAM you have.
+    Remember that not everyone may be using the same memory
+    configuration you are.
 
-* rewrite public history
+    Consider using [Git annex](http://git-annex.branchable.com/) or
+    [Git media](https://github.com/schacon/git-media)
 
-    See section about this topic
+* create very large repositories (when possible)
 
-* change where a tag points
-
-    This is another way to rewrite public history.
-
-* use git-filter-branch
-
-    Still another way to rewrite public history.
-
-* use clone --shared or --reference
-
-    This can lead to problems for non-normal git actions, or if the
-    other repository is deleted/moved.  See [git-clone manual
-    page](http://jk.gs/gitworkflows.html).
+    Git can be slow in the face of large repositories. There are
+    git-config options which can help. `pack.threads=1;
+    pack.deltaCacheSize=1; pack.windowMemory=512m;
+    core.packedGitWindowSize=16m; core.packedGitLimit=128m.` Other
+    likely ones exist.
 
 * use reset (--hard || -merge) without committing/stashing
 
@@ -671,30 +670,31 @@ negative effects of each and why they might be in a best practices
     scripts around it and with some toothing pains.  Git was not
     written as a dedicated backup tool, and such tools do exist.
 
-* use git as a web deployment tool
+* rewrite public history
 
-    Yes it can be done in a sufficiently simple/non-critical
-    environment with something like
-    http://toroid.org/ams/git-website-howto to help.  However, this
-    does not give you atomic updates, synchronized db updates, or
-    other accouterments of an industrial deployment system.
+    See section about this topic.  It bears repeating, though.
 
-* commit large binary files (when possible)
+* change where a tag points
 
-    Large is currently relative to the amount of free RAM you have.
-    Remember that not everyone may be using the same memory
-    configuration you are.
+    This is another way to rewrite public history.
 
-    Consider using [Git annex](http://git-annex.branchable.com/) or
-    [Git media](https://github.com/schacon/git-media)
+* use git-filter-branch
 
-* create very large repositories (when possible)
+    Still another way to rewrite public history.
 
-    Git can be slow in the face of large repositories. There are
-    git-config options which can help. `pack.threads=1;
-    pack.deltaCacheSize=1; pack.windowMemory=512m;
-    core.packedGitWindowSize=16m; core.packedGitLimit=128m.` Other
-    likely ones exist.
+* use clone --shared or --reference
+
+    This can lead to problems for non-normal git actions, or if the
+    other repository is deleted/moved.  See [git-clone manual
+    page](http://jk.gs/gitworkflows.html).
+
+* use git-grafts
+
+    This is deprecated in favor of git-replace.
+
+* use git-replace
+
+    But don't use git-replace either.
 
 
 ## Copyright
