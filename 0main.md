@@ -744,6 +744,23 @@ negative effects of each and why they might be in a best practices
     But don't use git-replace either.
 
 
+## Miscellaneous
+
+These are random best practices which are too minor or disconnected to
+go in any other section.
+
+* Copy/move a file in a different commit from any changes to it
+
+    If you care about git properly displaying the fact that you moved
+    a file, you should copy or move the file in a different commit
+    from any changes you need to immediately make to that file.  This
+    is because git does not record `git mv` any different from a
+    delete and an add, and because `git cp` doesn't even exist.  Git's
+    output commands are the ones which interpret the data as a move or
+    copy.  See the -C and -M options to `git log` (and similar
+    commands).
+
+
 ## Copyright
 
 Copyright ⓒ 2012 Seth Robertson
