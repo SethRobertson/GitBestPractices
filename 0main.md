@@ -560,7 +560,7 @@ performed the merge tested that the two histories were combined
 properly (as opposed to the hidden history with implicit blame of
 rebase).
 
-You can make this the default with the "branch.<name>.rebase"
+You can make this the default with the "branch.&lt;name&gt;.rebase"
 configuration option (and more practically, by the
 "branch.autosetuprebase" configuration option).  See [man
 git-config](http://jk.gs/git-config.html).
@@ -612,6 +612,30 @@ While you can normally completely recover from any git experiment
 involving data which has been fully committed, perhaps you have not
 committed yet or perhaps you are not sure whether something falls in
 the category of "trying hard" to destroy history.
+
+
+## Useful Tools
+
+More than useful, use of these tools may help you form a best
+practice!
+
+* [gitolite](https://github.com/sitaramc/gitolite)
+
+    We already mentioned gitolite above, but it forms a great git
+    server intermediary for access control.
+
+* [gitslave](http://gitslave.sf.net)
+
+    We already mentioned gitslave above, but it forms a great
+    alternative to git-submodules when forming superprojects out of
+    repositories you control.
+
+* [gerrit](http://code.google.com/p/gerrit/)
+
+    To quote the website: Gerrit is a web based code review system,
+    facilitating online code reviews for projects using the Git
+    version control system.
+
 
 ## Don't
 
