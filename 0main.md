@@ -480,6 +480,45 @@ is another packaged commit announcement system and of course many IRC
 robot frameworks can be found with simple web searches.
 
 
+## Sausage Making
+
+Some people like to hide the sausage making, or in other words pretend
+to the outside world that their commits sprung full-formed in utter
+perfection into their git repository.  Certain large public projects
+demand this, but that is not necessarily a good reason for you to
+demand this as well.
+
+What is a good reason is if you feel you may be cherry-picking commits
+a lot (though this too if often a sign of bad workflow).  Having one
+or a small number of commits to pick instead of one here, one there,
+and half of this other one make your problem much much harder later
+(and typically will lead to merge conflicts when the doner branch is
+finally merged in).
+
+Another good reason is to ensure each commit compiles and/or passes
+regression tests (which is *extremely* important for simple git-bisect
+usage), and represents a different easily understood concept
+(important for archeology).
+
+If you think about it, movies are made this way.  Scenes are shot out
+of temporal order, multiple times, and different bits are picked from
+this camera and that camera.  Without examining the analogy too
+closely, this is similar to how different git commits might be viewed.
+Once you have everything in the "can" (repository) you go back and in
+post-production, you edit and splice everything together for form
+individual cuts and scenes, sometimes even doing some digital editing
+of the resulting product.
+
+`git rebase -i`, `git add -p`, and `git reset -p` can fix commits up
+in post-production by splitting different concepts, merging fixes to
+older commits, etc. See also [TopGit](http://repo.or.cz/w/topgit.git)
+and [StGit](http://www.procode.org/stgit/).
+
+Be sure you do all of this work *before* doing any non-squashed merges
+(not rebases: merges) and *before* pushing.  Your work becomes much
+more complex and/or impossible afterwards.
+
+
 ## Keeping up to date
 
 This section has some overlap with workflow.  Exactly how and when you
@@ -656,31 +695,6 @@ negative effects of each and why they might be in a best practices
     pack.deltaCacheSize=1; pack.windowMemory=512m;
     core.packedGitWindowSize=16m; core.packedGitLimit=128m.` Other
     likely ones exist.
-
-
-## Sausage Making
-
-Some people like to hide the sausage making, or in other words pretend
-to the outside world that their commits sprung full-formed in utter
-perfection into their git repository.  Certain large public projects
-demand this, but that is not necessarily a good reason for you to
-demand this as well.
-
-What is a good reason is if you feel you may be cherry-picking commits
-a lot (though this too if often a sign of bad workflow).  Having one
-or a small number of commits to pick instead of one here, one there,
-and half of this other one make your problem much much harder later
-(and typically will lead to merge conflicts when the doner branch is
-finally merged in).
-
-Another good reason is to ensure each commit compiles (important for
-git-bisect), represents a different easily understood concept
-(important for archeology).
-
-`git rebase -i`, `git add -p`, and `git reset -p` can fix commits up
-in post-production by splitting different concepts, merging fixes to
-older commits, etc. See also [TopGit](http://repo.or.cz/w/topgit.git)
-and [StGit](http://www.procode.org/stgit/).
 
 
 ## Copyright
