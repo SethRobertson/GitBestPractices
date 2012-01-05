@@ -768,6 +768,15 @@ go in any other section.
 
 * Enforce standards in hooks
 
+    Having standards is a best practice and will improve the quality
+    of your commits, code-base, and probably enhance git-bisect and
+    archeology functionality, but what is the use of a standard if
+    people ignore them?  Checks could involve regression tests,
+    compilation tests, syntax/lint checkers, commit message analysis,
+    etc.  Of course, there are times when standards get in the way, so
+    provide some method to temporarily disable the checks when
+    appropriate.
+
     Ideally you would do it on the client side in a pre-commit hook
     (perhaps have a directory of standard hooks in your repo and ask
     users to install them) but since users will often not install said
