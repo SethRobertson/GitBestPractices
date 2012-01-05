@@ -421,7 +421,9 @@ for even more good ideas.
 While this touches with the next topic of integration with external
 tools, including bug/issue/request tracking numbers in your commit
 messages provides a great deal of associated information to people
-trying to understand what is going on.
+trying to understand what is going on.  You should also enforce
+your standards on commit messages, when possible, through hooks.
+See "Enforce standards in hooks" below.
 
 
 ## Integration with external tools
@@ -763,6 +765,21 @@ go in any other section.
     output commands are the ones which interpret the data as a move or
     copy.  See the -C and -M options to `git log` (and similar
     commands).
+
+* Enforce standards in hooks
+
+    Ideally you would do it on the client side in a pre-commit hook
+    (perhaps have a directory of standard hooks in your repo and ask
+    users to install them) but since users will often not install said
+    hooks, you also need to enforce the standards on the server side.
+
+    Doing so in a update hook allows you to reject commits which don't
+    follow the standards.  You can also chide the user for not using
+    the standard client-side hook to begin with.
+
+    See http://projects.puppetlabs.com/projects/1/wiki/Puppet_Version_Control
+    for an example for a "Git Update Hook" and "Git Pre-Commit Hook" which
+    enforces certain standards.  Useful for ideas, anyway.
 
 
 ## Copyright
