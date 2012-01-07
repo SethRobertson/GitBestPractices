@@ -7,9 +7,9 @@ but still, this represents a consensus from #git.
 
 ## [Index]
 
-* [Read about git](#readgit)
+* [Miscellaneous](#misc)
 
-## Read about git
+## Read about git {
 
 Knowing where to look is half the battle.  I strongly urge everyone to
 read (and support) the Pro Git book.  The other resources are highly
@@ -645,7 +645,7 @@ practice!
     version control system.
 
 
-## Miscellaneous
+## Miscellaneous   {#misc}
 
 These are random best practices which are too minor or disconnected to
 go in any other section.
