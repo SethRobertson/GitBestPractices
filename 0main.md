@@ -719,7 +719,7 @@ go in any other section.
     enforces certain standards.  Useful for ideas, anyway.
 
 
-<a name="tool" />
+<a name="donot" />
 ## Don't
 
 In this list of things to *not* do, it is important to remember that
