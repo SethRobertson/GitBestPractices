@@ -599,7 +599,8 @@ someone else has [rewritten public history](#pubonce) if you use `git
 pull --rebase` normally, so someone might have hidden something
 malicious in an older (presumably already reviewed) commit.  If this
 is of concern, you can still use rebase, but you would have to `git
-fetch` first and look for signs of divergence first.
+fetch` first and look for "forced update" in that output or in the
+reflog for the remote branches.
 
 You can make this the default with the "branch.&lt;name&gt;.rebase"
 configuration option (and more practically, by the
