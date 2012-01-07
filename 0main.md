@@ -5,11 +5,12 @@ Git Best Practices
 This is a fairly common question, and there isn't a One True Answer,
 but still, this represents a consensus from #git.
 
-## [Index]
+## Index
 
 * [Miscellaneous](#misc)
+* [Don't](#donot)
 
-## Read about git {
+## Read about git
 
 Knowing where to look is half the battle.  I strongly urge everyone to
 read (and support) the Pro Git book.  The other resources are highly
@@ -645,7 +646,7 @@ practice!
     version control system.
 
 
-## Miscellaneous   {#misc}
+## Miscellaneous ##   {#misc}
 
 These are random best practices which are too minor or disconnected to
 go in any other section.
@@ -686,7 +687,7 @@ go in any other section.
     enforces certain standards.  Useful for ideas, anyway.
 
 
-## Don't
+## Don't <a id="donot" />
 
 In this list of things to *not* do, it is important to remember that
 there are legitimate reasons to do all of these.  However, you should
