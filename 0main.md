@@ -1,10 +1,11 @@
-# Git Best Practices
+# Commit Often, Fix it Later, Publish Once
+
+Git Best Practices
 
 This is a fairly common question, and there isn't a One True Answer,
-but still, this represents a consensus from #git
+but still, this represents a consensus from #git.
 
-
-## Read about git
+## [Read about git]()
 
 Knowing where to look is half the battle.  I strongly urge everyone to
 read (and support) the Pro Git book.  The other resources are highly
@@ -640,6 +641,47 @@ practice!
     version control system.
 
 
+## Miscellaneous
+
+These are random best practices which are too minor or disconnected to
+go in any other section.
+
+* Copy/move a file in a different commit from any changes to it
+
+    If you care about git properly displaying the fact that you moved
+    a file, you should copy or move the file in a different commit
+    from any changes you need to immediately make to that file.  This
+    is because git does not record `git mv` any different from a
+    delete and an add, and because `git cp` doesn't even exist.  Git's
+    output commands are the ones which interpret the data as a move or
+    copy.  See the -C and -M options to `git log` (and similar
+    commands).
+
+* Enforce standards in hooks
+
+    Having standards is a best practice and will improve the quality
+    of your commits, code-base, and probably enhance git-bisect and
+    archeology functionality, but what is the use of a standard if
+    people ignore them?  Checks could involve regression tests,
+    compilation tests, syntax/lint checkers, commit message analysis,
+    etc.  Of course, there are times when standards get in the way, so
+    provide some method to temporarily disable the checks when
+    appropriate.
+
+    Ideally you would do it on the client side in a pre-commit hook
+    (perhaps have a directory of standard hooks in your repo and ask
+    users to install them) but since users will often not install said
+    hooks, you also need to enforce the standards on the server side.
+
+    Doing so in a update hook allows you to reject commits which don't
+    follow the standards.  You can also chide the user for not using
+    the standard client-side hook to begin with.
+
+    See http://projects.puppetlabs.com/projects/1/wiki/Puppet_Version_Control
+    for an example for a "Git Update Hook" and "Git Pre-Commit Hook" which
+    enforces certain standards.  Useful for ideas, anyway.
+
+
 ## Don't
 
 In this list of things to *not* do, it is important to remember that
@@ -749,47 +791,6 @@ negative effects of each and why they might be in a best practices
 * use git-replace
 
     But don't use git-replace either.
-
-
-## Miscellaneous
-
-These are random best practices which are too minor or disconnected to
-go in any other section.
-
-* Copy/move a file in a different commit from any changes to it
-
-    If you care about git properly displaying the fact that you moved
-    a file, you should copy or move the file in a different commit
-    from any changes you need to immediately make to that file.  This
-    is because git does not record `git mv` any different from a
-    delete and an add, and because `git cp` doesn't even exist.  Git's
-    output commands are the ones which interpret the data as a move or
-    copy.  See the -C and -M options to `git log` (and similar
-    commands).
-
-* Enforce standards in hooks
-
-    Having standards is a best practice and will improve the quality
-    of your commits, code-base, and probably enhance git-bisect and
-    archeology functionality, but what is the use of a standard if
-    people ignore them?  Checks could involve regression tests,
-    compilation tests, syntax/lint checkers, commit message analysis,
-    etc.  Of course, there are times when standards get in the way, so
-    provide some method to temporarily disable the checks when
-    appropriate.
-
-    Ideally you would do it on the client side in a pre-commit hook
-    (perhaps have a directory of standard hooks in your repo and ask
-    users to install them) but since users will often not install said
-    hooks, you also need to enforce the standards on the server side.
-
-    Doing so in a update hook allows you to reject commits which don't
-    follow the standards.  You can also chide the user for not using
-    the standard client-side hook to begin with.
-
-    See http://projects.puppetlabs.com/projects/1/wiki/Puppet_Version_Control
-    for an example for a "Git Update Hook" and "Git Pre-Commit Hook" which
-    enforces certain standards.  Useful for ideas, anyway.
 
 
 ## Copyright
