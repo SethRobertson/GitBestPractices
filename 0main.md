@@ -783,9 +783,9 @@ negative effects of each and why they might be in a best practices
 * create very large repositories (when possible)
 
     Git can be slow in the face of large repositories. There are
-    git-config options which can help. `pack.threads=1;
-    pack.deltaCacheSize=1; pack.windowMemory=512m;
-    core.packedGitWindowSize=16m; core.packedGitLimit=128m.` Other
+    git-config options which can help. `pack.threads=1`
+    `pack.deltaCacheSize=1` `pack.windowMemory=512m`
+    `core.packedGitWindowSize=16m` `core.packedGitLimit=128m.` Other
     likely ones exist.
 
 * use reset (--hard || -merge) without committing/stashing
