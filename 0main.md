@@ -7,8 +7,27 @@ but still, this represents a consensus from #git.
 
 ## Index
 
+* [Read about git](#read)
+* [Commit early and often](#commit)
+* [Don't panic](#panic)
+* [Backups](#backups)
+* [Don't change published history](#pubonce)
+* [Choose a workflow](#workflow)
+* [Dividing work into repositories](#divide)
+* [Useful commit messages](#usemsg)
+* [Integration with external tools](#integration)
+* [Sausage Making](#sausage)
+* [Keeping up to date](#date)
+* [Periodic maintenance](#maintain)
+* [Experiment!](#experiment)
+* [Useful Tools](#tool)
 * [Miscellaneous](#misc)
+* [Don't](#donot)
+* [Copyright](#copyright)
+* [Thanks](#thanks)
+* [Comments](#comments)
 
+<a name="read" />
 ## Read about git
 
 Knowing where to look is half the battle.  I strongly urge everyone to
@@ -24,6 +43,7 @@ recommended by various people as well.
 * [Git wiki](http://git.wiki.kernel.org/)
 
 
+<a name="commit" />
 ## Commit early and often
 
 Git only takes full responsibility for your data when you commit.  If
@@ -47,6 +67,7 @@ be seen by all except in the most formal of circumstances.  Just look
 at the history of this gist!
 
 
+<a name="panic" />
 ## Don't panic
 
 As long as you have committed your work (or in many cases even added
@@ -140,6 +161,7 @@ gitk --all --date-order $(git stash list | awk -F: '{print $1};')
     people who have a copy of the repo, and look in other repos.
 
 
+<a name="backups" />
 ## Backups
 
 Everyone always recommends taking backups as best practice, and I am
@@ -179,6 +201,7 @@ for f in */.; do (cd $$f; echo $$f; git fetch); done
 ```
 
 
+<a name="pubonce" />
 ## Don't change published history
 
 Once you `git push` (or in theory someone pulls from your repo, but
@@ -194,6 +217,7 @@ problematic for everyone and and thus it is just not best practice to
 do so.
 
 
+<a name="workflow" />
 ## Choose a workflow
 
 Some people have called git a tool to create a SCM workflow instead of
@@ -334,6 +358,7 @@ this for free, but certain formal users may wish to use signed
 tags.  Watch for signed pushes in a future version of git.
 
 
+<a name="divide" />
 ## Dividing work into repositories
 
 Repositories sometimes get used to store things that they should not,
@@ -408,6 +433,7 @@ simply because they were there.  Try to avoid doing so.
         look back into history you can usually guess pretty well and
         in any case this is rarely needed).
 
+<a name="usemsg" />
 ## Useful commit messages
 
 Creating insightful and descriptive commit messages is one of the best
@@ -432,6 +458,7 @@ your standards on commit messages, when possible, through hooks.
 See "Enforce standards in hooks" below.
 
 
+<a name="integration" />
 ## Integration with external tools
 
 * Web views
@@ -488,6 +515,7 @@ is another packaged commit announcement system and of course many IRC
 robot frameworks can be found with simple web searches.
 
 
+<a name="sausage" />
 ## Sausage Making
 
 Some people like to hide the sausage making, or in other words pretend
@@ -530,6 +558,7 @@ Be sure you do all of this work *before* doing any non-squashed merges
 more complex and/or impossible afterwards.
 
 
+<a name="date" />
 ## Keeping up to date
 
 This section has some overlap with workflow.  Exactly how and when you
@@ -606,12 +635,14 @@ repository observer and in my book that is bad.  Use `git merge
 --no-ff`
 
 
+<a name="maintain" />
 ## Periodic maintenance
 
 * Clean up your git repo every so often.
 * Check your stash for forgotten work (`git stash list`)
 
 
+<a name="experiment" />
 ## Experiment!
 
 When you have an idea or are not sure what something does, try it out!
@@ -622,6 +653,7 @@ committed yet or perhaps you are not sure whether something falls in
 the category of "trying hard" to destroy history.
 
 
+<a name="tool" />
 ## Useful Tools
 
 More than useful, use of these tools may help you form a best
@@ -687,6 +719,7 @@ go in any other section.
     enforces certain standards.  Useful for ideas, anyway.
 
 
+<a name="tool" />
 ## Don't
 
 In this list of things to *not* do, it is important to remember that
@@ -798,6 +831,7 @@ negative effects of each and why they might be in a best practices
     But don't use git-replace either.
 
 
+<a name="copyright" />
 ## Copyright
 
 Copyright ⓒ 2012 Seth Robertson
@@ -809,11 +843,13 @@ http://creativecommons.org/licenses/by-sa/2.5/
 I would appreciate changes being sent back to me.
 
 
+<a name="thanks" />
 ## Thanks
 
 Thanks to the experts on #git for feedback and ideas.
 
 
+<a name="comments" />
 ## Comments
 
 Comments and improvements welcome.
