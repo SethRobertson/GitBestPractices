@@ -5,7 +5,9 @@ Git Best Practices
 This is a fairly common question, and there isn't a One True Answer,
 but still, this represents a consensus from #git.
 
-[TOC]
+## Index
+
+* [Miscellaneous](#misc)
 
 ## Read about git
 
@@ -643,7 +645,7 @@ practice!
     version control system.
 
 
-## Miscellaneous
+## Miscellaneous <a id="#misc" />
 
 These are random best practices which are too minor or disconnected to
 go in any other section.
