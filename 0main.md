@@ -639,7 +639,9 @@ The first two items should be run on your server repositories as well
 as your user repositories.
 
 * Validate your repo is sane (`git fsck`)
+
     You need not check dangling objects unless you are missing something
+
 * Compact your repo (`git gc --aggressive`)
 * Check your stash for forgotten work (`git stash list`)
 
