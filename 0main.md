@@ -1,9 +1,9 @@
-# Commit Often, Fix it Later, Publish Once
+# Commit Often, Fix it Later, Publish Once: Git Best Practices
 
-Git Best Practices
-
-This is a fairly common question, and there isn't a One True Answer,
-but still, this represents a consensus from #git.
+Best Practices vary from environment to environment, and there is no
+One True Answer, but still, this represents a consensus from #git and
+in some cases helps you frame the discussion for the generation of
+your very own best practices.
 
 ## Index
 
@@ -846,7 +846,8 @@ I would appreciate changes being sent back to me.
 <a name="thanks" />
 ## Thanks
 
-Thanks to the experts on #git for feedback and ideas.
+Thanks to the experts on #git, and my co-workers, for review,
+feedback, and ideas.
 
 
 <a name="comments" />
