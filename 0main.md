@@ -1,4 +1,4 @@
-# Commit Often, Fix it Later, Publish Once: Git Best Practices
+# Commit Often, Perfect Later, Publish Once: Git Best Practices
 
 Best Practices vary from environment to environment, and there is no
 One True Answer, but still, this represents a consensus from #git and
