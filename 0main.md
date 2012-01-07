@@ -5,7 +5,7 @@ One True Answer, but still, this represents a consensus from #git and
 in some cases helps you frame the discussion for the generation of
 your very own best practices.
 
-## Index
+## Table of Contents
 
 * [Read about git](#read)
 * [Commit early and often](#commit)
@@ -635,7 +635,12 @@ repository observer and in my book that is bad.  Use `git merge
 <a name="maintain" />
 ## Periodic maintenance
 
-* Clean up your git repo every so often.
+The first two items should be run on your server repositories as well
+as your user repositories.
+
+* Validate your repo is sane (`git fsck`)
+    You need not check dangling objects unless you are missing something
+* Compact your repo (`git gc --aggressive`)
 * Check your stash for forgotten work (`git stash list`)
 
 
