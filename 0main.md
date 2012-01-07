@@ -174,16 +174,19 @@ commands where your goal is to permanently destroy history without
 recourse—if you mess it up you may not have recourse). Still, perhaps
 you want a more formal system.
 
-Traditional backups are still appropriate.  A normal tarball, cp,
-rsync, zip, rar or similar backup copy will be a perfectly fine
-backup.  As long as the underlying filesystem doesn't reorder git I/O
-dramatically, there is not a long time delay between the scanning of
-the directory and the retrieval of the files, the resulting copy of
-.git should be consistent under almost all circumstances.  Of course,
-if you have a backup from in the middle of a git operation, you might
-need to do some recovery.  The data should all be present though.
-When performing git experiments involving the working directory, a
-copy instead of a clone may be more appropriate.
+Traditional backups are still appropriate, and clones do not save git
+configurations, the working directory and index, non-standard refs, or
+dangling objects anyway.  A normal tarball, cp, rsync, zip, rar or
+similar backup copy will be a perfectly fine backup.  As long as the
+underlying filesystem doesn't reorder git I/O dramatically and there
+is not a long time delay between the scanning of the directory and the
+retrieval of the files, the resulting copy of .git should be
+consistent under almost all circumstances including if taken while git
+operations are in progress.  Of course, if you have a backup from in
+the middle of a git operation, you might need to do some recovery.
+The data should all be present though.  When performing git
+experiments involving the working directory, a copy instead of a clone
+may be more appropriate.
 
 However, if you want a "pure git" solution, something like, which clones
 everything in a directory of repos, this may be what you need:
