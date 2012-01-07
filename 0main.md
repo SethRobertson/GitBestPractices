@@ -14,6 +14,7 @@ recommended by various people as well.
 * [Git for Computer Scientists](http://eagain.net/articles/git-for-computer-scientists/) and a [different/updated version](http://sitaramc.github.com/gcs/)
 * [Git from the Bottom Up](http://ftp.newartisans.com/pub/git.from.bottom.up.pdf)
 * [Git for Web Designers](http://www.webdesignerdepot.com/2009/03/intro-to-git-for-web-designers/)
+* [The Git Parable](http://tom.preston-werner.com/2009/05/19/the-git-parable.html)
 * [Other resources](http://git-scm.com/documentation)
 * [Git wiki](http://git.wiki.kernel.org/)
 
@@ -491,7 +492,7 @@ demand this, but that is not necessarily a good reason for you to
 demand this as well.
 
 What *is* a good reason to hide the sausage making is if you feel you
-may be cherry-picking commits a lot (though this too if often a sign
+may be cherry-picking commits a lot (though this too is often a sign
 of bad workflow).  Having one or a small number of commits to pick is
 much easier than having to find one commit here, one there, and half
 of this other one.  The latter approach makes your problem much much
@@ -602,7 +603,7 @@ repository observer and in my book that is bad.  Use `git merge
 
 ## Periodic maintenance
 
-* Clean up your git repro every so often.
+* Clean up your git repo every so often.
 * Check your stash for forgotten work (`git stash list`)
 
 
