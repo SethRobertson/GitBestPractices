@@ -842,7 +842,8 @@ Creative Commons Attribution-ShareAlike 2.5 Generic (CC BY-SA 2.5)
 
 http://creativecommons.org/licenses/by-sa/2.5/
 
-I would appreciate changes being sent back to me.
+I would appreciate changes being sent back to me and being notified if
+this is used or highlighted in some special way.  Thanks.
 
 
 <a name="thanks" />
