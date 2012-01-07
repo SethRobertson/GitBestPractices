@@ -58,7 +58,7 @@ resisting this is ignorant.  *Commit Early And Often*.  If, after you
 are done, you want to pretend to the outside world that your work
 sprung complete from your mind into the repository in utter perfection
 with each concept fully thought out and divided into individual
-concept-commits, well git supports that: see Sausage Making below.
+concept-commits, well git supports that: see [Sausage Making](#sausage) below.
 However, don't let tomorrow's beauty stop you from performing
 continuous commits today.
 
@@ -77,7 +77,7 @@ unless you really work at it (run commands which manually purge it).
 When attempting to find your lost commits, first make *sure* you will
 not lose any current work.  You should commit or stash your current
 work before performing any recovery efforts which might destroy your
-current work and perhaps take backups of it (see Backups below).
+current work and perhaps take backups of it (see [Backups](#backups) below).
 After finding the commits you can reset, rebase, cherry-pick, merge,
 or otherwise do what is necessary to get the commit history and work
 tree you desire.
@@ -452,7 +452,7 @@ tools, including bug/issue/request tracking numbers in your commit
 messages provides a great deal of associated information to people
 trying to understand what is going on.  You should also enforce
 your standards on commit messages, when possible, through hooks.
-See "Enforce standards in hooks" below.
+See [Enforce standards in hooks](#enforce) below.
 
 
 <a name="integration" />
@@ -698,6 +698,7 @@ go in any other section.
     copy.  See the -C and -M options to `git log` (and similar
     commands).
 
+<a name="enforce" />
 * Enforce standards in hooks
 
     Having standards is a best practice and will improve the quality
@@ -740,7 +741,7 @@ negative effects of each and why they might be in a best practices
     jars, .class, flex/yacc generated code, etc.  Really the only
     place there is room for disagreement about this is if something
     might take hours to regenerate (rendered images, eg, but see
-    "Dividing work into repositories" for more best practices about
+    [Dividing work into repositories](#divide) for more best practices about
     this) or autoconf generated files (so people can configure and
     compile without autotools installed).
 
@@ -806,15 +807,15 @@ negative effects of each and why they might be in a best practices
 
 * rewrite public history
 
-    See section about this topic.  It bears repeating, though.
+    See [section about this topic](#pubonce).  It bears repeating, though.
 
 * change where a tag points
 
-    This is another way to rewrite public history.
+    This is another way to [rewrite public history](#pubonce).
 
 * use git-filter-branch
 
-    Still another way to rewrite public history.
+    Still another way to [rewrite public history](#pubonce).
 
     However, if you are going to use git-filter-branch, make sure you
     end your command with ` --tag-name-filter cat -- --all` unless you
