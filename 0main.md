@@ -5,7 +5,11 @@ Git Best Practices
 This is a fairly common question, and there isn't a One True Answer,
 but still, this represents a consensus from #git.
 
-## [Read about git]()
+## [Index]
+
+* [Read about git](#readgit)
+
+## Read about git
 
 Knowing where to look is half the battle.  I strongly urge everyone to
 read (and support) the Pro Git book.  The other resources are highly
