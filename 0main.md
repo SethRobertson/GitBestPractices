@@ -645,7 +645,7 @@ practice!
     version control system.
 
 
-<a name="#misc" />
+<a id="misc" />
 ## Miscellaneous
 
 These are random best practices which are too minor or disconnected to
