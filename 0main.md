@@ -21,6 +21,7 @@ your very own best practices.
 * [Periodic maintenance](#maintain)
 * [Experiment!](#experiment)
 * [Useful Tools](#tool)
+* [Enforcing Standards](#enforce)
 * [Miscellaneous](#misc)
 * [Don't](#donot)
 * [Copyright](#copyright)
@@ -455,7 +456,7 @@ tools, including bug/issue/request tracking numbers in your commit
 messages provides a great deal of associated information to people
 trying to understand what is going on.  You should also enforce
 your standards on commit messages, when possible, through hooks.
-See [Enforce standards in hooks](#enforce) below.
+See [Enforcing standards](#enforce) below.
 
 
 <a name="integration" />
@@ -692,6 +693,46 @@ practice!
     version control system.
 
 
+<a name="enforce" />
+** Enforcing standards
+
+    Having standards is a best practice and will improve the quality
+    of your commits, code-base, and probably enhance git-bisect and
+    archeology functionality, but what is the use of a standard if
+    people ignore them?  Checks could involve regression tests,
+    compilation tests, syntax/lint checkers, commit message analysis,
+    etc.  Of course, there are times when standards get in the way of
+    doing work, so provide some method to temporarily disable the
+    checks when appropriate.
+
+    Traditionally, and in some people's views ideally, you would
+    enforce the checks on the client side in a pre-commit hook
+    (perhaps have a directory of standard hooks in your repo and might
+    ask users to install them) but since users will often not install
+    said hooks, you also need to enforce the standards on the server
+    side.  Additionally, if you follow the
+    commit-early-and-often-and-perfect-it-later philosophy that is
+    promoted in this document, initial commits may *not* satisfy the
+    hooks.
+
+    Enforcing standards in a update hook on the server allows you to
+    reject commits which don't follow the standards.  You can also
+    chide the user for not using the standard client-side hook to
+    begin with (if you recommend that approach).
+
+    See
+    http://projects.puppetlabs.com/projects/1/wiki/Puppet_Version_Control
+    for an example for a "Git Update Hook" and "Git Pre-Commit Hook"
+    which enforces certain standards.  Note that the update hook is
+    examining files individually instead of providing whole-repository
+    testing.  Whether individual files can be tested in isolation for
+    your standards or whether you need the whole repository (for
+    instance, any language where one file can reference or include
+    another might need whole repository checks) is of course a
+    personal choice.  The referenced examples are useful for ideas,
+    anyway.
+
+
 <a name="misc" />
 ## Miscellaneous
 
@@ -708,35 +749,6 @@ go in any other section.
     output commands are the ones which interpret the data as a move or
     copy.  See the -C and -M options to `git log` (and similar
     commands).
-
-<a name="enforce" />
-* Enforce standards in hooks
-
-    Having standards is a best practice and will improve the quality
-    of your commits, code-base, and probably enhance git-bisect and
-    archeology functionality, but what is the use of a standard if
-    people ignore them?  Checks could involve regression tests,
-    compilation tests, syntax/lint checkers, commit message analysis,
-    etc.  Of course, there are times when standards get in the way, so
-    provide some method to temporarily disable the checks when
-    appropriate.
-
-    Traditionally and in some people's views ideally you would do it
-    on the client side in a pre-commit hook (perhaps have a directory
-    of standard hooks in your repo and might ask users to install
-    them) but since users will often not install said hooks, you also
-    need to enforce the standards on the server side.  Additionally,
-    if you follow the commit-early-and-often-and-perfect-it-later
-    philosophy that is promoted in this document, initial commits may
-    *not* satisfy the hooks.
-
-    Doing so in a update hook allows you to reject commits which don't
-    follow the standards.  You can also chide the user for not using
-    the standard client-side hook to begin with.
-
-    See http://projects.puppetlabs.com/projects/1/wiki/Puppet_Version_Control
-    for an example for a "Git Update Hook" and "Git Pre-Commit Hook" which
-    enforces certain standards.  Useful for ideas, anyway.
 
 
 <a name="donot" />
