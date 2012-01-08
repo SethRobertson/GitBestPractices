@@ -721,10 +721,14 @@ go in any other section.
     provide some method to temporarily disable the checks when
     appropriate.
 
-    Ideally you would do it on the client side in a pre-commit hook
-    (perhaps have a directory of standard hooks in your repo and ask
-    users to install them) but since users will often not install said
-    hooks, you also need to enforce the standards on the server side.
+    Traditionally and in some people's views ideally you would do it
+    on the client side in a pre-commit hook (perhaps have a directory
+    of standard hooks in your repo and might ask users to install
+    them) but since users will often not install said hooks, you also
+    need to enforce the standards on the server side.  Additionally,
+    if you follow the commit-early-and-often-and-perfect-it-later
+    philosophy that is promoted in this document, initial commits may
+    *not* satisfy the hooks.
 
     Doing so in a update hook allows you to reject commits which don't
     follow the standards.  You can also chide the user for not using
