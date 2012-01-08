@@ -172,8 +172,8 @@ essentially every clone is a backup.  In many cases, you may want to
 use a clone for git experiments to perfect your method before trying
 it for real (this is most useful for `git filter-branch` and similar
 commands where your goal is to permanently destroy history without
-recourse—if you mess it up you may not have recourse). Still, perhaps
-you want a more formal system.
+recourse—if you mess it up you may not have recourse). Still, probably
+you need a more formal system as well.
 
 Traditional backups are still appropriate, and clones do not save git
 configurations, the working directory and index, non-standard refs, or
@@ -186,8 +186,8 @@ consistent under almost all circumstances including if taken while git
 operations are in progress.  Of course, if you have a backup from in
 the middle of a git operation, you might need to do some recovery.
 The data should all be present though.  When performing git
-experiments involving the working directory, a copy instead of a clone
-may be more appropriate.
+experiments involving items other than normally reachable commits, a
+copy instead of a clone may be more appropriate.
 
 However, if you want a "pure git" solution, something like, which clones
 everything in a directory of repos, this may be what you need:
@@ -217,7 +217,7 @@ that you messed up, make new commits which fix the problems (possibly
 by revert, possibly by patching, etc).
 
 Yes, of course git allows you to rewrite public history, but it is
-problematic for everyone and and thus it is just not best practice to
+problematic for everyone and thus it is just not best practice to
 do so.
 
 
@@ -242,6 +242,7 @@ Answering the following questions helps you choose a branch workflow:
 * Where do important phases of development occur?
 * How can you identify (and backport) groups of related change?
 * What happens when emergency patches are required?
+* What should a branch for a particular purpose (including user-tactical) be named?
 
 See the following references for more information on branch
 workflows.
