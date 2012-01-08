@@ -694,7 +694,7 @@ practice!
 
 
 <a name="enforce" />
-** Enforcing standards
+## Enforcing standards
 
     Having standards is a best practice and will improve the quality
     of your commits, code-base, and probably enhance git-bisect and
