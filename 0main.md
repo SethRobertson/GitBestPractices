@@ -466,12 +466,13 @@ See [Enforcing standards](#enforce) below.
 * Web views
 
 This is pretty standard stuff, but still a best practice.  Setting up
-a tool like gitweb (or cgit or whatever) to allow URL reference to
-commits (among other visualization interfaces it provides) gives
-people a great way to refer to commits in email and conversations.  If
-someone can click on a link vs having to fire up git and pull down the
-latest changes and start up some visualization tool they are much more
-likely to help you.
+a tool like [gitweb](http://jk.gs/gitweb.html) (or
+[cgit](http://hjemli.net/git/cgit/) or whatever) to allow URL
+reference to commits (among other visualization interfaces it
+provides) gives people a great way to refer to commits in email and
+conversations.  If someone can click on a link vs having to fire up
+git and pull down the latest changes and start up some visualization
+tool they are much more likely to help you.
 
 * Bug tracking
 
@@ -495,7 +496,7 @@ message, and likewise in the tracker message, hyperlink to the web
 view of the commit.
 
 Notes: some commits can apply to multiple bugs.  Generate a standard
-and code to handle this standard. Also, if you do hour tracking, you
+and code to handle this standard. Also, if you do hours tracking, you
 may want a syntax to handle that.  (eg. "Bug 12346w/5: Bug 12347rw/3:
 Adjust the frobnoz up by .3")
 
