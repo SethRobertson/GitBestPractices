@@ -274,8 +274,9 @@ suggest larger numbers of branches (note the number of branches is
 the tail, not the dog: more branches will not make you release
 faster).
 
-Oh, and decide branch naming conventions.  Don't be afraid of / in
-the branch name when appropriate.
+Oh, and decide branch naming conventions for both official branches
+and user or team-specific branches.  Don't be afraid of / in the
+branch name when appropriate.
 
 ### Distributed workflows
 
