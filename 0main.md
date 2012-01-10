@@ -275,8 +275,8 @@ the tail, not the dog: more branches will not make you release
 faster).
 
 Oh, and decide branch naming conventions for both official branches
-and user or team-specific branches.  Don't be afraid of / in the
-branch name when appropriate.
+and user or team-specific branches.  Don't be afraid of "/" in the
+branch name when appropriate (but do be afraid of ":").
 
 ### Distributed workflows
 
@@ -831,9 +831,10 @@ negative effects of each and why they might be in a best practices
 
 * use git as a generic filesystem backup tool
 
-    Yes people have done it successfully, but usually with lots of
-    scripts around it and with some toothing pains.  Git was not
-    written as a dedicated backup tool, and such tools do exist.
+    Git was not written as a dedicated backup tool, and such tools do
+    exist. Yes people have done it successfully, but usually with lots
+    of scripts or modifications around it.  One successful example of
+    integration/modifications is [bup](http://github.com/apenwarr/bup).
 
 * rewrite public history
 
