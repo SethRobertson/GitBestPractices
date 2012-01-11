@@ -183,11 +183,14 @@ underlying filesystem doesn't reorder git I/O dramatically and there
 is not a long time delay between the scanning of the directory and the
 retrieval of the files, the resulting copy of .git should be
 consistent under almost all circumstances including if taken while git
-operations are in progress.  Of course, if you have a backup from in
-the middle of a git operation, you might need to do some recovery.
-The data should all be present though.  When performing git
-experiments involving items other than normally reachable commits, a
-copy instead of a clone may be more appropriate.
+operations are in progress, though see also [discussions about custom
+backup techniques to ensure git
+consistency](http://thread.gmane.org/gmane.comp.version-control.git/168699).
+Of course, if you have a backup from in the middle of a git operation,
+you might need to do some recovery.  The data should all be present
+though.  When performing git experiments involving items other than
+normally reachable commits, a copy instead of a clone may be more
+appropriate.
 
 However, if you want a "pure git" solution, something like, which clones
 everything in a directory of repos, this may be what you need:
