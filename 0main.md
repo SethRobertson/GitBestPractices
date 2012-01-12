@@ -543,7 +543,7 @@ See [Enforcing standards](#enforce) below.
     * Pastebin-like private text paste service
 
 	The free internet pastebin services are great and very useful,
-	but you cannot paste proprietary information into them.  So
+	but you cannot paste proprietary information into them.	 So
 	bring one of those services up yourself.
 
     * Tinypic-like private image paste service
@@ -554,7 +554,7 @@ See [Enforcing standards](#enforce) below.
     * URL shortener
 
 	The justification for a URL shortener is a little weaker than
-	text/image paste services, but it still exists.  Since it is a
+	text/image paste services, but it still exists.	 Since it is a
 	trivial server, you might as well bring it up for proprietary
 	URLs.
 
@@ -573,18 +573,18 @@ See [Enforcing standards](#enforce) below.
 
     * VMs (with VNC sharing) for most services
 
-        Instead of having dedicated hardware, create VMs for your
+	Instead of having dedicated hardware, create VMs for your
 	critical services.  The VM images then can be more easily
 	backed up, moved around, and have less wasted resources.  Of
 	course, don't forget the admonition to have a portable
 	multiuser console system like VNC for console access.
-	Personally, I use KVM-QEMU for my virtualization needs.  It is
+	Personally, I use KVM-QEMU for my virtualization needs.	 It is
 	free and works great.
 
     * Audio conference
 
-        My sources tell me you can get a plugin for asterisk which
-	will give you free conference services.  Since you are of
+	My sources tell me you can get a plugin for asterisk which
+	will give you free conference services.	 Since you are of
 	course using VOIP for your communication, you then should have
 	essentially free internal conferencing.
 
