@@ -37,7 +37,6 @@ recommended by various people as well.
 * [Pro Git](http://progit.org/book/)
 * [Git for Computer Scientists](http://eagain.net/articles/git-for-computer-scientists/) and a [different/updated version](http://sitaramc.github.com/gcs/)
 * [Git from the Bottom Up](http://ftp.newartisans.com/pub/git.from.bottom.up.pdf)
-* [Git for Web Designers](http://www.webdesignerdepot.com/2009/03/intro-to-git-for-web-designers/)
 * [The Git Parable](http://tom.preston-werner.com/2009/05/19/the-git-parable.html)
 * [Other resources](http://git-scm.com/documentation)
 * [Git wiki](http://git.wiki.kernel.org/)
