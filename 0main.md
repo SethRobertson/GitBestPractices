@@ -661,7 +661,24 @@ as your user repositories.
     You need not check dangling objects unless you are missing something
 
 * Compact your repo (`git gc --aggressive`)
+
+    This will removed outdated dangling objects (after the two+ week
+    grace period).  It will also compress any loose objects git has
+    added since your last gc.  git will run gc automatically after
+    certain commands, but doing a manual --aggressive will save space
+    and speed git operations.
+
+* Prune your remote tracking branches (`git remote | xargs -n1 git remote prune`)
+
+    This will get rid of any branches which were deleted upstream
+    since you cloned/pruned.  It normally isn't a major problem one
+    way or another, but it might lead to confusion.
+
 * Check your stash for forgotten work (`git stash list`)
+
+    If you don't do it very often, the context for the stashed work
+    will be forgotten when you finally do stumble on it, creating
+    confusion.
 
 
 <a name="experiment" />
