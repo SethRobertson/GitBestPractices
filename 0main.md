@@ -309,20 +309,20 @@ to create their own repositories for their own tactical reasons.
 Even having to fill out a justification form is probably too
 cumbersome.
 
-### Release workflow
+### Release tagging
 
 Deciding on your release workflow (how to get the code to the
-customer) is another important area to decide on.  I will not
-touch on this much, but it can have an effect on how you use git.
-Obviously branching and distributed workflows might affect this,
-but less obviously, it may affect how and when you perform
-tagging, and specifically the name of the tag you use.
+customer) is another important area to decide on, but I will not touch
+on this much.  You should have already considered most of the issues
+when going over the branching and distributed workflow above, but less
+obviously, it may affect how and when you perform tagging, and
+specifically the name of the tag you use.
 
 At first glance, it is a no-brainer.  When you release something you
-tag something, and I *highly* recommend this.  However, tags should be
-treated as immutable once you push.  Well, that only makes sense, you
-might think to yourself, but consider this: five minutes after
-everyone has signed off on the 2.0 release, it has been tagged
+tag something, and of course I *highly* recommend this.  However, tags
+should be treated as immutable once you push.  Well, that only makes
+sense, you might think to yourself, but consider this: five minutes
+after everyone has signed off on the 2.0 release, it has been tagged
 Frobber_Release_2.0 and pushed, but before any customer has seen the
 resulting product someone comes running in "OMFG, the foobar is broken
 when you frobnoz the baz."  What do you do?  Do you skip release 2.0
@@ -330,13 +330,20 @@ and tag 2.0.1?  Do you do a take-back and go to every repo of every
 developer and delete the 2.0 tag?
 
 Two ideas for your consideration.  Instead of a release tag, use a
-release branch (and then stop committing to that branch after release,
-disabling write access to it in
+release branch with the marketing name (and then stop committing to
+that branch after release, disabling write access to it in
 [gitolite](https://github.com/sitaramc/gitolite) or something).
 Another idea, use an internal tag name which is not directly derived
 from the version number which marketing wishes to declare to the
-outside world.  Ideally use both which limits the disadvantages of
-either technique, but less so than pure marketing-version tags.
+outside world.  The problem with the branch idea is that if you cannot
+(or forget to) disable write access then someone might accidentally
+commit to that branch, leading to confusion about what was actually
+released to the customer.  The problem with the tag idea is that you
+need to remember what the final shipped tag name is, independent from
+the release name.  However, if you use both techniques, they cover for
+each other's disadvantages.  In any case, using either technique will
+be better than using marketing-version tags (as I know from
+experience).
 
 ### Security model
 
