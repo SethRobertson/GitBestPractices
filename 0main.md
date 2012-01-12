@@ -514,9 +514,9 @@ Adjust the frobnoz up by .3")
 * IRC/chat rooms
 
 This is not a global best practice, but for certain sized
-organizations may be very useful.  Specifically, to have a chat room
-(IRC) to discuss issues and problems, and to have a robot in that chat
-room to provide assistance.  When someone talks about Bug 1234,
+organizations/teams may be very useful.  Specifically, to have a chat
+room (IRC) to discuss issues and problems, and to have a robot in that
+chat room to provide assistance.  When someone talks about Bug 1234,
 provide a hyperlink to that ticket.  When someone pushes some commits
 or adds a bug, it could announce same.  All sorts of things are
 possible (RFC lookups, MAC vendor lookups, Eliza psychoanalysis, etc)
@@ -527,6 +527,67 @@ you get git announcements for free.  Said robot will not provide any
 additional value added services you might want.  [CIA](http://cia.vc)
 is another packaged commit announcement system and of course many IRC
 robot frameworks can be found with simple web searches.
+
+* Wikis
+
+Having convenient syntax to link to bugs in your bug tracking system
+and branches/tags/commits in your gitweb again makes all three systems
+more useful.  Increased synergy through integration!
+
+* Other services
+
+While I have your attention, there are a few other services which you
+should probably bring up as a best practice for your organization;
+which have only limited git applicability:
+
+    * Pastebin-like private text paste service
+
+	The free internet pastebin services are great and very useful,
+	but you cannot paste proprietary information into them.  So
+	bring one of those services up yourself.
+
+    * Tinypic-like private image paste service
+
+	Likewise, bringing up a image paste service has the same
+	justification and the same benefit.  Just do it.
+
+    * URL shortener
+
+	The justification for a URL shortener is a little weaker than
+	text/image paste services, but it still exists.  Since it is a
+	trivial server, you might as well bring it up for proprietary
+	URLs.
+
+    * VNC-sharing of server consoles
+
+	When you have servers (machines without humans in front of
+	them all of the time), make sure that the console is available
+	virtually.  Getting a bog-standard KVM to mediate access to
+	the consoles is good, but what you really need to do is get a
+	VNC passthrough device (like the AdderLink IPEPS and friends)
+	attached to the KVM so that you can have remote access to the
+	servers.  Remember, if you have to get up out of your seat,
+	you have failed.  If you need multiple users having
+	simultaneous access to the servers, you can get a
+	multi-console multi-server KVM.
+
+    * VMs (with VNC sharing) for most services
+
+        Instead of having dedicated hardware, create VMs for your
+	critical services.  The VM images then can be more easily
+	backed up, moved around, and have less wasted resources.  Of
+	course, don't forget the admonition to have a portable
+	multiuser console system like VNC for console access.
+	Personally, I use KVM-QEMU for my virtualization needs.  It is
+	free and works great.
+
+    * Audio conference
+
+        My sources tell me you can get a plugin for asterisk which
+	will give you free conference services.  Since you are of
+	course using VOIP for your communication, you then should have
+	essentially free internal conferencing.
+
 
 
 <a name="sausage" />
