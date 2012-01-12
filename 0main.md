@@ -15,13 +15,12 @@ your very own best practices.
 * [Choose a workflow](#workflow)
 * [Dividing work into repositories](#divide)
 * [Useful commit messages](#usemsg)
-* [Integration with external tools](#integration)
 * [Sausage Making](#sausage)
 * [Keeping up to date](#date)
 * [Periodic maintenance](#maintain)
-* [Experiment!](#experiment)
-* [Useful Tools](#tool)
 * [Enforcing Standards](#enforce)
+* [Useful Tools](#tool)
+* [Integration with external tools](#integration)
 * [Miscellaneous](#misc)
 * [Don't](#donot)
 * [Copyright](#copyright)
@@ -463,144 +462,12 @@ Also see [A Note About Git Commit
 Messages](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
 for even more good ideas.
 
-While this touches with the next topic of integration with external
-tools, including bug/issue/request tracking numbers in your commit
+While this touches with a later topic of [integration with external
+tools](#integration), including bug/issue/request tracking numbers in your commit
 messages provides a great deal of associated information to people
 trying to understand what is going on.  You should also enforce
 your standards on commit messages, when possible, through hooks.
 See [Enforcing standards](#enforce) below.
-
-
-<a name="integration" />
-## Integration with external tools
-
-Increasing communication and decreasing friction and roadblocks to
-your developer's work will have many advantages.  If you make
-something easy, convenient, and useful to do, people might just well
-do it.
-
-* Web views
-
-    This is pretty standard stuff, but still a best practice.  Setting up
-    a tool like [gitweb](http://jk.gs/gitweb.html) (or
-    [cgit](http://hjemli.net/git/cgit/) or whatever) to allow URL
-    reference to commits (among other visualization interfaces it
-    provides) gives people a great way to refer to commits in email and
-    conversations.  If someone can click on a link vs having to fire up
-    git and pull down the latest changes and start up some visualization
-    tool they are much more likely to help you.
-
-* Bug tracking
-
-    Industry best practice suggests that you should have a bug tracking
-    system.  Hopefully you do.  Well, I'm hear to tell you that
-    integrating your bug tracking system with git makes the two systems
-    one thousand times more effective.  Specifically, come up with a
-    standard for tagging commits with bug numbers (eg. "Bug 1234: Adjust
-    the frobnoz down by .5") and then have a receive hook on the upstream
-    repo which automatically appends that commit information to the
-    ticket. If you really love your developers, develop syntax which lets
-    them close the ticket as part of the commit message (eg. "Bug 1235r:
-    Adjust the frobnoz up by .25").
-
-    The easier a system is for people to use, the more likely they will
-    use it.  Being able to see the context which caused the commit to
-    happen (or contrary-wise, being able to find the commit which solved a
-    problem) is incredibly useful.  When you send out your commit
-    announcements, make sure to hyperlink the bug tracker in the commit
-    message, and likewise in the tracker message, hyperlink to the web
-    view of the commit.
-
-    Notes: some commits can apply to multiple bugs.  Generate a standard
-    and code to handle this standard. Also, if you do hours tracking, you
-    may want a syntax to handle that.  (eg. "Bug 12346w/5: Bug 12347rw/3:
-    Adjust the frobnoz up by .3")
-
-* IRC/chat rooms/bots
-
-    Having an IRC server with some standard channels to discuss issues
-    and problems provides a great benefit both tactically and
-    strategically (it helps teach both the questioner and the
-    answerer). Adding a robot in those chat room to provide assistance
-    adds significant value.  When someone talks about Bug 1234, the
-    bot can provide a hyperlink to that ticket.  When someone pushes
-    some commits or adds a bug, it could announce those facts.  All
-    sorts of things are possible (RFC lookups, MAC vendor lookups,
-    Eliza psychoanalysis, etc) but there is a fine line between
-    usefulness and overwhelming noise.
-
-    If you use github, github provides an "IRC" "Service Hooks" which lets
-    you get git announcements for free.  Said robot will not provide any
-    additional value added services you might want.  [CIA](http://cia.vc)
-    is another packaged commit announcement system and of course many IRC
-    robot frameworks can be found with simple web searches.
-
-* Wikis
-
-    Having convenient syntax to link to bugs in your bug tracking system
-    and branches/tags/commits in your gitweb again makes all three systems
-    more useful.  Increased synergy through integration!
-
-* Other services
-
-    While I have your attention, there are a few other services which you
-    should probably bring up as a best practice for your organization;
-    which have only limited git applicability:
-
-    * Pastebin-like private text paste service
-
-        The free internet pastebin services are great and very useful, but
-        you cannot paste proprietary information into them. So bring one
-        of those services up yourself.
-
-    * Tinypic-like private image paste service
-
-        Likewise, bringing up a image paste service has the same
-        justification and the same benefit. Just do it.
-
-    * URL shortener
-
-        The justification for a URL shortener is a little weaker than
-        text/image paste services, but it still exists. Since it is a
-        trivial server, you might as well bring it up for proprietary
-        URLs.
-
-    * VNC-sharing of server consoles
-
-        When you have servers (machines without humans in front of them
-        all of the time), make sure that the console is available
-        virtually.  Getting a bog-standard KVM to mediate access to the
-        consoles is good, but what you really need to do is get a VNC
-        passthrough device (like the AdderLink IPEPS and friends) attached
-        to the KVM so that you can have remote access to the servers.
-        Remember, if you have to get up out of your seat, you have failed.
-        If you need multiple users having simultaneous access to the
-        servers, you can get a multi-console multi-server KVM.
-
-        Having a VNC console access allows users to more easily
-        consult with each other on problems.
-
-    * VMs (with VNC sharing) for most services
-
-        Instead of having dedicated hardware, create VMs for your critical
-        services.  The VM images then can be more easily backed up, moved
-        around, and have less wasted resources. Of course, don't forget
-        the admonition to have a portable multiuser console system like
-        VNC for console access.  Personally, I use KVM-QEMU for my
-        virtualization needs. It is free and works great.
-
-        Having a VNC console access allows users to more easily
-        consult with each other on problems.
-
-    * Audio conference
-
-        An audio conferencing service provides another low-friction
-        method of increasing communication, which speeds development.
-        My sources tell me you can get a plugin for asterisk which
-        will give you free conference services. Since you are of
-        course using VOIP for your communication, you then should have
-        essentially free internal conferencing.
-
 
 
 <a name="sausage" />
@@ -762,41 +629,6 @@ as your user repositories.
     confusion.
 
 
-<a name="experiment" />
-## Experiment!
-
-When you have an idea or are not sure what something does, try it out!
-Ideally try it out in a clone or copy so that recovery is trivial.
-While you can normally completely recover from any git experiment
-involving data which has been fully committed, perhaps you have not
-committed yet or perhaps you are not sure whether something falls in
-the category of "trying hard" to destroy history.
-
-
-<a name="tool" />
-## Useful Tools
-
-More than useful, use of these tools may help you form a best
-practice!
-
-* [gitolite](https://github.com/sitaramc/gitolite)
-
-    We already mentioned gitolite above, but it forms a great git
-    server intermediary for access control.
-
-* [gitslave](http://gitslave.sf.net)
-
-    We already mentioned gitslave above, but it forms a great
-    alternative to git-submodules when forming superprojects out of
-    repositories you control.
-
-* [gerrit](http://code.google.com/p/gerrit/)
-
-    To quote the website: Gerrit is a web based code review system,
-    facilitating online code reviews for projects using the Git
-    version control system.
-
-
 <a name="enforce" />
 ## Enforcing standards
 
@@ -837,6 +669,161 @@ personal choice.  The referenced examples are useful for ideas,
 anyway.
 
 
+<a name="tool" />
+## Useful Tools
+
+More than useful, use of these tools may help you form a best
+practice!
+
+* [gitolite](https://github.com/sitaramc/gitolite)
+
+    We already mentioned gitolite above, but it forms a great git
+    server intermediary for access control.
+
+* [gitslave](http://gitslave.sf.net)
+
+    We already mentioned gitslave above, but it forms a great
+    alternative to git-submodules when forming superprojects out of
+    repositories you control.
+
+* [gerrit](http://code.google.com/p/gerrit/)
+
+    To quote the website: Gerrit is a web based code review system,
+    facilitating online code reviews for projects using the Git
+    version control system.
+
+
+<a name="integration" />
+## Integration with external tools
+
+Increasing communication and decreasing friction and roadblocks to
+your developer's work will have many advantages.  If you make
+something easy, convenient, and useful to do, people might just well
+do it.
+
+* Web views
+
+    This is pretty standard stuff, but still a best practice.  Setting up
+    a tool like [gitweb](http://jk.gs/gitweb.html) (or
+    [cgit](http://hjemli.net/git/cgit/) or whatever) to allow URL
+    reference to commits (among other visualization interfaces it
+    provides) gives people a great way to refer to commits in email and
+    conversations.  If someone can click on a link vs having to fire up
+    git and pull down the latest changes and start up some visualization
+    tool they are much more likely to help you.
+
+* Bug tracking
+
+    Industry best practice suggests that you should have a bug tracking
+    system.  Hopefully you do.  Well, I'm hear to tell you that
+    integrating your bug tracking system with git makes the two systems
+    one thousand times more effective.  Specifically, come up with a
+    standard for tagging commits with bug numbers (eg. "Bug 1234: Adjust
+    the frobnoz down by .5") and then have a receive hook on the upstream
+    repo which automatically appends that commit information to the
+    ticket. If you really love your developers, develop syntax which lets
+    them close the ticket as part of the commit message (eg. "Bug 1235r:
+    Adjust the frobnoz up by .25").
+
+    The easier a system is for people to use, the more likely they will
+    use it.  Being able to see the context which caused the commit to
+    happen (or contrary-wise, being able to find the commit which solved a
+    problem) is incredibly useful.  When you send out your commit
+    announcements, make sure to hyperlink the bug tracker in the commit
+    message, and likewise in the tracker message, hyperlink to the web
+    view of the commit.
+
+    Notes: some commits can apply to multiple bugs.  Generate a standard
+    and code to handle this standard. Also, if you do hours tracking, you
+    may want a syntax to handle that.  (eg. "Bug 12346w/5: Bug 12347rw/3:
+    Adjust the frobnoz up by .3")
+
+* IRC/chat rooms/bots
+
+    Having an IRC server with some standard channels to discuss issues
+    and problems provides a great benefit both tactically and
+    strategically (it helps teach both the questioner and the
+    answerer). Adding a robot in those chat room to provide assistance
+    adds significant value.  When someone talks about Bug 1234, the
+    bot can provide a hyperlink to that ticket.  When someone pushes
+    some commits or adds a bug, it could announce those facts.  All
+    sorts of things are possible (RFC lookups, MAC vendor lookups,
+    Eliza psychoanalysis, etc) but there is a fine line between
+    usefulness and overwhelming noise.
+
+    If you use github, github provides an "IRC" "Service Hooks" which lets
+    you get git announcements for free.  Said robot will not provide any
+    additional value added services you might want.  [CIA](http://cia.vc)
+    is another packaged commit announcement system and of course many IRC
+    robot frameworks can be found with simple web searches.
+
+* Wikis
+
+    Having convenient syntax to link to bugs in your bug tracking system
+    and branches/tags/commits in your gitweb again makes all three systems
+    more useful.  Increased synergy through integration!
+
+* Other services
+
+    While I have your attention, there are a few other services which you
+    should probably bring up as a best practice for your organization;
+    which have only limited git applicability:
+
+    * Pastebin-like private text paste service
+
+        The free internet pastebin services are great and very useful, but
+        you cannot paste proprietary information into them. So bring one
+        of those services up yourself.
+
+    * Tinypic-like private image paste service
+
+        Likewise, bringing up a image paste service has the same
+        justification and the same benefit. Just do it.
+
+    * URL shortener
+
+        The justification for a URL shortener is a little weaker than
+        text/image paste services, but it still exists. Since it is a
+        trivial server, you might as well bring it up for proprietary
+        URLs.
+
+    * VNC-sharing of server consoles
+
+        When you have servers (machines without humans in front of them
+        all of the time), make sure that the console is available
+        virtually.  Getting a bog-standard KVM to mediate access to the
+        consoles is good, but what you really need to do is get a VNC
+        passthrough device (like the AdderLink IPEPS and friends) attached
+        to the KVM so that you can have remote access to the servers.
+        Remember, if you have to get up out of your seat, you have failed.
+        If you need multiple users having simultaneous access to the
+        servers, you can get a multi-console multi-server KVM.
+
+        Having a VNC console access allows users to more easily
+        consult with each other on problems.
+
+    * VMs (with VNC sharing) for most services
+
+        Instead of having dedicated hardware, create VMs for your critical
+        services.  The VM images then can be more easily backed up, moved
+        around, and have less wasted resources. Of course, don't forget
+        the admonition to have a portable multiuser console system like
+        VNC for console access.  Personally, I use KVM-QEMU for my
+        virtualization needs. It is free and works great.
+
+        Having a VNC console access allows users to more easily
+        consult with each other on problems.
+
+    * Audio conference
+
+        An audio conferencing service provides another low-friction
+        method of increasing communication, which speeds development.
+        My sources tell me you can get a plugin for asterisk which
+        will give you free conference services. Since you are of
+        course using VOIP for your communication, you then should have
+        essentially free internal conferencing.
+
+
 <a name="misc" />
 ## Miscellaneous
 
@@ -854,6 +841,14 @@ go in any other section.
     copy.  See the -C and -M options to `git log` (and similar
     commands).
 
+* Experiment!
+
+    When you have an idea or are not sure what something does, try it out!
+    Ideally try it out in a clone or copy so that recovery is trivial.
+    While you can normally completely recover from any git experiment
+    involving data which has been fully committed, perhaps you have not
+    committed yet or perhaps you are not sure whether something falls in
+    the category of "trying hard" to destroy history.
 
 <a name="donot" />
 ## Don't
