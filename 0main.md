@@ -542,49 +542,51 @@ See [Enforcing standards](#enforce) below.
 
     * Pastebin-like private text paste service
 
-    The free internet pastebin services are great and very useful, but
-    you cannot paste proprietary information into them. So bring one
-    of those services up yourself.
+        The free internet pastebin services are great and very useful, but
+        you cannot paste proprietary information into them. So bring one
+        of those services up yourself.
 
     * Tinypic-like private image paste service
 
-    Likewise, bringing up a image paste service has the same
-    justification and the same benefit. Just do it.
+        Likewise, bringing up a image paste service has the same
+        justification and the same benefit. Just do it.
 
     * URL shortener
 
-    The justification for a URL shortener is a little weaker than
-    text/image paste services, but it still exists. Since it is a
-    trivial server, you might as well bring it up for proprietary
-    URLs.
+        The justification for a URL shortener is a little weaker than
+        text/image paste services, but it still exists. Since it is a
+        trivial server, you might as well bring it up for proprietary
+        URLs.
 
     * VNC-sharing of server consoles
 
-    When you have servers (machines without humans in front of them
-    all of the time), make sure that the console is available
-    virtually.  Getting a bog-standard KVM to mediate access to the
-    consoles is good, but what you really need to do is get a VNC
-    passthrough device (like the AdderLink IPEPS and friends) attached
-    to the KVM so that you can have remote access to the servers.
-    Remember, if you have to get up out of your seat, you have failed.
-    If you need multiple users having simultaneous access to the
-    servers, you can get a multi-console multi-server KVM.
+        When you have servers (machines without humans in front of them
+        all of the time), make sure that the console is available
+        virtually.  Getting a bog-standard KVM to mediate access to the
+        consoles is good, but what you really need to do is get a VNC
+        passthrough device (like the AdderLink IPEPS and friends) attached
+        to the KVM so that you can have remote access to the servers.
+        Remember, if you have to get up out of your seat, you have failed.
+        If you need multiple users having simultaneous access to the
+        servers, you can get a multi-console multi-server KVM.
 
     * VMs (with VNC sharing) for most services
 
-    Instead of having dedicated hardware, create VMs for your critical
-    services.  The VM images then can be more easily backed up, moved
-    around, and have less wasted resources. Of course, don't forget
-    the admonition to have a portable multiuser console system like
-    VNC for console access.  Personally, I use KVM-QEMU for my
-    virtualization needs. It is free and works great.
+        Instead of having dedicated hardware, create VMs for your critical
+        services.  The VM images then can be more easily backed up, moved
+        around, and have less wasted resources. Of course, don't forget
+        the admonition to have a portable multiuser console system like
+        VNC for console access.  Personally, I use KVM-QEMU for my
+        virtualization needs. It is free and works great.
 
     * Audio conference
 
-    My sources tell me you can get a plugin for asterisk which will
-    give you free conference services. Since you are of course using
-    VOIP for your communication, you then should have essentially free
-    internal conferencing.
+        An audio conferencing service provides another low-friction
+        method of increasing communication, which speeds development.
+        My sources tell me you can get a plugin for asterisk which
+        will give you free conference services. Since you are of
+        course using VOIP for your communication, you then should have
+        essentially free internal conferencing.
 
 
 
