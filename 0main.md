@@ -476,69 +476,69 @@ See [Enforcing standards](#enforce) below.
 
 * Web views
 
-This is pretty standard stuff, but still a best practice.  Setting up
-a tool like [gitweb](http://jk.gs/gitweb.html) (or
-[cgit](http://hjemli.net/git/cgit/) or whatever) to allow URL
-reference to commits (among other visualization interfaces it
-provides) gives people a great way to refer to commits in email and
-conversations.  If someone can click on a link vs having to fire up
-git and pull down the latest changes and start up some visualization
-tool they are much more likely to help you.
+    This is pretty standard stuff, but still a best practice.  Setting up
+    a tool like [gitweb](http://jk.gs/gitweb.html) (or
+    [cgit](http://hjemli.net/git/cgit/) or whatever) to allow URL
+    reference to commits (among other visualization interfaces it
+    provides) gives people a great way to refer to commits in email and
+    conversations.  If someone can click on a link vs having to fire up
+    git and pull down the latest changes and start up some visualization
+    tool they are much more likely to help you.
 
 * Bug tracking
 
-Industry best practice suggests that you should have a bug tracking
-system.  Hopefully you do.  Well, I'm hear to tell you that
-integrating your bug tracking system with git makes the two systems
-one thousand times more effective.  Specifically, come up with a
-standard for tagging commits with bug numbers (eg. "Bug 1234: Adjust
-the frobnoz down by .5") and then have a receive hook on the upstream
-repo which automatically appends that commit information to the
-ticket. If you really love your developers, develop syntax which lets
-them close the ticket as part of the commit message (eg. "Bug 1235r:
-Adjust the frobnoz up by .25").
+    Industry best practice suggests that you should have a bug tracking
+    system.  Hopefully you do.  Well, I'm hear to tell you that
+    integrating your bug tracking system with git makes the two systems
+    one thousand times more effective.  Specifically, come up with a
+    standard for tagging commits with bug numbers (eg. "Bug 1234: Adjust
+    the frobnoz down by .5") and then have a receive hook on the upstream
+    repo which automatically appends that commit information to the
+    ticket. If you really love your developers, develop syntax which lets
+    them close the ticket as part of the commit message (eg. "Bug 1235r:
+    Adjust the frobnoz up by .25").
 
-The easier a system is for people to use, the more likely they will
-use it.  Being able to see the context which caused the commit to
-happen (or contrary-wise, being able to find the commit which solved a
-problem) is incredibly useful.  When you send out your commit
-announcements, make sure to hyperlink the bug tracker in the commit
-message, and likewise in the tracker message, hyperlink to the web
-view of the commit.
+    The easier a system is for people to use, the more likely they will
+    use it.  Being able to see the context which caused the commit to
+    happen (or contrary-wise, being able to find the commit which solved a
+    problem) is incredibly useful.  When you send out your commit
+    announcements, make sure to hyperlink the bug tracker in the commit
+    message, and likewise in the tracker message, hyperlink to the web
+    view of the commit.
 
-Notes: some commits can apply to multiple bugs.  Generate a standard
-and code to handle this standard. Also, if you do hours tracking, you
-may want a syntax to handle that.  (eg. "Bug 12346w/5: Bug 12347rw/3:
-Adjust the frobnoz up by .3")
+    Notes: some commits can apply to multiple bugs.  Generate a standard
+    and code to handle this standard. Also, if you do hours tracking, you
+    may want a syntax to handle that.  (eg. "Bug 12346w/5: Bug 12347rw/3:
+    Adjust the frobnoz up by .3")
 
-* IRC/chat rooms
+* IRC/chat rooms/bots
 
-This is not a global best practice, but for certain sized
-organizations/teams may be very useful.  Specifically, to have a chat
-room (IRC) to discuss issues and problems, and to have a robot in that
-chat room to provide assistance.  When someone talks about Bug 1234,
-provide a hyperlink to that ticket.  When someone pushes some commits
-or adds a bug, it could announce same.  All sorts of things are
-possible (RFC lookups, MAC vendor lookups, Eliza psychoanalysis, etc)
-but there is a fine line between usefulness and overwhelming noise.
+    This is not a global best practice, but for certain sized
+    organizations/teams may be very useful.  Specifically, to have a chat
+    room (IRC) to discuss issues and problems, and to have a robot in that
+    chat room to provide assistance.  When someone talks about Bug 1234,
+    provide a hyperlink to that ticket.  When someone pushes some commits
+    or adds a bug, it could announce same.  All sorts of things are
+    possible (RFC lookups, MAC vendor lookups, Eliza psychoanalysis, etc)
+    but there is a fine line between usefulness and overwhelming noise.
 
-If you use github, github provides an "IRC" "Service Hooks" which lets
-you get git announcements for free.  Said robot will not provide any
-additional value added services you might want.  [CIA](http://cia.vc)
-is another packaged commit announcement system and of course many IRC
-robot frameworks can be found with simple web searches.
+    If you use github, github provides an "IRC" "Service Hooks" which lets
+    you get git announcements for free.  Said robot will not provide any
+    additional value added services you might want.  [CIA](http://cia.vc)
+    is another packaged commit announcement system and of course many IRC
+    robot frameworks can be found with simple web searches.
 
 * Wikis
 
-Having convenient syntax to link to bugs in your bug tracking system
-and branches/tags/commits in your gitweb again makes all three systems
-more useful.  Increased synergy through integration!
+    Having convenient syntax to link to bugs in your bug tracking system
+    and branches/tags/commits in your gitweb again makes all three systems
+    more useful.  Increased synergy through integration!
 
 * Other services
 
-While I have your attention, there are a few other services which you
-should probably bring up as a best practice for your organization;
-which have only limited git applicability:
+    While I have your attention, there are a few other services which you
+    should probably bring up as a best practice for your organization;
+    which have only limited git applicability:
 
     * Pastebin-like private text paste service
 
