@@ -111,33 +111,33 @@ gitk --all --date-order $(git log -g --pretty=%H)
 
     * Dangling Commit
 
-	These are the most likely candidates for finding lost data. A
-	dangling commit is a commit no longer reachable by any branch or
-	tag. This can happen due to resets and rebases and are
-	normal. `git show SHA` will let you inspect them.
+        These are the most likely candidates for finding lost data. A
+        dangling commit is a commit no longer reachable by any branch or
+        tag. This can happen due to resets and rebases and are
+        normal. `git show SHA` will let you inspect them.
 
-	The following command helps you visualize these dangling
-	commits. Look for dots without children and without green labels.
+        The following command helps you visualize these dangling
+        commits. Look for dots without children and without green labels.
 
-	```shell
+        ```shell
 gitk --all --date-order $(git fsck | grep "dangling commit" | awk '{print $3;}')
 ```
 
     * Dangling Blob
 
-	A dangling blob is a file which was not attached to a commit. This
-	is often caused by `git add`s which were superceded before commit
-	or merge conflicts. Inspect these files with
+        A dangling blob is a file which was not attached to a commit. This
+        is often caused by `git add`s which were superceded before commit
+        or merge conflicts. Inspect these files with
 
-	```shell
+        ```shell
 git show SHA
 ```
 
     * Dangling Tree
 
-	A dangling tree is a directory tree of files that was not attached
-	to a commit. These are rarely interesting, and often caused by
-	merge conflicts. Inspect these files with `git ls-tree -r SHA`
+        A dangling tree is a directory tree of files that was not attached
+        to a commit. These are rarely interesting, and often caused by
+        merge conflicts. Inspect these files with `git ls-tree -r SHA`
 
 * Stashes
 
@@ -474,6 +474,11 @@ See [Enforcing standards](#enforce) below.
 <a name="integration" />
 ## Integration with external tools
 
+Increasing communication and decreasing friction and roadblocks to
+your developer's work will have many advantages.  If you make
+something easy, convenient, and useful to do, people might just well
+do it.
+
 * Web views
 
     This is pretty standard stuff, but still a best practice.  Setting up
@@ -513,14 +518,16 @@ See [Enforcing standards](#enforce) below.
 
 * IRC/chat rooms/bots
 
-    This is not a global best practice, but for certain sized
-    organizations/teams may be very useful.  Specifically, to have a chat
-    room (IRC) to discuss issues and problems, and to have a robot in that
-    chat room to provide assistance.  When someone talks about Bug 1234,
-    provide a hyperlink to that ticket.  When someone pushes some commits
-    or adds a bug, it could announce same.  All sorts of things are
-    possible (RFC lookups, MAC vendor lookups, Eliza psychoanalysis, etc)
-    but there is a fine line between usefulness and overwhelming noise.
+    Having an IRC server with some standard channels to discuss issues
+    and problems provides a great benefit both tactically and
+    strategically (it helps teach both the questioner and the
+    answerer). Adding a robot in those chat room to provide assistance
+    adds significant value.  When someone talks about Bug 1234, the
+    bot can provide a hyperlink to that ticket.  When someone pushes
+    some commits or adds a bug, it could announce those facts.  All
+    sorts of things are possible (RFC lookups, MAC vendor lookups,
+    Eliza psychoanalysis, etc) but there is a fine line between
+    usefulness and overwhelming noise.
 
     If you use github, github provides an "IRC" "Service Hooks" which lets
     you get git announcements for free.  Said robot will not provide any
@@ -570,6 +577,9 @@ See [Enforcing standards](#enforce) below.
         If you need multiple users having simultaneous access to the
         servers, you can get a multi-console multi-server KVM.
 
+        Having a VNC console access allows users to more easily
+        consult with each other on problems.
+
     * VMs (with VNC sharing) for most services
 
         Instead of having dedicated hardware, create VMs for your critical
@@ -578,6 +588,9 @@ See [Enforcing standards](#enforce) below.
         the admonition to have a portable multiuser console system like
         VNC for console access.  Personally, I use KVM-QEMU for my
         virtualization needs. It is free and works great.
+
+        Having a VNC console access allows users to more easily
+        consult with each other on problems.
 
     * Audio conference
 
