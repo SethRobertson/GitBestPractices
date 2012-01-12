@@ -725,6 +725,12 @@ do it.
     them close the ticket as part of the commit message (eg. "Bug 1235r:
     Adjust the frobnoz up by .25").
 
+    While it probably will be a side-effect of the git integration,
+    ensuring that your ticketing system has an email interface for
+    ticket creation and so that replies to ticket email get stored in
+    the ticket are all very important for making a ticketing system
+    useful and convenient to use.
+
     The easier a system is for people to use, the more likely they will
     use it.  Being able to see the context which caused the commit to
     happen (or contrary-wise, being able to find the commit which solved a
@@ -771,14 +777,18 @@ do it.
 
     * Pastebin-like private text paste service
 
-        The free internet pastebin services are great and very useful, but
-        you cannot paste proprietary information into them. So bring one
-        of those services up yourself.
+        The free internet pastebin services are great and very useful,
+        but you cannot paste proprietary information into them. So
+        bring one of those services up yourself.  Ensure that you have
+        a portable application interface to this service to reduce
+        friction (`git status | mypastebin`).
 
-    * Tinypic-like private image paste service
+    * Imagebin-like private image paste service
 
-        Likewise, bringing up a image paste service has the same
-        justification and the same benefit. Just do it.
+        Likewise, bringing up a image paste service and associated
+        client has the same justification and the same benefit. While
+        the obvious use is for screenshots, other uses will become
+        apparent.  Just do it.
 
     * URL shortener
 
@@ -786,6 +796,30 @@ do it.
         text/image paste services, but it still exists. Since it is a
         trivial server, you might as well bring it up for proprietary
         URLs.
+
+    * Search
+
+        Providing a search service for both the web services you
+        provide, but also for git repositories and any other
+        collections of documents or data you might have lying around.
+
+    * Mailing lists
+
+        Creating mailing lists with searchable archives for users to
+        communicate improves transparency and information flow.
+        Ideally in many cases the mailing lists should be self-service
+        and have digest options.  Of course git commits and bug
+        announcements should all go to such a mailing list.
+
+    * Role aliases
+
+        Instead of saying, send mail to Bob for your sales questions
+	and Alice for your IT problems, you should have well defined
+	and findable role aliases so that vacations, personal changes,
+	and related issue do not have to affect user's behaviors.  Of
+	course, in many cases, you may want to have these roles feed
+	into your ticketing system for tracking instead of depending
+	on human management of private mail queues.
 
     * VNC-sharing of server consoles
 
