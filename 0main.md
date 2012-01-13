@@ -875,6 +875,17 @@ go in any other section.
     copy.  See the -C and -M options to `git log` (and similar
     commands).
 
+* (Almost) Always name your stashes
+
+    If you don't provide a name when stashing, git generates one
+    automatically based on the previous commit.  While this tells you
+    the branch where a stash was made, it gives you no idea what is in
+    it.  Unless you plan to pop a stash in the next few minutes, you
+    should always give it a name with `git stash save XXX` rather than
+    the shorter default `git stash` (which should be reserved for
+    very temporary uses).  This way you'll have some idea what a stash
+    is about when you are looking at it months later.
+
 * Experiment!
 
     When you have an idea or are not sure what something does, try it out!
