@@ -772,8 +772,8 @@ do it.
 * Other services
 
     While I have your attention, there are a few other services which you
-    should probably bring up as a best practice for your organization;
-    which have only limited git applicability:
+    should probably bring up as a best practice for your organization
+    (but which have only limited applicability to git):
 
     * Pastebin-like private text paste service
 
