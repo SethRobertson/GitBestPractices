@@ -587,15 +587,15 @@ merge` with a non-@{u} (upstream) branch.  The reason this is not good
 is because it loses information.  Specifically it loses track of which
 branch is the first parent and which is not.  If you don't ever want
 to look back into history, then it does not matter.  However, if you
-might want to say "which branch was this commit originally committed
-onto," if you use fast-forwarding that question is impossible to
-answer since git will pick one branch or the other (the first parent
-or second parent) as the one which both branches activities were
-performed on and the other (original) parent's branch will be
+want to know the branch on which a commit was originally made,
+using fast-forward makes that question impossible to answer.
+If you try, git will pick one branch or the other (the first parent
+or second parent) as the one on which both branches' activities were
+performed and the other (original) parent's branch will be
 anonymous.  There are typically worse things in the world, but you
 lose information that is not recoverable in any other way by a
 repository observer and in my book that is bad.  Use `git merge
---no-ff`
+--no-ff` instead.
 
 
 <a name="maintain" />
