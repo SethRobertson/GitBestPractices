@@ -190,8 +190,8 @@ though.  When performing git experiments involving items other than
 normally reachable commits, a copy instead of a clone may be more
 appropriate.
 
-However, if you want a "pure git" solution, something like, which clones
-everything in a directory of repos, this may be what you need:
+However, if you want a "pure git" solution that clones everything in
+a directory of repos, something like this may be what you need:
 
 ```shell
 cd /src/backupgit
