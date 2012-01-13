@@ -310,9 +310,9 @@ cumbersome.
 
 ### Release tagging
 
-Deciding on your release workflow (how to get the code to the
-customer) is another important area to decide on, but I will not touch
-on this much.  You should have already considered most of the issues
+Choosing your release workflow (how to get the code to the
+customer) is another important decision.
+You should have already considered most of the issues
 when going over the branching and distributed workflow above, but less
 obviously, it may affect how and when you perform tagging, and
 specifically the name of the tag you use.
