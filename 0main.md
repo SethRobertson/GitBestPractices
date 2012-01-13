@@ -462,7 +462,7 @@ Also see [A Note About Git Commit
 Messages](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
 for even more good ideas.
 
-While this touches with a later topic of [integration with external
+While this relates to the later topic of [integration with external
 tools](#integration), including bug/issue/request tracking numbers in your commit
 messages provides a great deal of associated information to people
 trying to understand what is going on.  You should also enforce
