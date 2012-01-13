@@ -71,11 +71,11 @@ at the history of this gist!
 
 As long as you have committed your work (or in many cases even added
 it with `git add`) your work will not be lost for at least two weeks
-unless you really work at it (run commands which manually purge it).
+unless you really work at it (run commands that manually purge it).
 
 When attempting to find your lost commits, first make *sure* you will
 not lose any current work.  You should commit or stash your current
-work before performing any recovery efforts which might destroy your
+work before performing any recovery efforts that might destroy your
 current work and perhaps take backups of it (see [Backups](#backups) below).
 After finding the commits you can reset, rebase, cherry-pick, merge,
 or otherwise do what is necessary to get the commit history and work
@@ -88,7 +88,7 @@ in the reflog (`git log -g`), they might be in lost&found (`git fsck
 * reflog
 
     The reflog is where you should look first and by default.  It
-    shows you each commit which modified the git repository.  You can
+    shows you each commit that modified the git repository.  You can
     use it to find the commit name (SHA-1) of the state of the
     repository before (and after) you typed that command.  While you
     are free to go through the reflog manually, you can also visualize
@@ -101,7 +101,7 @@ gitk --all --date-order $(git log -g --pretty=%H)
 
 * Lost and found
 
-    Commits or other git data which are no longer reachable though any
+    Commits or other git data that are no longer reachable though any
     reference name (branch, tag, etc) are called "dangling" and may be
     found using fsck.  There are legitimate reasons why objects may be
     dangling through standard actions and normally over 99% of them are
@@ -123,8 +123,8 @@ gitk --all --date-order $(git fsck | grep "dangling commit" | awk '{print $3;}')
 
     * Dangling Blob
 
-        A dangling blob is a file which was not attached to a commit. This
-        is often caused by `git add`s which were superceded before commit
+        A dangling blob is a file that was not attached to a commit. This
+        is often caused by `git add`s that were superceded before commit
         or merge conflicts. Inspect these files with
 
         ```shell
@@ -214,7 +214,7 @@ people who pull from a working repo often deserve what they get) your
 changes to the authoritative upstream repository or otherwise make the
 commits or tags publicly visible, you should ideally consider those
 commits etched in diamond for all eternity.  If you later find out
-that you messed up, make new commits which fix the problems (possibly
+that you messed up, make new commits that fix the problems (possibly
 by revert, possibly by patching, etc).
 
 Yes, of course git allows you to rewrite public history, but it is
@@ -232,7 +232,7 @@ using git since it depends heavily on the size and type of project and
 the skill of users, developers, and release engineers; however both
 reflexive avoidance of branches due to stupidity of other SCM systems
 and reflexive overuse of branches (since branches are actually easy
-with git) is most likely ignorance.  Pick the style which best suits
+with git) is most likely ignorance.  Pick the style that best suits
 your project and don't complain about user's tactical uses of private
 branches.
 
@@ -286,7 +286,7 @@ workflow:
 
 * Who is allowed to publish to the master repository?
 * What is the process between a developer finishing coding and the code being released to the end-user?
-* Are there distinct groups which work on distinct sections of the codebase and only integrate at epochs?  (Outsourcing)
+* Are there distinct groups that work on distinct sections of the codebase and only integrate at epochs?  (Outsourcing)
 * Is everyone inside the same administrative domain?
 
 See the following references for more information on distributed
@@ -331,8 +331,8 @@ Two ideas for your consideration.  Instead of a release tag, use a
 release branch with the marketing name (and then stop committing to
 that branch after release, disabling write access to it in
 [gitolite](https://github.com/sitaramc/gitolite) or something).
-Another idea, use an internal tag name which is not directly derived
-from the version number which marketing wishes to declare to the
+Another idea, use an internal tag name that is not directly derived
+from the version number that marketing wishes to declare to the
 outside world.  The problem with the branch idea is that if you cannot
 (or forget to) disable write access then someone might accidentally
 commit to that branch, leading to confusion about what was actually
@@ -389,7 +389,7 @@ simply because they were there.  Try to avoid doing so.
     to compartmentalize read access, separate the compartments into
     different repositories.
 
-* Separate repositories for files which might be needed by multiple projects
+* Separate repositories for files that might be needed by multiple projects
 
     This promotes sharing and code reuse, and is highly recommended.
 
@@ -422,7 +422,7 @@ simply because they were there.  Try to avoid doing so.
 
     * git-submodules
 
-        Git submodules is the native git approach which provides a
+        Git submodules is the native git approach, which provides a
         strong binding between the superproject repository and the
         subproject repositories for every commit.  This leads to a
         baroque and annoying process for updating the subproject.
@@ -566,7 +566,7 @@ git-config](http://jk.gs/git-config.html).
 
 * Rebasing (when possible)
 
-Whenever I have a private branch which I want to update, I use rebase
+Whenever I have a private branch that I want to update, I use rebase
 (for the same reasons as above).  History is clean and simple.
 However, if you share this branch with other people, rebasing is
 rewriting public history and should/must be avoided.  You may only
@@ -617,7 +617,7 @@ as your user repositories.
 
 * Prune your remote tracking branches (`git remote | xargs -n1 git remote prune`)
 
-    This will get rid of any branches which were deleted upstream
+    This will get rid of any branches that were deleted upstream
     since you cloned/pruned.  It normally isn't a major problem one
     way or another, but it might lead to confusion.
 
@@ -651,14 +651,14 @@ promoted in this document, initial commits may *not* satisfy the
 hooks.
 
 Enforcing standards in a update hook on the server allows you to
-reject commits which don't follow the standards.  You can also
+reject commits that don't follow the standards.  You can also
 chide the user for not using the standard client-side hook to
 begin with (if you recommend that approach).
 
 See
 http://projects.puppetlabs.com/projects/1/wiki/Puppet_Version_Control
 for an example for a "Git Update Hook" and "Git Pre-Commit Hook"
-which enforces certain standards.  Note that the update hook is
+that enforces certain standards.  Note that the update hook is
 examining files individually instead of providing whole-repository
 testing.  Whether individual files can be tested in isolation for
 your standards or whether you need the whole repository (for
@@ -719,8 +719,8 @@ do it.
     one thousand times more effective.  Specifically, come up with a
     standard for tagging commits with bug numbers (eg. "Bug 1234: Adjust
     the frobnoz down by .5") and then have a receive hook on the upstream
-    repo which automatically appends that commit information to the
-    ticket. If you really love your developers, develop syntax which lets
+    repo that automatically appends that commit information to the
+    ticket. If you really love your developers, develop syntax that lets
     them close the ticket as part of the commit message (eg. "Bug 1235r:
     Adjust the frobnoz up by .25").
 
@@ -756,7 +756,7 @@ do it.
     Eliza psychoanalysis, etc) but there is a fine line between
     usefulness and overwhelming noise.
 
-    If you use github, github provides an "IRC" "Service Hooks" which lets
+    If you use github, github provides an "IRC" "Service Hook" that lets
     you get git announcements for free.  Said robot will not provide any
     additional value added services you might want.  [CIA](http://cia.vc)
     is another packaged commit announcement system and of course many IRC
@@ -770,7 +770,7 @@ do it.
 
 * Other services
 
-    While I have your attention, there are a few other services which you
+    While I have your attention, there are a few other services that you
     should probably bring up as a best practice for your organization;
     which have only limited git applicability:
 
@@ -851,7 +851,7 @@ do it.
 
         An audio conferencing service provides another low-friction
         method of increasing communication, which speeds development.
-        My sources tell me you can get a plugin for asterisk which
+        My sources tell me you can get a plugin for asterisk that
         will give you free conference services. Since you are of
         course using VOIP for your communication, you then should have
         essentially free internal conferencing.
@@ -860,7 +860,7 @@ do it.
 <a name="misc" />
 ## Miscellaneous
 
-These are random best practices which are too minor or disconnected to
+These are random best practices that are too minor or disconnected to
 go in any other section.
 
 * Copy/move a file in a different commit from any changes to it
@@ -870,7 +870,7 @@ go in any other section.
     from any changes you need to immediately make to that file.  This
     is because git does not record `git mv` any different from a
     delete and an add, and because `git cp` doesn't even exist.  Git's
-    output commands are the ones which interpret the data as a move or
+    output commands are the ones that interpret the data as a move or
     copy.  See the -C and -M options to `git log` (and similar
     commands).
 
@@ -879,7 +879,7 @@ go in any other section.
     When you have an idea or are not sure what something does, try it out!
     Ideally try it out in a clone or copy so that recovery is trivial.
     While you can normally completely recover from any git experiment
-    involving data which has been fully committed, perhaps you have not
+    involving data that has been fully committed, perhaps you have not
     committed yet or perhaps you are not sure whether something falls in
     the category of "trying hard" to destroy history.
 
@@ -894,7 +894,7 @@ negative effects of each and why they might be in a best practices
 
 *DO NOT*
 
-* commit anything which can be regenerated from other things that were committed.
+* commit anything that can be regenerated from other things that were committed.
 
     Things that can be regenerated include binaries, object files,
     jars, .class, flex/yacc generated code, etc.  Really the only
@@ -906,7 +906,7 @@ negative effects of each and why they might be in a best practices
 
 * commit configuration files
 
-    Specifically configuration files which might change from
+    Specifically configuration files that might change from
     environment to environment or for any reasons. See [Information
     about local versions of configuration
     files](https://gist.github.com/1423106)
@@ -931,7 +931,7 @@ negative effects of each and why they might be in a best practices
 * create very large repositories (when possible)
 
     Git can be slow in the face of large repositories. There are
-    git-config options which can help. `pack.threads=1`
+    git-config options that can help. `pack.threads=1`
     `pack.deltaCacheSize=1` `pack.windowMemory=512m`
     `core.packedGitWindowSize=16m` `core.packedGitLimit=128m.` Other
     likely ones exist.
