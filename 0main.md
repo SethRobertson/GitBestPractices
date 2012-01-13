@@ -732,8 +732,8 @@ do it.
     useful and convenient to use.
 
     The easier a system is for people to use, the more likely they will
-    use it.  Being able to see the context which caused the commit to
-    happen (or contrary-wise, being able to find the commit which solved a
+    use it.  Being able to see the context in which a commit was
+    made (or conversely, being able to find the commit that solved a
     problem) is incredibly useful.  When you send out your commit
     announcements, make sure to hyperlink the bug tracker in the commit
     message, and likewise in the tracker message, hyperlink to the web
