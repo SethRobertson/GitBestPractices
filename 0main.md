@@ -309,9 +309,9 @@ cumbersome.
 
 ### Release tagging
 
-Deciding on your release workflow (how to get the code to the
-customer) is another important area to decide on, but I will not touch
-on this much.  You should have already considered most of the issues
+Choosing your release workflow (how to get the code to the
+customer) is another important decision.
+You should have already considered most of the issues
 when going over the branching and distributed workflow above, but less
 obviously, it may affect how and when you perform tagging, and
 specifically the name of the tag you use.
@@ -461,7 +461,7 @@ Also see [A Note About Git Commit
 Messages](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
 for even more good ideas.
 
-While this touches with a later topic of [integration with external
+While this relates to the later topic of [integration with external
 tools](#integration), including bug/issue/request tracking numbers in your commit
 messages provides a great deal of associated information to people
 trying to understand what is going on.  You should also enforce
@@ -586,15 +586,15 @@ merge` with a non-@{u} (upstream) branch.  The reason this is not good
 is because it loses information.  Specifically it loses track of which
 branch is the first parent and which is not.  If you don't ever want
 to look back into history, then it does not matter.  However, if you
-might want to say "which branch was this commit originally committed
-onto," if you use fast-forwarding that question is impossible to
-answer since git will pick one branch or the other (the first parent
-or second parent) as the one which both branches activities were
-performed on and the other (original) parent's branch will be
+want to know the branch on which a commit was originally made,
+using fast-forward makes that question impossible to answer.
+If you try, git will pick one branch or the other (the first parent
+or second parent) as the one on which both branches' activities were
+performed and the other (original) parent's branch will be
 anonymous.  There are typically worse things in the world, but you
 lose information that is not recoverable in any other way by a
 repository observer and in my book that is bad.  Use `git merge
---no-ff`
+--no-ff` instead.
 
 
 <a name="maintain" />
@@ -731,8 +731,8 @@ do it.
     useful and convenient to use.
 
     The easier a system is for people to use, the more likely they will
-    use it.  Being able to see the context which caused the commit to
-    happen (or contrary-wise, being able to find the commit which solved a
+    use it.  Being able to see the context in which a commit was
+    made (or conversely, being able to find the commit that solved a
     problem) is incredibly useful.  When you send out your commit
     announcements, make sure to hyperlink the bug tracker in the commit
     message, and likewise in the tracker message, hyperlink to the web
@@ -770,9 +770,9 @@ do it.
 
 * Other services
 
-    While I have your attention, there are a few other services that you
-    should probably bring up as a best practice for your organization;
-    which have only limited git applicability:
+    While I have your attention, there are a few other services which you
+    should probably bring up as a best practice for your organization
+    (but which have only limited applicability to git):
 
     * Pastebin-like private text paste service
 
