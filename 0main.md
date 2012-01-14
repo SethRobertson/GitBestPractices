@@ -793,44 +793,50 @@ do it.
 
         The justification for a URL shortener is a little weaker than
         text/image paste services, but it still exists. Since it is a
-        trivial server, you might as well bring it up for proprietary
+        trivial service, you might as well bring it up for proprietary
         URLs.
 
     * Search
 
         Providing a search service for both the web services you
         provide, but also for git repositories and any other
-        collections of documents or data you might have lying around.
+        collections of documents or data you might have lying around
+        will save your users hours of searching.  Don't forget to
+        enable locate (for Unix/Linux systems) while you are at it.
 
     * Mailing lists
 
         Creating mailing lists with searchable archives for users to
         communicate improves transparency and information flow.
         Ideally in many cases the mailing lists should be self-service
-        and have digest options.  Of course git commits and bug
-        announcements should all go to such a mailing list.
+        and have digest options.  Of course git commits, and bug
+        announcements, and bug updates should all go to such mailing
+        lists.
 
     * Role aliases
 
         Instead of saying, send mail to Bob for your sales questions
 	and Alice for your IT problems, you should have well defined
-	and findable role aliases so that vacations, personal changes,
-	and related issue do not have to affect user's behaviors.  Of
-	course, in many cases, you may want to have these roles feed
-	into your ticketing system for tracking instead of depending
-	on human management of private mail queues.
+	and findable role aliases so that vacations, personnel
+	changes, and related issues do not have to affect people's
+	communication behaviors.  Of course, in many cases, you may
+	want to have these roles feed into your ticketing system for
+	tracking instead of depending on human management of private
+	mail queues.
 
     * VNC-sharing of server consoles
 
-        When you have servers (machines without humans in front of them
-        all of the time), make sure that the console is available
-        virtually.  Getting a bog-standard KVM to mediate access to the
-        consoles is good, but what you really need to do is get a VNC
-        passthrough device (like the AdderLink IPEPS and friends) attached
-        to the KVM so that you can have remote access to the servers.
-        Remember, if you have to get up out of your seat, you have failed.
-        If you need multiple users having simultaneous access to the
-        servers, you can get a multi-console multi-server KVM.
+        When you have servers (machines without humans in front of
+        them all of the time), make sure that the console is available
+        virtually.  Getting a bog-standard KVM to mediate access to
+        the consoles is good, but what you really need to do is get a
+        VNC enabled KVM or passthrough device (like the AdderLink
+        IPEPS and friends) attached to the KVM so that you can have
+        remote access to the servers.  Why VNC and not remote desktop
+        or some java console?  Portability and flexibility.  If you
+        need multiple users having simultaneous access to the servers,
+        you can get a multi-console multi-server KVM.  Remember, if
+        you have to get up out of your seat, you have failed.
 
         Having a VNC console access allows users to more easily
         consult with each other on problems.
