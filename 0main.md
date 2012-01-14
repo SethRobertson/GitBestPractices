@@ -1009,6 +1009,18 @@ negative effects of each and why they might be in a best practices
     end your command with ` --tag-name-filter cat -- --all` unless you
     are really really sure you know what you are doing.
 
+* create --orphan branches
+
+    With the notable exception of gh-pages (which is a hack github
+    uses for convenience, not an expression of general good style
+    practice), any situation where creating an orphan branch seems
+    like a reasonable solution you probably should just create a new
+    repository.  If the new branch cannot really be thought of as
+    being related to the other branches in your repository so that
+    merging between the two really has any conceptual relevant, then
+    the concept is probably far enough apart to warrant it's own
+    repository.
+
 * use clone --shared or --reference
 
     This can lead to problems for non-normal git actions, or if the
