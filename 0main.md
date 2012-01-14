@@ -891,6 +891,17 @@ go in any other section.
     very temporary uses).  This way you'll have some idea what a stash
     is about when you are looking at it months later.
 
+* Protect your bare/server repos against history rewriting
+
+    If you initialize a bare git repository with "--shared" it will
+    automatically get the git-config "receive.denyNonFastForwards" set
+    to true.  You should ensure that this is set just in case you did
+    something weird during initialization.  Furthermore, you should
+    also set "receive.denyDeletes" so that people who are trying to
+    rewrite history cannot simply delete the branch and then recreate
+    it. Best practice is for there to be a speedbump any time someone is
+    trying to delete or rewrite history, since it is such a bad idea.
+
 * Experiment!
 
     When you have an idea or are not sure what something does, try it out!
