@@ -1004,6 +1004,13 @@ negative effects of each and why they might be in a best practices
     which cuts your safety belt.  Instead use `git gc` or at least
     `git repack -Ad`
 
+* use a branch argument to `git pull` or `git fetch`
+
+    No doubt there is a good use case for say `git pull origin master`
+    or whatever, but I have yet to understand it.  What I *do*
+    understand is that every time I have seen someone use it, it has
+    ended in tears.
+
 * use git as a generic filesystem backup tool
 
     Git was not written as a dedicated backup tool, and such tools do
