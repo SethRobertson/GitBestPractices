@@ -1006,7 +1006,7 @@ negative effects of each and why they might be in a best practices
 
 * use a branch argument to `git pull` or `git fetch`
 
-    No doubt there is a good use case for say `git pull origin master`
+    No doubt there is a good use case for, say, `git pull origin master`
     or whatever, but I have yet to understand it.  What I *do*
     understand is that every time I have seen someone use it, it has
     ended in tears.
