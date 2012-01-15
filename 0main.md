@@ -7,28 +7,28 @@ your very own best practices.
 
 ## Table of Contents
 
-* [Read about git](#read)
-* [Commit early and often](#commit)
+* [Do read about git](#read)
+* [Do commit early and often](#commit)
 * [Don't panic](#panic)
-* [Backups](#backups)
+* [Do backups](#backups)
 * [Don't change published history](#pubonce)
-* [Choose a workflow](#workflow)
-* [Dividing work into repositories](#divide)
-* [Useful commit messages](#usemsg)
-* [Sausage Making](#sausage)
-* [Keeping up to date](#date)
-* [Periodic maintenance](#maintain)
-* [Enforcing Standards](#enforce)
+* [Do choose a workflow](#workflow)
+* [Do divide work into repositories](#divide)
+* [Do make useful commit messages](#usemsg)
+* [On Sausage Making](#sausage)
+* [Do keep up to date](#date)
+* [Do periodic maintenance](#maintain)
+* [Do enforce Standards](#enforce)
 * [Useful Tools](#tool)
-* [Integration with external tools](#integration)
-* [Miscellaneous](#misc)
-* [Don't](#donot)
+* [Do integrate with external tools](#integration)
+* [Miscellaneous "Do"s](#misc)
+* [Miscellaneous "Don't"s](#donot)
 * [Copyright](#copyright)
 * [Thanks](#thanks)
 * [Comments](#comments)
 
 <a name="read" />
-## Read about git
+## Do read about git
 
 Knowing where to look is half the battle.  I strongly urge everyone to
 read (and support) the Pro Git book.  The other resources are highly
@@ -43,7 +43,7 @@ recommended by various people as well.
 
 
 <a name="commit" />
-## Commit early and often
+## Do commit early and often
 
 Git only takes full responsibility for your data when you commit.  If
 you fail to commit and then do something poorly thought out, you can
@@ -166,7 +166,7 @@ gitk --all --date-order $(git stash list | awk -F: '{print $1};')
 
 
 <a name="backups" />
-## Backups
+## Do backups
 
 Everyone always recommends taking backups as best practice, and I am
 going to do the same.  However, you already may have a highly
@@ -228,7 +228,7 @@ do so.
 
 
 <a name="workflow" />
-## Choose a workflow
+## Do choose a workflow
 
 Some people have called git a tool to create a SCM workflow instead of
 an SCM tool.  There is some truth to this.  I am not going to
@@ -375,7 +375,7 @@ tags.  Watch for signed pushes in a future version of git.
 
 
 <a name="divide" />
-## Dividing work into repositories
+## Do divide work into repositories
 
 Repositories sometimes get used to store things that they should not,
 simply because they were there.  Try to avoid doing so.
@@ -450,7 +450,7 @@ simply because they were there.  Try to avoid doing so.
         in any case this is rarely needed).
 
 <a name="usemsg" />
-## Useful commit messages
+## Do make useful commit messages
 
 Creating insightful and descriptive commit messages is one of the best
 things you can do for others who use the repository.  It lets people
@@ -475,19 +475,19 @@ See [Enforcing standards](#enforce) below.
 
 
 <a name="sausage" />
-## Sausage Making
+## On Sausage Making
 
 Some people like to hide the sausage making, or in other words pretend
 to the outside world that their commits sprung full-formed in utter
 perfection into their git repository.  Certain large public projects
-demand this, but that is not necessarily a good reason for you to
-demand this as well.
+demand this, others demand smushing all work into one large commit,
+and still others do not care.
 
-What *is* a good reason to hide the sausage making is if you feel you
-may be cherry-picking commits a lot (though this too is often a sign
-of bad workflow).  Having one or a small number of commits to pick is
-much easier than having to find one commit here, one there, and half
-of this other one.  The latter approach makes your problem much much
+A good reason to hide the sausage making is if you feel you may be
+cherry-picking commits a lot (though this too is often a sign of bad
+workflow).  Having one or a small number of commits to pick is much
+easier than having to find one commit here, one there, and half of
+this other one.  The latter approach makes your problem much much
 harder and typically will lead to merge conflicts when the doner
 branch is finally merged in.
 
@@ -497,6 +497,12 @@ regression tests, and represents a different easily understood concept
 commit and have a good chance of that commit doing something useful,
 and the latter allows for easy change review, understanding, and
 cherry-picking.
+
+The downside to *hiding the sausage* making is the added time it takes
+to perfect the administrative parts of the developers job.  It is time
+taken away from getting code working; time solely dedicated to either
+administrative beauty or enhancing the ability to performing the blame
+based (or ego-full) development methodology.
 
 If you think about it, movies are made this way.  Scenes are shot out
 of temporal order, multiple times, and different bits are picked from
@@ -518,7 +524,7 @@ more complex and/or impossible afterwards.
 
 
 <a name="date" />
-## Keeping up to date
+## Do keep up to date
 
 This section has some overlap with workflow.  Exactly how and when you
 update your branches and repositories is very much associated with the
@@ -603,7 +609,7 @@ repository observer and in my book that is bad.  Use `git merge
 
 
 <a name="maintain" />
-## Periodic maintenance
+## Do periodic maintenance
 
 The first two items should be run on your server repositories as well
 as your user repositories.
@@ -634,7 +640,7 @@ as your user repositories.
 
 
 <a name="enforce" />
-## Enforcing standards
+## Do enforce standards
 
 Having standards is a best practice and will improve the quality
 of your commits, code-base, and probably enhance git-bisect and
@@ -698,7 +704,7 @@ practice!
 
 
 <a name="integration" />
-## Integration with external tools
+## Do integrate with external tools
 
 Increasing communication and decreasing friction and roadblocks to
 your developer's work will have many advantages.  If you make
@@ -869,7 +875,7 @@ do it.
 
 
 <a name="misc" />
-## Miscellaneous
+## Miscellaneous "Do"s
 
 These are random best practices that are too minor or disconnected to
 go in any other section.
@@ -916,8 +922,9 @@ go in any other section.
     committed yet or perhaps you are not sure whether something falls in
     the category of "trying hard" to destroy history.
 
+
 <a name="donot" />
-## Don't
+## Miscellaneous "don't"s
 
 In this list of things to *not* do, it is important to remember that
 there are legitimate reasons to do all of these.  However, you should
