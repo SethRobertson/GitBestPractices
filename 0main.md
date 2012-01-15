@@ -991,6 +991,12 @@ negative effects of each and why they might be in a best practices
 
     This is cutting your safety belt.
 
+* use `git repack -ad`
+
+    Unreferenced objects in a newly redundant pack will get deleted
+    which cuts your safety belt.  Instead use `git gc` or at least
+    `git repack -Ad`
+
 * use git as a generic filesystem backup tool
 
     Git was not written as a dedicated backup tool, and such tools do
