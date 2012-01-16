@@ -19,7 +19,7 @@ your very own best practices.
 * [Do keep up to date](#date)
 * [Do periodic maintenance](#maintain)
 * [Do enforce Standards](#enforce)
-* [On Useful Tools](#tool)
+* [Do use useful tools](#tool)
 * [Do integrate with external tools](#integration)
 * [Miscellaneous "Do"s](#misc)
 * [Miscellaneous "Don't"s](#donot)
@@ -680,7 +680,7 @@ anyway.
 
 
 <a name="tool" />
-## On Useful Tools
+## Do use useful tools
 
 More than useful, use of these tools may help you form a best
 practice!
