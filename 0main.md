@@ -533,79 +533,79 @@ these ideas (but they should!)
 
 * Pulling with --rebase
 
-Whenever I pull, under most circumstances I `git pull --rebase`. This
-is because I like to see a linear history (my commit came after all
-commits that were pushed before it, instead of being developed in
-parallel).  It makes history visualization much simpler and `git
-bisect` easier to see and understand.
+    Whenever I pull, under most circumstances I `git pull --rebase`. This
+    is because I like to see a linear history (my commit came after all
+    commits that were pushed before it, instead of being developed in
+    parallel).  It makes history visualization much simpler and `git
+    bisect` easier to see and understand.
 
-A specific circumstance in which you should avoid using `git pull
---rebase` is if you merged since your last push.  You might want to
-`git fetch; git rebase -p @{u}` (and check to make sure the merge was
-recreated properly) or do a normal merge in that circumstance.
+    A specific circumstance in which you should avoid using `git pull
+    --rebase` is if you merged since your last push.  You might want to
+    `git fetch; git rebase -p @{u}` (and check to make sure the merge was
+    recreated properly) or do a normal merge in that circumstance.
 
-Some people argue against this because the non-final commits may lose
-whatever testing those non-final commits might have had since the
-deltas would be applied to a new base.  This in turn might make
-git-bisect's job harder since some commits might refer to broken
-trees, but really this is only relevant to people who want to hide the
-sausage making.  Of course to *really* hide the sausage making you
-should still rebase and then test each intermediate commit to ensure
-it compiles and passes your regression tests (you do have regression
-tests, don't you?) so that a future bisector will have some strong
-hope that the commit will be usable.  After all, that future bisector
-might be you.
+    Some people argue against this because the non-final commits may lose
+    whatever testing those non-final commits might have had since the
+    deltas would be applied to a new base.  This in turn might make
+    git-bisect's job harder since some commits might refer to broken
+    trees, but really this is only relevant to people who want to hide the
+    sausage making.  Of course to *really* hide the sausage making you
+    should still rebase and then test each intermediate commit to ensure
+    it compiles and passes your regression tests (you do have regression
+    tests, don't you?) so that a future bisector will have some strong
+    hope that the commit will be usable.  After all, that future bisector
+    might be you.
 
-Other people argue against this (especially in highly decentralized
-environments) because it explicitly records that the person who
-performed the merge tested that the two histories were combined
-properly (as opposed to the hidden history with implicit blame of
-rebase).
+    Other people argue against this (especially in highly decentralized
+    environments) because it explicitly records that the person who
+    performed the merge tested that the two histories were combined
+    properly (as opposed to the hidden history with implicit blame of
+    rebase).
 
-Still others argue that you are unable to automatically discover when
-someone else has [rewritten public history](#pubonce) if you use `git
-pull --rebase` normally, so someone might have hidden something
-malicious in an older (presumably already reviewed) commit.  If this
-is of concern, you can still use rebase, but you would have to `git
-fetch` first and look for "forced update" in that output or in the
-reflog for the remote branches.
+    Still others argue that you are unable to automatically discover when
+    someone else has [rewritten public history](#pubonce) if you use `git
+    pull --rebase` normally, so someone might have hidden something
+    malicious in an older (presumably already reviewed) commit.  If this
+    is of concern, you can still use rebase, but you would have to `git
+    fetch` first and look for "forced update" in that output or in the
+    reflog for the remote branches.
 
-You can make this the default with the "branch.&lt;name&gt;.rebase"
-configuration option (and more practically, by the
-"branch.autosetuprebase" configuration option).  See [man
-git-config](http://jk.gs/git-config.html).
+    You can make this the default with the "branch.&lt;name&gt;.rebase"
+    configuration option (and more practically, by the
+    "branch.autosetuprebase" configuration option).  See [man
+    git-config](http://jk.gs/git-config.html).
 
 * Rebasing (when possible)
 
-Whenever I have a private branch that I want to update, I use rebase
-(for the same reasons as above).  History is clean and simple.
-However, if you share this branch with other people, rebasing is
-rewriting public history and should/must be avoided.  You may only
-rebase commits that no-one else has seen (which is why `git pull
---rebase` is safe).
+    Whenever I have a private branch that I want to update, I use rebase
+    (for the same reasons as above).  History is clean and simple.
+    However, if you share this branch with other people, rebasing is
+    rewriting public history and should/must be avoided.  You may only
+    rebase commits that no-one else has seen (which is why `git pull
+    --rebase` is safe).
 
 * Merging without speeding
 
-`git merge` has the concept of fast-forwarding, or realizing that the
-code you are trying to merge in is identical to the result of the code
-after the merge.  Thus instead of doing work, creating new commits,
-etc, git simply changes the branch pointers (fast forwards them) and
-calls it good.
+    `git merge` has the concept of fast-forwarding, or realizing that the
+    code you are trying to merge in is identical to the result of the code
+    after the merge.  Thus instead of doing work, creating new commits,
+    etc, git simply changes the branch pointers (fast forwards them) and
+    calls it good.
 
-This is good when doing `git pull` but not so good when doing `git
-merge` with a non-@{u} (upstream) branch.  The reason this is not good
-is because it loses information.  Specifically it loses track of which
-branch is the first parent and which is not.  If you don't ever want
-to look back into history, then it does not matter.  However, if you
-want to know the branch on which a commit was originally made,
-using fast-forward makes that question impossible to answer.
-If you try, git will pick one branch or the other (the first parent
-or second parent) as the one on which both branches' activities were
-performed and the other (original) parent's branch will be
-anonymous.  There are typically worse things in the world, but you
-lose information that is not recoverable in any other way by a
-repository observer and in my book that is bad.  Use `git merge
---no-ff` instead.
+    This is good when doing `git pull` but not so good when doing `git
+    merge` with a non-@{u} (upstream) branch.  The reason this is not good
+    is because it loses information.  Specifically it loses track of which
+    branch is the first parent and which is not.  If you don't ever want
+    to look back into history, then it does not matter.  However, if you
+    want to know the branch on which a commit was originally made,
+    using fast-forward makes that question impossible to answer.
+    If you try, git will pick one branch or the other (the first parent
+    or second parent) as the one on which both branches' activities were
+    performed and the other (original) parent's branch will be
+    anonymous.  There are typically worse things in the world, but you
+    lose information that is not recoverable in any other way by a
+    repository observer and in my book that is bad.  Use `git merge
+    --no-ff` instead.
 
 
 <a name="maintain" />
