@@ -488,7 +488,7 @@ cherry-picking commits a lot (though this too is often a sign of bad
 workflow).  Having one or a small number of commits to pick is much
 easier than having to find one commit here, one there, and half of
 this other one.  The latter approach makes your problem much much
-harder and typically will lead to merge conflicts when the doner
+harder and typically will lead to merge conflicts when the donor
 branch is finally merged in.
 
 Another good reason is to ensure each commit compiles and/or passes
