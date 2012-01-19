@@ -1,4 +1,4 @@
-# Commit Often, Perfect Later, Publish Once: Git Best Practices
+# [Commit Often, Perfect Later, Publish Once: Git Best Practices](https://gist.github.com/1540906)
 
 Best Practices vary from environment to environment, and there is no
 One True Answer, but still, this represents a consensus from #git and
@@ -74,7 +74,7 @@ it with `git add`) your work will not be lost for at least two weeks
 unless you really work at it (run commands that manually purge it).
 
 See [on undoing, fixing, or removing commits in
-git](https://gist.github.com/1540906) if you want to fix a particular
+git](https://gist.github.com/1612395) if you want to fix a particular
 problematic commit or commits, as opposed to attempting to locate lost
 data.
 
