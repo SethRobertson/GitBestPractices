@@ -1,3 +1,8 @@
+---
+title: Commit Often, Perfect Later, Publish Once—Git Best Practices
+layout: default
+---
+
 # [Commit Often, Perfect Later, Publish Once: Git Best Practices](https://gist.github.com/1540906)
 
 Best Practices vary from environment to environment, and there is no
@@ -100,7 +105,7 @@ in the reflog (`git log -g`), they might be in lost&found (`git fsck
     the repository using the following command (Look for dots without
     children and without green labels):
 
-    ```shell
+    ```
 gitk --all --date-order $(git log -g --pretty=%H)
 ```
 
@@ -122,7 +127,7 @@ gitk --all --date-order $(git log -g --pretty=%H)
         The following command helps you visualize these dangling
         commits. Look for dots without children and without green labels.
 
-        ```shell
+        ```
 gitk --all --date-order $(git fsck | grep "dangling commit" | awk '{print $3;}')
 ```
 
@@ -132,7 +137,7 @@ gitk --all --date-order $(git fsck | grep "dangling commit" | awk '{print $3;}')
         is often caused by `git add`s that were superceded before commit
         or merge conflicts. Inspect these files with
 
-        ```shell
+        ```
 git show SHA
 ```
 
@@ -148,7 +153,7 @@ git show SHA
     then forgotten about it.  You can use the `git stash list` command
     or inspect them visually using:
 
-    ```shell
+    ```
 gitk --all --date-order $(git stash list | awk -F: '{print $1};')
 ```
 
@@ -198,7 +203,7 @@ appropriate.
 However, if you want a "pure git" solution that clones everything in
 a directory of repos, something like this may be what you need:
 
-```shell
+```
 cd /src/backupgit
 ls -F . | grep / > /tmp/.gitmissing1
 ssh -n git.example.com ls -F /src/git/. | grep / > /tmp/.gitmissing2
