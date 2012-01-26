@@ -203,7 +203,7 @@ appropriate.
 However, if you want a "pure git" solution that clones everything in
 a directory of repos, something like this may be what you need:
 
-```
+<pre>
 cd /src/backupgit
 ls -F . | grep / > /tmp/.gitmissing1
 ssh -n git.example.com ls -F /src/git/. | grep / > /tmp/.gitmissing2
@@ -213,7 +213,7 @@ diff /tmp/.gitmissing1 /tmp/.gitmissing2 | egrep '^>' |
   done
 rm -f /tmp/.gitmissing1 /tmp/.gitmissing2
 for f in */.; do (cd $$f; echo $$f; git fetch); done
-```
+</pre>
 
 
 <a name="pubonce" />
@@ -1110,4 +1110,5 @@ feedback, and ideas.
 
 Comments and improvements welcome.
 
-Add them below, or discuss with SethRobertson (and others) on #git
+Add them below, or discuss with SethRobertson (and others) on
+[#git](irc://irc.freenode.net/git)
