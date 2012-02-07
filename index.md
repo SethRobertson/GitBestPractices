@@ -3,7 +3,7 @@ title: Commit Often, Perfect Later, Publish Once—Git Best Practices
 layout: default
 ---
 
-# [Commit Often, Perfect Later, Publish Once: Git Best Practices](https://gist.github.com/1540906)
+# [Commit Often, Perfect Later, Publish Once: Git Best Practices](http://sethrobertson.github.com/GitBestPractices/)
 
 Best Practices vary from environment to environment, and there is no
 One True Answer, but still, this represents a consensus from #git and
@@ -68,7 +68,7 @@ continuous commits today.
 
 Personally, I commit early and often and then let the sausage making
 be seen by all except in the most formal of circumstances.  Just look
-at the history of this gist!
+at the history of this repository!
 
 
 <a name="panic" />
@@ -79,7 +79,7 @@ it with `git add`) your work will not be lost for at least two weeks
 unless you really work at it (run commands that manually purge it).
 
 See [on undoing, fixing, or removing commits in
-git](https://gist.github.com/1612395) if you want to fix a particular
+git](http://sethrobertson.github.com/GitFixUm/) if you want to fix a particular
 problematic commit or commits, as opposed to attempting to locate lost
 data.
 
@@ -1095,7 +1095,8 @@ http://www.gnu.org/licenses/fdl.html
 
 I would appreciate changes being sent back to me, being notified if
 this is used or highlighted in some special way, and links being
-maintained back to the authoritative source.  Thanks.
+maintained back to the [authoritative
+source](http://sethrobertson.github.com/GitBestPractices/).  Thanks.
 
 
 <a name="thanks" />
