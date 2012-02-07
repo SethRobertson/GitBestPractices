@@ -1110,5 +1110,5 @@ feedback, and ideas.
 
 Comments and improvements welcome.
 
-Add them below, or discuss with SethRobertson (and others) on
+Add them <a href="https://gist.github.com/1540906">on the old gist page</a>, or discuss with SethRobertson (and others) on
 [#git](irc://irc.freenode.net/git)
