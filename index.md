@@ -231,6 +231,18 @@ Yes, of course git allows you to rewrite public history, but it is
 problematic for everyone and thus it is just not best practice to
 do so.
 
+I've said it and I believe it, but…on occasion…if well managed…there
+are times when changing published history is perhaps a normal course
+of business.  You can plan for particular branches (integration
+branches especially) or (better) special alternate repositories to be
+continually rewritten as a matter of course.  You see this in git.git
+with the "pu" branch, for example.  Obviously this process must be
+well controlled and ideally done by one of the most experienced and
+well trusted engineers (because auditing merges (and worse, non-merge
+commits) you have essentially seen before is extremely tedious,
+boring, and error prone and you have lost the protection of git's
+cryptographic history validation).
+
 
 <a name="workflow" />
 ## Do choose a workflow
@@ -246,14 +258,32 @@ with git) is most likely ignorance.  Pick the style that best suits
 your project and don't complain about user's tactical uses of private
 branches.
 
+I also implore managers who may be thinking of making specific
+workflow rules by fiat to remember that not all projects are
+identical, and rules that work on one project may not work on another.
+People who blather on about continuous integration, rolling deployment,
+and entirely independent feature changes that you can pick and choose
+between independently are absolutely correct, *for their project!*
+However, there are many projects and features which are much more
+complicated and may take longer than a particular sprint/unit-of-time
+and require multiple people to complete and have complex
+interdependencies with other features.  It is not a sign of stupidity
+but rather of complexity and, just perhaps, brilliant developers, who
+can keep it all straight.  It can also led to a market advantages
+since you can deploy a differentiating feature which your competitors
+cannot in a short timeframe.
+
+
 ### Branch workflows
 
 Answering the following questions helps you choose a branch workflow:
 
 * Where do important phases of development occur?
 * How can you identify (and backport) groups of related change?
+* Do you have work which often needs to be updated in multiple distinct long-lived branches?
 * What happens when emergency patches are required?
 * What should a branch for a particular purpose (including user-tactical) be named?
+* What is the lifecycle of a branch?
 
 See the following references for more information on branch
 workflows.
@@ -264,6 +294,7 @@ workflows.
 * [A Git Workflow for Agile Teams](http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html)
 * [What git branching models actually work](http://stackoverflow.com/questions/2621610/what-git-branching-models-actually-work)
 * [Our New Git Branching Model](http://blogs.remobjects.com/blogs/mh/2011/08/25/p2940)
+* [Branch-per-Feature](http://dymitruk.com/blog/2012/02/05/branch-per-feature/)
 
 However, also understand that everyone already has an implicit
 private branch due to their cloned repository: they can do work
@@ -285,9 +316,26 @@ suggest larger numbers of branches (note the number of branches is
 the tail, not the dog: more branches will not make you release
 faster).
 
-Oh, and decide branch naming conventions for both official branches
-and user or team-specific branches.  Don't be afraid of "/" in the
-branch name when appropriate (but do be afraid of ":").
+The importance of some of the questions I asked may not be immediately
+obvious.  For example, how does having work which needs to be updated
+in multiple distinct long-lived branches affect branch workflow?
+Well, you may want to try to have a "core" branch which these other
+branches diverge from, and then have your feature/bugfix branches
+involving these multiple branches come off of the
+lowest-common-merge-base (LCMB) for these long-lived branches.  This
+way, you make your change (potentially merge your feature branch back
+into the "core" branch), and then merge the "core" branch back into
+all of the other long-lived branches.  This avoids the dreaded
+cherry-pick workflow.
+
+Branch naming conventions are also often overlooked.  You must have
+conventions for naming release branches, integration branches, QA
+branches, feature branches (if applicable), tactical branches, team
+branches, user branches, etc.  Also, if you use share repositories
+with other projects/groups, you probably will need a way to
+disambiguate your branches from their branches.  Don't be afraid of
+"/" in the branch name when appropriate (but do be afraid of ":").
+
 
 ### Distributed workflows
 
