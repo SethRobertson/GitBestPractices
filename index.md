@@ -511,7 +511,7 @@ quickly understand changes without having to read code.  When doing
 history archeology to answer some question, good commit messages
 likewise become very important.
 
-The normal git rule of using the first line to provide a short (72
+The normal git rule of using the first line to provide a short (50-72
 character) summary of the change is also very good.  Looking at the
 output of `gitk` or `git log --oneline` might help you understand why.
 
