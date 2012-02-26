@@ -28,6 +28,7 @@ your very own best practices.
 * [Do integrate with external tools](#integration)
 * [Miscellaneous "Do"s](#misc)
 * [Miscellaneous "Don't"s](#donot)
+* [Disclaimer](#disclaimer)
 * [Copyright](#copyright)
 * [Thanks](#thanks)
 * [Comments](#comments)
