@@ -568,8 +568,10 @@ editing of the resulting product.
 
 `git rebase -i`, `git add -p`, and `git reset -p` can fix commits up
 in post-production by splitting different concepts, merging fixes to
-older commits, etc. See also [TopGit](http://repo.or.cz/w/topgit.git)
-and [StGit](http://www.procode.org/stgit/).
+older commits, etc. See [Post-Production Editing using
+Git](http://sethrobertson.github.com/GitPostProduction/) also
+[TopGit](http://repo.or.cz/w/topgit.git) and
+[StGit](http://www.procode.org/stgit/).
 
 Be sure you do all of this work *before* doing any non-squashed merges
 (not rebases: merges) and *before* pushing.  Your work becomes much
