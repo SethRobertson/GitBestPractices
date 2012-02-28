@@ -69,7 +69,7 @@ continuous commits today.
 
 Personally, I commit early and often and then let the sausage making
 be seen by all except in the most formal of circumstances.  Just look
-at the history of this repository!
+at [the history of this repository!](https://github.com/SethRobertson/GitBestPractices/commits/gh-pages)
 
 
 <a name="panic" />
