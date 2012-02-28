@@ -335,7 +335,10 @@ branches, feature branches (if applicable), tactical branches, team
 branches, user branches, etc.  Also, if you use share repositories
 with other projects/groups, you probably will need a way to
 disambiguate your branches from their branches.  Don't be afraid of
-"/" in the branch name when appropriate (but do be afraid of ":").
+"/" in the branch name when appropriate (but do be afraid of using a
+remote's name as a directory component of a branch name, or
+correspondingly naming a remote after a branch name or directory
+component).
 
 
 ### Distributed workflows
@@ -1162,5 +1165,7 @@ feedback, and ideas.
 
 Comments and improvements welcome.
 
-Add them <a href="https://gist.github.com/1540906">on the old gist page</a>, or discuss with SethRobertson (and others) on
-[#git](irc://irc.freenode.net/git)
+<p><a
+href="https://github.com/SethRobertson/GitBestPractices/issues">Use
+the github issue tracker</a> or discuss with SethRobertson (and
+others) on <a href="irc://irc.freenode.net/git">#git</a></p>
