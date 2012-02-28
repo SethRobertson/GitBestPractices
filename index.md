@@ -270,7 +270,7 @@ complicated and may take longer than a particular sprint/unit-of-time
 and require multiple people to complete and have complex
 interdependencies with other features.  It is not a sign of stupidity
 but rather of complexity and, just perhaps, brilliant developers, who
-can keep it all straight.  It can also led to a market advantages
+can keep it all straight.  It can also lead to a market advantage
 since you can deploy a differentiating feature which your competitors
 cannot in a short timeframe.
 
