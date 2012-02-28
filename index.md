@@ -69,7 +69,7 @@ continuous commits today.
 
 Personally, I commit early and often and then let the sausage making
 be seen by all except in the most formal of circumstances.  Just look
-at the history of this repository!
+at [the history of this repository!](https://github.com/SethRobertson/GitBestPractices/commits/gh-pages)
 
 
 <a name="panic" />
@@ -112,7 +112,7 @@ gitk --all --date-order $(git log -g --pretty=%H)
 
 * Lost and found
 
-    Commits or other git data that are no longer reachable though any
+    Commits or other git data that are no longer reachable through any
     reference name (branch, tag, etc) are called "dangling" and may be
     found using fsck.  There are legitimate reasons why objects may be
     dangling through standard actions and normally over 99% of them are
@@ -299,7 +299,7 @@ workflows.
 
 However, also understand that everyone already has an implicit
 private branch due to their cloned repository: they can do work
-locally do a `git pull --rebase` when they are done, perform final
+locally, do a `git pull --rebase` when they are done, perform final
 testing, and then push their work out.  If you run into a
 situation where you might need the benefits of a feature branch
 before you are done, you can even retroactively commit&branch then
@@ -726,7 +726,7 @@ chide the user for not using the standard client-side hook to
 begin with (if you recommend that approach).
 
 See
-http://projects.puppetlabs.com/projects/1/wiki/Puppet_Version_Control
+[http://projects.puppetlabs.com/projects/1/wiki/Puppet_Version_Control]
 for an example for a "Git Update Hook" and "Git Pre-Commit Hook"
 that enforces certain standards.  Note that the update hook is
 examining files individually instead of providing whole-repository
@@ -1014,7 +1014,7 @@ negative effects of each and why they might be in a best practices
 
     Yes it can be done in a sufficiently simple/non-critical
     environment with something like
-    http://toroid.org/ams/git-website-howto to help.  However, this
+    [http://toroid.org/ams/git-website-howto] to help.  However, this
     does not give you atomic updates, synchronized db updates, or
     other accouterments of an industrial deployment system.
 
@@ -1101,7 +1101,7 @@ negative effects of each and why they might be in a best practices
     like a reasonable solution you probably should just create a new
     repository.  If the new branch cannot really be thought of as
     being related to the other branches in your repository so that
-    merging between the two really has any conceptual relevant, then
+    merging between the two really has any conceptual relevance, then
     the concept is probably far enough apart to warrant it's own
     repository.
 
