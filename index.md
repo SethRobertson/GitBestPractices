@@ -725,17 +725,16 @@ reject commits that don't follow the standards.  You can also
 chide the user for not using the standard client-side hook to
 begin with (if you recommend that approach).
 
-See
-[http://projects.puppetlabs.com/projects/1/wiki/Puppet_Version_Control]
-for an example for a "Git Update Hook" and "Git Pre-Commit Hook"
-that enforces certain standards.  Note that the update hook is
-examining files individually instead of providing whole-repository
-testing.  Whether individual files can be tested in isolation for
-your standards or whether you need the whole repository (for
-instance, any language where one file can reference or include
-another might need whole repository checks) is of course a
-personal choice.  The referenced examples are useful for ideas,
-anyway.
+See [Puppet Version
+Control](http://projects.puppetlabs.com/projects/1/wiki/Puppet_Version_Control)
+for an example for a "Git Update Hook" and "Git Pre-Commit Hook" that
+enforces certain standards.  Note that the update hook is examining
+files individually instead of providing whole-repository testing.
+Whether individual files can be tested in isolation for your standards
+or whether you need the whole repository (for instance, any language
+where one file can reference or include another might need whole
+repository checks) is of course a personal choice.  The referenced
+examples are useful for ideas, anyway.
 
 
 <a name="tool" />
@@ -1013,10 +1012,14 @@ negative effects of each and why they might be in a best practices
 * use git as a web deployment tool
 
     Yes it can be done in a sufficiently simple/non-critical
-    environment with something like
-    [http://toroid.org/ams/git-website-howto] to help.  However, this
-    does not give you atomic updates, synchronized db updates, or
-    other accouterments of an industrial deployment system.
+    environment with something like [Abhijit Menon-Sen's document on
+    using git to manage a web
+    site](http://toroid.org/ams/git-website-howto) to help, though
+    there are [other](https://gist.github.com/1714235)
+    [examples](http://joemaller.com/990/a-web-focused-git-workflow/).
+    However, this does not give you atomic updates, synchronized db
+    updates, or other accouterments of an industrial deployment
+    system.
 
 * commit large binary files (when possible)
 
