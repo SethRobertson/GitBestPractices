@@ -68,8 +68,10 @@ However, don't let tomorrow's beauty stop you from performing
 continuous commits today.
 
 Personally, I commit early and often and then let the sausage making
-be seen by all except in the most formal of circumstances.  Just look
-at [the history of this repository!](https://github.com/SethRobertson/GitBestPractices/commits/gh-pages)
+be seen by all except in the most formal of circumstances.  For a less
+formal usage, [like say this
+document](https://github.com/SethRobertson/GitBestPractices/commits/gh-pages)
+I let people see what really happened.
 
 
 <a name="panic" />
@@ -102,13 +104,15 @@ in the reflog (`git log -g`), they might be in lost&found (`git fsck
     shows you each commit that modified the git repository.  You can
     use it to find the commit name (SHA-1) of the state of the
     repository before (and after) you typed that command.  While you
-    are free to go through the reflog manually, you can also visualize
-    the repository using the following command (Look for dots without
+    are free to go through the reflog manually (`git log -g`) or
+    searching it (`git log -Sfoo -g`), you can also visualize the
+    repository using the following command (Look for dots without
     children and without green labels):
 
     ```
 gitk --all --date-order $(git log -g --pretty=%H)
 ```
+
 
 * Lost and found
 
@@ -123,7 +127,7 @@ gitk --all --date-order $(git log -g --pretty=%H)
         These are the most likely candidates for finding lost data. A
         dangling commit is a commit no longer reachable by any branch or
         tag. This can happen due to resets and rebases and are
-        normal. `git show SHA` will let you inspect them.
+        normal. `git show SHA-1` will let you inspect them.
 
         The following command helps you visualize these dangling
         commits. Look for dots without children and without green labels.
@@ -139,14 +143,14 @@ gitk --all --date-order $(git fsck | grep "dangling commit" | awk '{print $3;}')
         or merge conflicts. Inspect these files with
 
         ```
-git show SHA
+git show SHA-1
 ```
 
     * Dangling Tree
 
         A dangling tree is a directory tree of files that was not attached
         to a commit. These are rarely interesting, and often caused by
-        merge conflicts. Inspect these files with `git ls-tree -r SHA`
+        merge conflicts. Inspect these files with `git ls-tree -r SHA-1`
 
 * Stashes
 
@@ -549,11 +553,13 @@ harder and typically will lead to merge conflicts when the donor
 branch is finally merged in.
 
 Another good reason is to ensure each commit compiles and/or passes
-regression tests, and represents a different easily understood concept
-(important for archeology).  The former allows git-bisect to chose any
-commit and have a good chance of that commit doing something useful,
-and the latter allows for easy change review, understanding, and
-cherry-picking.
+regression tests, and represents a different easily understood
+concepts.  The former allows git-bisect to chose any commit and have a
+good chance of that commit doing something useful, and the latter
+allows for easy change/code review, understanding, archeology, and
+cherry-picking.  Proponents claim it is all about leaving a history
+others can later use to understand _why_ the code became the way it is
+now, to make it less likely for others to break it
 
 The downside to *hiding the sausage* making is the added time it takes
 to perfect the administrative parts of the developers job.  It is time
