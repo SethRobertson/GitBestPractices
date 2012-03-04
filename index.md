@@ -1045,10 +1045,24 @@ negative effects of each and why they might be in a best practices
 
     Large is currently relative to the amount of free RAM you have.
     Remember that not everyone may be using the same memory
-    configuration you are.
+    configuration you are.  Support for large files is an active
+    git topic, so watch for changes.
+
+    After running a `git gc` you should be able to find the largest
+    objects by running:
+
+    ```
+git verify-pack -v .git/objects/pack/pack-*.idx |
+  grep blob | sort -k3nr | head |
+  while read s x b x; do
+    git rev-list --all --objects | grep $s |
+    awk '{print "'"$b"'",$0;}';
+  done
+```
 
     Consider using [Git annex](http://git-annex.branchable.com/) or
-    [Git media](https://github.com/schacon/git-media)
+    [Git media](https://github.com/schacon/git-media) if you plan
+    on having large binary files and your workflow allows.
 
 * create very large repositories (when possible)
 
