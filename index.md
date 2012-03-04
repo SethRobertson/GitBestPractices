@@ -556,10 +556,23 @@ Another good reason is to ensure each commit compiles and/or passes
 regression tests, and represents a different easily understood
 concepts.  The former allows git-bisect to chose any commit and have a
 good chance of that commit doing something useful, and the latter
-allows for easy change/code review, understanding, archeology, and
-cherry-picking.  Proponents claim it is all about leaving a history
-others can later use to understand _why_ the code became the way it is
-now, to make it less likely for others to break it
+allows for easy change/commit/code review, understanding, archeology,
+and cherry-picking.  When reviewing commits, for example the reviewer
+might see something suspicious in a commit and then have to spend time
+tracking down their suspicions and write them up, only to discover
+five commits later that the original developer subsequently found and
+fixed the problem, wasting the reviewer's time (reviewing the entire
+patch series as a diff fixes this problem but greatly adds complexity
+as multiple concepts get muddled).  By cleaning up patches into
+single, logical changes that build on one another, and which don't
+individually regress (i.e., they are always moving towards some
+desirable common endpoint), the author is writing a chronological
+story not of what happened, but what _should_ happen, with the intent
+that the audience (i.e., reviewers) are convinced that the change is
+the right thing to do.  Proponents claim it is all about
+leaving a history others can later use to understand _why_ the code
+became the way it is now, to make it less likely for others to break
+it.
 
 The downside to *hiding the sausage* making is the added time it takes
 to perfect the administrative parts of the developers job.  It is time
