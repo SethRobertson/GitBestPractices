@@ -1066,11 +1066,33 @@ git verify-pack -v .git/objects/pack/pack-*.idx |
 
 * create very large repositories (when possible)
 
-    Git can be slow in the face of large repositories. There are
+    Git can be slow in the face of large repositories. The definition
+    of "large" will depend on your RAM size, I/O speed, expectations,
+    etc.  However, having 100K-200K files in a repository may slow
+    common operations due to stat system call speeds (especially on
+    Windows) and having many large (esp. binary) files (see above) can
+    slow many operations.
+
+    If you start having pack files (in .git/objects/pack) which are
+    larger than 1GB, you might also want to consider creating a .keep
+    file (right beside the .idx and .pack files) for a large pack
+    which will prevent them from being repacked during gc and repack
+    operations.
+
+    If you find yourself running into memory pressure when you are
+    packing commits (usually `git gc [--aggressive]`), there are
     git-config options that can help. `pack.threads=1`
-    `pack.deltaCacheSize=1` `pack.windowMemory=512m`
-    `core.packedGitWindowSize=16m` `core.packedGitLimit=128m.` Other
-    likely ones exist.
+    `pack.deltaCacheSize=1` `pack.windowMemory=512m` all of which
+    trade memory for CPU time. Other likely ones exist.  My gut tells
+    me that sizing ("deltaCacheSize" + "windowMemory" +
+    min("core.bigFileThreshold[512m]", TheSizeOfTheLargestObject)) *
+    "threads" to be around *half* the amount of RAM you can dedicate
+    to running `git gc` will optimize your packing experience, but I
+    will be the first to admit that made up that formula based on a
+    very few samples and it could be drastically wrong.
+
+    Support for large repositories is an active git topic, so
+    watch for changes.
 
 * use reset (--hard || -merge) without committing/stashing
 
