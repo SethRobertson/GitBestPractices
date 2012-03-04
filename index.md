@@ -696,13 +696,14 @@ as your user repositories.
 
     You need not check dangling objects unless you are missing something
 
-* Compact your repo (`git gc --aggressive`)
+* Compact your repo (`git gc` and `git gc --aggressive`)
 
     This will removed outdated dangling objects (after the two+ week
     grace period).  It will also compress any loose objects git has
-    added since your last gc.  git will run gc automatically after
-    certain commands, but doing a manual --aggressive will save space
-    and speed git operations.
+    added since your last gc.  git will run a minimal gc automatically
+    after certain commands, but doing a manual gc often (and
+    "--aggressive" every few hundred changesets) will save space and
+    speed git operations.
 
 * Prune your remote tracking branches (`git remote | xargs -n1 git remote prune`)
 
