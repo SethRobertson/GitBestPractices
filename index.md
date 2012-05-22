@@ -540,7 +540,7 @@ See [Enforcing standards](#enforce) below.
 <a name="sausage" />
 ## On Sausage Making
 
-Some people like to hide the sausage making<a href="sausage_metaphor">
+Some people like to hide the sausage making<a href="#sausage_metaphor">
 ¹</a>, or in other words pretend to the outside world that their
 commits sprung full-formed in utter perfection into their git
 repository.  Certain large public projects demand this, others demand
@@ -604,14 +604,14 @@ more complex and/or impossible afterwards.
 
 <a name="sausage_metaphor" />¹ The process of developing software,
 similar to the process of making sausage, is a messy messy business<a
-href="never_discover_how_sausages_are_made">²</a>; all sorts of stuff
+href="#never_discover_how_sausages_are_made">²</a>; all sorts of stuff
 happens in the process of developing software.  Bugs are inserted into
 the code, uncovered, patched over.  The end result may be a tasty
 program, but anyone looking at the process of how it was created
 (through inspection of the commits) may end up with an sour taste in
 their mouth.  If you hide the sausage making, you can create a
 beautiful looking history where each step looks as delicious as the
-end-product.
+end-product.  <a href="#sausage">Back to footnote reference.</a>
 
 <a name="never_discover_how_sausages_are_made" />² If you do not
 understand why someone would want to hide the sausage making, and you
