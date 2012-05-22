@@ -540,11 +540,11 @@ See [Enforcing standards](#enforce) below.
 <a name="sausage" />
 ## On Sausage Making
 
-Some people like to hide the sausage making, or in other words pretend
-to the outside world that their commits sprung full-formed in utter
-perfection into their git repository.  Certain large public projects
-demand this, others demand smushing all work into one large commit,
-and still others do not care.
+Some people like to hide the sausage making<a href="sausage_metaphor">
+¹</a>, or in other words pretend to the outside world that their
+commits sprung full-formed in utter perfection into their git
+repository.  Certain large public projects demand this, others demand
+smushing all work into one large commit, and still others do not care.
 
 A good reason to hide the sausage making is if you feel you may be
 cherry-picking commits a lot (though this too is often a sign of bad
@@ -601,6 +601,24 @@ Git](http://sethrobertson.github.com/GitPostProduction/) also
 Be sure you do all of this work *before* doing any non-squashed merges
 (not rebases: merges) and *before* pushing.  Your work becomes much
 more complex and/or impossible afterwards.
+
+<a name="sausage_metaphor" />¹ The process of developing software,
+similar to the process of making sausage, is a messy messy business<a
+href="never_discover_how_sausages_are_made">²</a>; all sorts of stuff
+happens in the process of developing software.  Bugs are inserted into
+the code, uncovered, patched over.  The end result may be a tasty
+program, but anyone looking at the process of how it was created
+(through inspection of the commits) may end up with an sour taste in
+their mouth.  If you hide the sausage making, you can create a
+beautiful looking history where each step looks as delicious as the
+end-product.
+
+<a name="never_discover_how_sausages_are_made" />² If you do not
+understand why someone would want to hide the sausage making, and you
+enjoy eating sausage, never, ever, watch sausages being made, read
+"The Jungle", or otherwise try to expose yourself to any part of the
+sausage making process.  You will lead a much tastier (and perhaps
+shorter) life in your blissful ignorance.
 
 
 <a name="date" />
