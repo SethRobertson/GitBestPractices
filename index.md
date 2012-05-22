@@ -68,8 +68,9 @@ However, don't let tomorrow's beauty stop you from performing
 continuous commits today.
 
 Personally, I commit early and often and then let the sausage making
-be seen by all except in the most formal of circumstances.  For a less
-formal usage, [like say this
+be seen by all except in the most formal of circumstances (public
+projects with large numbers of users, developers, or high developer
+turnover).  For a less formal usage, [like say this
 document](https://github.com/SethRobertson/GitBestPractices/commits/gh-pages)
 I let people see what really happened.
 
@@ -300,6 +301,7 @@ workflows.
 * [What git branching models actually work](http://stackoverflow.com/questions/2621610/what-git-branching-models-actually-work)
 * [Our New Git Branching Model](http://blogs.remobjects.com/blogs/mh/2011/08/25/p2940)
 * [Branch-per-Feature](http://dymitruk.com/blog/2012/02/05/branch-per-feature/)
+* [Who Needs Process](http://teddziuba.com/2011/12/process.html)
 
 However, also understand that everyone already has an implicit
 private branch due to their cloned repository: they can do work
