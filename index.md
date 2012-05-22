@@ -615,10 +615,11 @@ end-product.  <a href="#sausage">Back to footnote reference.</a>
 
 <a name="never_discover_how_sausages_are_made" />² If you do not
 understand why someone would want to hide the sausage making, and you
-enjoy eating sausage, never, ever, watch sausages being made, read
-"The Jungle", or otherwise try to expose yourself to any part of the
-sausage making process.  You will lead a much tastier (and perhaps
-shorter) life in your blissful ignorance.
+enjoy eating sausage, never, ever, watch sausages being made, read <a
+href="http://en.wikipedia.org/wiki/The_Jungle">"The Jungle"</a>, or
+otherwise try to expose yourself to any part of the sausage making
+process.  You will lead a much tastier (and perhaps shorter) life in
+your blissful ignorance.
 
 
 <a name="date" />
