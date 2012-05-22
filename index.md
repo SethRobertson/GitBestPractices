@@ -643,6 +643,12 @@ these ideas (but they should!)
     `git fetch; git rebase -p @{u}` (and check to make sure the merge was
     recreated properly) or do a normal merge in that circumstance.
 
+    Another specific circumstance is if you are pulling from a
+    non-authoritative repository which is not fully up to date with
+    respect to your authoritative upstream.  A rebase in this
+    circumstance could cause the published history to be rewritten, <a
+    href="#pubonce">which would be bad</a>.
+
     Some people argue against this because the non-final commits may lose
     whatever testing those non-final commits might have had since the
     deltas would be applied to a new base.  This in turn might make
@@ -655,11 +661,11 @@ these ideas (but they should!)
     hope that the commit will be usable.  After all, that future bisector
     might be you.
 
-    Other people argue against this (especially in highly decentralized
-    environments) because it explicitly records that the person who
-    performed the merge tested that the two histories were combined
-    properly (as opposed to the hidden history with implicit blame of
-    rebase).
+    Other people argue against this (especially in highly
+    decentralized environments) because doing a merge explicitly
+    records who performed the merge, which provides someone to blame
+    for inadequate testing if two histories were not combined properly
+    (as opposed to the hidden history with implicit blame of rebase).
 
     Still others argue that you are unable to automatically discover when
     someone else has [rewritten public history](#pubonce) if you use `git
