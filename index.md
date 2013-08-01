@@ -830,7 +830,7 @@ do it.
 * Bug tracking
 
     Industry best practice suggests that you should have a bug tracking
-    system.  Hopefully you do.  Well, I'm hear to tell you that
+    system.  Hopefully you do.  Well, I'm here to tell you that
     integrating your bug tracking system with git makes the two systems
     one thousand times more effective.  Specifically, come up with a
     standard for tagging commits with bug numbers (eg. "Bug 1234: Adjust
