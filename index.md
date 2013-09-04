@@ -732,7 +732,7 @@ as your user repositories.
     "--aggressive" every few hundred changesets) will save space and
     speed git operations.
 
-* Prune your remote tracking branches (`git remote | xargs -n1 git remote prune`)
+* Prune your remote tracking branches (`git remote update --prune`)
 
     This will get rid of any branches that were deleted upstream
     since you cloned/pruned.  It normally isn't a major problem one
