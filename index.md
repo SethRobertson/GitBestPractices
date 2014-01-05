@@ -294,14 +294,14 @@ Answering the following questions helps you choose a branch workflow:
 See the following references for more information on branch
 workflows.
 
-* [Pro Git branching models](http://progit.org/book/ch3-4.html)
+* [Pro Git branching models](http://git-scm.com/book/ch3-4.html)
 * [Git-flow branching model](http://nvie.com/posts/a-successful-git-branching-model/) (with [the associated gitflow tool](https://github.com/nvie/gitflow))
 * [Gitworkflows man page](http://jk.gs/gitworkflows.html)
 * [A Git Workflow for Agile Teams](http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html)
 * [What git branching models actually work](http://stackoverflow.com/questions/2621610/what-git-branching-models-actually-work)
 * [Our New Git Branching Model](http://blogs.remobjects.com/blogs/mh/2011/08/25/p2940)
 * [Branch-per-Feature](http://dymitruk.com/blog/2012/02/05/branch-per-feature/)
-* [Who Needs Process](http://teddziuba.com/2011/12/process.html)
+* [Who Needs Process](http://widgetsandshit.com/teddziuba/2011/12/process.html)
 
 However, also understand that everyone already has an implicit
 private branch due to their cloned repository: they can do work
