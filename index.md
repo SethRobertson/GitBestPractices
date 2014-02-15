@@ -40,7 +40,7 @@ Knowing where to look is half the battle.  I strongly urge everyone to
 read (and support) the Pro Git book.  The other resources are highly
 recommended by various people as well.
 
-* [Pro Git](http://progit.org/book/)
+* [Pro Git](http://git-scm.com/book/)
 * [Git for Computer Scientists](http://eagain.net/articles/git-for-computer-scientists/) and a [different/updated version](http://sitaramc.github.com/gcs/)
 * [Git from the Bottom Up](http://ftp.newartisans.com/pub/git.from.bottom.up.pdf)
 * [The Git Parable](http://tom.preston-werner.com/2009/05/19/the-git-parable.html)
