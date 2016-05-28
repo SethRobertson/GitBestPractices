@@ -91,7 +91,7 @@ When attempting to find your lost commits, first make *sure* you will
 not lose any current work.  You should commit or stash your current
 work before performing any recovery efforts that might destroy your
 current work and perhaps take backups of it (see [Backups](#backups) below).
-After finding the commits you can reset, rebase, cherry-pick, merge,
+After finding the commits you can `reset`, `rebase`, `cherry-pick`, `merge`,
 or otherwise do what is necessary to get the commit history and work
 tree you desire.
 
@@ -119,7 +119,7 @@ gitk --all --date-order $(git log -g --pretty=%H)
 
     Commits or other git data that are no longer reachable through any
     reference name (branch, tag, etc) are called "dangling" and may be
-    found using fsck.  There are legitimate reasons why objects may be
+    found using `fsck`.  There are legitimate reasons why objects may be
     dangling through standard actions and normally over 99% of them are
     entirely uninteresting for this reason.
 
@@ -191,11 +191,11 @@ you need a more formal system as well.
 
 Traditional backups are still appropriate, and clones do not save git
 configurations, the working directory and index, non-standard refs, or
-dangling objects anyway.  A normal tarball, cp, rsync, zip, rar or
+dangling objects anyway.  A normal tarball, `cp`, `rsync`, `zip`, `rar` or
 similar backup copy will be a perfectly fine backup.  As long as the
 underlying filesystem doesn't reorder git I/O dramatically and there
 is not a long time delay between the scanning of the directory and the
-retrieval of the files, the resulting copy of .git should be
+retrieval of the files, the resulting copy of `.git` should be
 consistent under almost all circumstances including if taken while git
 operations are in progress, though see also [discussions about custom
 backup techniques to ensure git
@@ -353,8 +353,10 @@ Answering the following questions helps you choose a distributed
 workflow:
 
 * Who is allowed to publish to the master repository?
-* What is the process between a developer finishing coding and the code being released to the end-user?
-* Are there distinct groups that work on distinct sections of the codebase and only integrate at epochs?  (Outsourcing)
+* What is the process between a developer finishing coding and the code being
+  released to the end-user?
+* Are there distinct groups that work on distinct sections of the codebase and
+  only integrate at epochs?  (Outsourcing)
 * Is everyone inside the same administrative domain?
 
 See the following references for more information on distributed
@@ -389,11 +391,11 @@ tag something, and of course I *highly* recommend this.  However, tags
 should be treated as immutable once you push.  Well, that only makes
 sense, you might think to yourself, but consider this: five minutes
 after everyone has signed off on the 2.0 release, it has been tagged
-Frobber_Release_2.0 and pushed, but before any customer has seen the
+`Frobber_Release_2.0` and pushed, but before any customer has seen the
 resulting product someone comes running in "OMFG, the foobar is broken
-when you frobnoz the baz."  What do you do?  Do you skip release 2.0
-and tag 2.0.1?  Do you do a take-back and go to every repo of every
-developer and delete the 2.0 tag?
+when you frobnoz the baz."  What do you do?  Do you skip release `2.0`
+and tag `2.0.1`?  Do you do a take-back and go to every repo of every
+developer and delete the `2.0` tag?
 
 Two ideas for your consideration.  Instead of a release tag, use a
 release branch with the marketing name (and then stop committing to
@@ -488,7 +490,7 @@ simply because they were there.  Try to avoid doing so.
 
     There are two main methods of doing this.
 
-    * git-submodules
+    * `git-submodules`
 
         Git submodules is the native git approach, which provides a
         strong binding between the superproject repository and the
@@ -499,7 +501,7 @@ simply because they were there.  Try to avoid doing so.
         where you want to find out the absolute correspondence between
         the different projects at every commit, it is very useful.
 
-    * gitslave
+    * `gitslave`
 
         [gitslave](http://gitslave.sf.net) is a useful tool to add a
         subsidiary git repositories to a git superproject when you
@@ -556,7 +558,7 @@ branch is finally merged in.
 
 Another good reason is to ensure each commit compiles and/or passes
 regression tests, and represents a different easily understood
-concepts.  The former allows git-bisect to chose any commit and have a
+concepts.  The former allows `git-bisect` to choose any commit and have a
 good chance of that commit doing something useful, and the latter
 allows for easy change/commit/code review, understanding, archeology,
 and cherry-picking.  When reviewing commits, for example the reviewer
@@ -579,8 +581,8 @@ it.
 The downside to *hiding the sausage* making is the added time it takes
 to perfect the administrative parts of the developers job.  It is time
 taken away from getting code working; time solely dedicated to either
-administrative beauty or enhancing the ability to performing the blame
-based (or ego-full) development methodology.
+administrative beauty or enhancing the ability to perform the blame-based 
+(or ego-full) development methodology.
 
 If you think about it, movies are made this way.  Scenes are shot out
 of temporal order, multiple times, and different bits are picked from
@@ -630,7 +632,7 @@ update your branches and repositories is very much associated with the
 desired workflow.  Also I will note that not everyone agrees with
 these ideas (but they should!)
 
-* Pulling with --rebase
+* Pulling with `--rebase`
 
     Whenever I pull, under most circumstances I `git pull --rebase`. This
     is because I like to see a linear history (my commit came after all
@@ -932,13 +934,13 @@ do it.
     * Role aliases
 
         Instead of saying, send mail to Bob for your sales questions
-	and Alice for your IT problems, you should have well defined
-	and findable role aliases so that vacations, personnel
-	changes, and related issues do not have to affect people's
-	communication behaviors.  Of course, in many cases, you may
-	want to have these roles feed into your ticketing system for
-	tracking instead of depending on human management of private
-	mail queues.
+        and Alice for your IT problems, you should have well defined
+        and findable role aliases so that vacations, personnel
+        changes, and related issues do not have to affect people's
+        communication behaviors.  Of course, in many cases, you may
+        want to have these roles feed into your ticketing system for
+        tracking instead of depending on human management of private
+        mail queues.
 
     * VNC-sharing of server consoles
 
@@ -1042,9 +1044,9 @@ negative effects of each and why they might be in a best practices
 * commit anything that can be regenerated from other things that were committed.
 
     Things that can be regenerated include binaries, object files,
-    jars, .class, flex/yacc generated code, etc.  Really the only
+    jars, `.class`, flex/yacc generated code, etc.  Really the only
     place there is room for disagreement about this is if something
-    might take hours to regenerate (rendered images, eg, but see
+    might take hours to regenerate (rendered images, e.g., but see
     [Dividing work into repositories](#divide) for more best practices about
     this) or autoconf generated files (so people can configure and
     compile without autotools installed).
@@ -1100,9 +1102,9 @@ git verify-pack -v .git/objects/pack/pack-*.idx |
     Windows) and having many large (esp. binary) files (see above) can
     slow many operations.
 
-    If you start having pack files (in .git/objects/pack) which are
-    larger than 1GB, you might also want to consider creating a .keep
-    file (right beside the .idx and .pack files) for a large pack
+    If you start having pack files (in `.git/objects/pack`) which are
+    larger than 1GB, you might also want to consider creating a `.keep`
+    file (right beside the `.idx` and `.pack` files) for a large pack
     which will prevent them from being repacked during gc and repack
     operations.
 
@@ -1121,17 +1123,17 @@ git verify-pack -v .git/objects/pack/pack-*.idx |
     Support for large repositories is an active git topic, so
     watch for changes.
 
-* use reset (--hard || -merge) without committing/stashing
+* use `reset` (`--hard | --merge`) without committing/stashing
 
     This can often overwrite the working directory without hope of
     recourse.
 
-* use checkout in file mode
+* use `checkout` in file mode
 
-    This will overwrite some (or potentially all with .) of the
+    This will overwrite some (or potentially all with `.`) of the
     working directory without hope of recourse.
 
-* use `git clean` without previously running with "-n" first
+* use `git clean` without previously running with "`-n`" first
 
     This will delete untracked files without hope of recourse.
 
@@ -1171,7 +1173,7 @@ git verify-pack -v .git/objects/pack/pack-*.idx |
 
     This is another way to [rewrite public history](#pubonce).
 
-* use git-filter-branch
+* use `git-filter-branch`
 
     Still another way to [rewrite public history](#pubonce).
 
@@ -1179,7 +1181,7 @@ git verify-pack -v .git/objects/pack/pack-*.idx |
     end your command with ` --tag-name-filter cat -- --all` unless you
     are really really sure you know what you are doing.
 
-* create --orphan branches
+* create `--orphan` branches
 
     With the notable exception of gh-pages (which is a hack github
     uses for convenience, not an expression of general good style
@@ -1188,22 +1190,22 @@ git verify-pack -v .git/objects/pack/pack-*.idx |
     repository.  If the new branch cannot really be thought of as
     being related to the other branches in your repository so that
     merging between the two really has any conceptual relevance, then
-    the concept is probably far enough apart to warrant it's own
+    the concept is probably far enough apart to warrant its own
     repository.
 
-* use clone --shared or --reference
+* use `clone --shared` or `--reference`
 
     This can lead to problems for non-normal git actions, or if the
     other repository is deleted/moved.  See [git-clone manual
     page](http://jk.gs/gitworkflows.html).
 
-* use git-grafts
+* use `git-grafts`
 
-    This is deprecated in favor of git-replace.
+    This is deprecated in favor of `git-replace`.
 
-* use git-replace
+* use `git-replace`
 
-    But don't use git-replace either.
+    But don't use `git-replace` either.
 
 
 <a name="disclaimer" />
