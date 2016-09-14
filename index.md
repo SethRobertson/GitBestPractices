@@ -295,7 +295,7 @@ See the following references for more information on branch
 workflows.
 
 * [Pro Git branching models](http://git-scm.com/book/ch3-4.html)
-* [Git-flow branching model](http://nvie.com/posts/a-successful-git-branching-model/) (with [the associated gitflow tool](https://github.com/nvie/gitflow))
+* [Git-flow branching model](http://nvie.com/posts/a-successful-git-branching-model/) (with [the associated gitflow tool](https://github.com/petervanderdoes/gitflow-avh))
 * [Gitworkflows man page](http://jk.gs/gitworkflows.html)
 * [A Git Workflow for Agile Teams](http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html)
 * [What git branching models actually work](http://stackoverflow.com/questions/2621610/what-git-branching-models-actually-work)
