@@ -191,20 +191,20 @@ you need a more formal system as well.
 
 Traditional backups are still appropriate, and clones do not save git
 configurations, the working directory and index, non-standard refs, or
-dangling objects anyway.  A normal tarball, `cp`, `rsync`, `zip`, `rar` or
-similar backup copy will be a perfectly fine backup.  As long as the
-underlying filesystem doesn't reorder git I/O dramatically and there
-is not a long time delay between the scanning of the directory and the
-retrieval of the files, the resulting copy of `.git` should be
+dangling objects anyway.  A normal tarball, `cp`, `rsync`, `zip`,
+`rar` or similar backup copy will be a perfectly fine backup.  As long
+as the underlying filesystem doesn't reorder git I/O dramatically and
+there is not a long time delay between the scanning of the directory
+and the retrieval of the files, the resulting copy of `.git` should be
 consistent under almost all circumstances including if taken while git
-operations are in progress, though see also [discussions about custom
-backup techniques to ensure git
-consistency](http://thread.gmane.org/gmane.comp.version-control.git/168699).
-Of course, if you have a backup from in the middle of a git operation,
-you might need to do some recovery.  The data should all be present
-though.  When performing git experiments involving items other than
-normally reachable commits, a copy instead of a clone may be more
-appropriate.
+operations are in progress, though you might have to do some
+recovery--the data will all be present.  See also [discussions about
+custom backup techniques to ensure git
+consistency](http://marc.info/?l=git&m=136422341014631&w=2)--though it
+does not mention `git bundle create ... --all` which appears to be the
+only atomic native git command that can create a backup.  When
+performing git experiments involving items other than normally
+reachable commits, a copy instead of a clone may be more appropriate.
 
 However, if you want a "pure git" solution that clones everything in
 a directory of repos, something like this may be what you need:
