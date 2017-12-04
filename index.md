@@ -610,7 +610,7 @@ href="#never_discover_how_sausages_are_made">²</a>; all sorts of stuff
 happens in the process of developing software.  Bugs are inserted into
 the code, uncovered, patched over.  The end result may be a tasty
 program, but anyone looking at the process of how it was created
-(through inspection of the commits) may end up with an sour taste in
+(through inspection of the commits) may end up with a sour taste in
 their mouth.  If you hide the sausage making, you can create a
 beautiful looking history where each step looks as delicious as the
 end-product.  <a href="#sausage">Back to footnote reference.</a>
