@@ -1,4 +1,4 @@
-# [Commit Often, Perfect Later, Publish Once: Git Best Practices](http://sethrobertson.github.com/GitBestPractices/)
+# [Commit Often, Perfect Later, Publish Once: Git Best Practices](http://sethrobertson.github.io/GitBestPractices/)
 
 The official and authoritative source for this document [has
 moved](http://sethrobertson.github.com/GitBestPractices/).  Please
