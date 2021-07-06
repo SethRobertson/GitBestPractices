@@ -3,7 +3,7 @@ title: Commit Often, Perfect Later, Publish Once—Git Best Practices
 layout: default
 ---
 
-# [Commit Often, Perfect Later, Publish Once: Git Best Practices](http://sethrobertson.github.com/GitBestPractices/)
+# [Commit Often, Perfect Later, Publish Once: Git Best Practices](https://sethrobertson.github.io/GitBestPractices/)
 
 Best Practices vary from environment to environment, and there is no
 One True Answer, but still, this represents a consensus from #git and
@@ -40,12 +40,12 @@ Knowing where to look is half the battle.  I strongly urge everyone to
 read (and support) the Pro Git book.  The other resources are highly
 recommended by various people as well.
 
-* [Pro Git](http://git-scm.com/book/)
-* [Git for Computer Scientists](http://eagain.net/articles/git-for-computer-scientists/) and a [different/updated version](http://sitaramc.github.com/gcs/)
+* [Pro Git](https://git-scm.com/book/)
+* [Git for Computer Scientists](https://eagain.net/articles/git-for-computer-scientists/)
 * [Git from the Bottom Up](https://jwiegley.github.io/git-from-the-bottom-up/)
-* [The Git Parable](http://tom.preston-werner.com/2009/05/19/the-git-parable.html)
-* [Other resources](http://git-scm.com/documentation)
-* [Git wiki](http://git.wiki.kernel.org/)
+* [The Git Parable](https://tom.preston-werner.com/2009/05/19/the-git-parable.html)
+* [Other resources](https://git-scm.com/documentation)
+* [Git wiki](https://git.wiki.kernel.org/)
 
 
 <a name="commit" />
@@ -83,7 +83,7 @@ it with `git add`) your work will not be lost for at least two weeks
 unless you really work at it (run commands that manually purge it).
 
 See [on undoing, fixing, or removing commits in
-git](http://sethrobertson.github.com/GitFixUm/) if you want to fix a particular
+git](https://sethrobertson.github.io/GitFixUm/) if you want to fix a particular
 problematic commit or commits, as opposed to attempting to locate lost
 data.
 
@@ -200,7 +200,7 @@ consistent under almost all circumstances including if taken while git
 operations are in progress, though you might have to do some
 recovery--the data will all be present.  See also [discussions about
 custom backup techniques to ensure git
-consistency](http://marc.info/?l=git&m=136422341014631&w=2)--though it
+consistency](https://marc.info/?l=git&m=136422341014631&w=2)--though it
 does not mention `git bundle create ... --all` which appears to be the
 only atomic native git command that can create a backup.  When
 performing git experiments involving items other than normally
@@ -294,14 +294,14 @@ Answering the following questions helps you choose a branch workflow:
 See the following references for more information on branch
 workflows.
 
-* [Pro Git branching models](http://git-scm.com/book/ch3-4.html)
-* [Git-flow branching model](http://nvie.com/posts/a-successful-git-branching-model/) (with [the associated gitflow tool](https://github.com/petervanderdoes/gitflow-avh))
-* [Gitworkflows man page](http://jk.gs/gitworkflows.html)
-* [A Git Workflow for Agile Teams](http://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html)
-* [What git branching models actually work](http://stackoverflow.com/questions/2621610/what-git-branching-models-actually-work)
-* [Our New Git Branching Model](http://blogs.remobjects.com/blogs/mh/2011/08/25/p2940)
-* [Branch-per-Feature](http://dymitruk.com/blog/2012/02/05/branch-per-feature/)
-* [Who Needs Process](http://widgetsandshit.com/teddziuba/2011/12/process.html)
+* [Pro Git branching models](https://git-scm.com/book/ch3-4.html)
+* [Git-flow branching model](https://nvie.com/posts/a-successful-git-branching-model/) (with [the associated gitflow tool](https://github.com/petervanderdoes/gitflow-avh))
+* [Gitworkflows man page](https://gitirc.eu/gitworkflows.html)
+* [A Git Workflow for Agile Teams](https://reinh.com/blog/2009/03/02/a-git-workflow-for-agile-teams.html)
+* [What git branching models actually work](https://stackoverflow.com/questions/2621610/what-git-branching-models-actually-work)
+* [Our New Git Branching Model](https://blogs.remobjects.com/2011/08/25/our-new-git-branching-model/)
+* [Branch-per-Feature](https://dymitruk.com/blog/2012/02/05/branch-per-feature/)
+* [Who Needs Process](https://widgetsandshit.com/teddziuba/2011/12/process.html)
 
 However, also understand that everyone already has an implicit
 private branch due to their cloned repository: they can do work
@@ -362,8 +362,8 @@ workflow:
 See the following references for more information on distributed
 workflows.
 
-* [Pro Git distributed models](http://progit.org/book/ch5-1.html)
-* [Gitworkflows man page](http://jk.gs/gitworkflows.html)
+* [Pro Git distributed models](https://git-scm.com/book/en/v2/Distributed-Git-Distributed-Workflows)
+* [Gitworkflows man page](https://gitirc.eu/gitworkflows.html)
 
 Cathedrals (traditional corporate development models) often want
 to have (or to pretend to have) the one true centralized
@@ -503,7 +503,7 @@ simply because they were there.  Try to avoid doing so.
 
     * `gitslave`
 
-        [gitslave](http://gitslave.sf.net) is a useful tool to add a
+        [gitslave](https://gitslave.sf.net) is a useful tool to add a
         subsidiary git repositories to a git superproject when you
         control and develop on the subprojects at more or less the
         same time as the superproject, and furthermore when you
@@ -528,7 +528,7 @@ character) summary of the change is also very good.  Looking at the
 output of `gitk` or `git log --oneline` might help you understand why.
 
 Also see [A Note About Git Commit
-Messages](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+Messages](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
 for even more good ideas.
 
 While this relates to the later topic of [integration with external
@@ -596,9 +596,9 @@ editing of the resulting product.
 `git rebase -i`, `git add -p`, and `git reset -p` can fix commits up
 in post-production by splitting different concepts, merging fixes to
 older commits, etc. See [Post-Production Editing using
-Git](http://sethrobertson.github.com/GitPostProduction/) also
-[TopGit](http://repo.or.cz/w/topgit.git) and
-[StGit](http://www.procode.org/stgit/).
+Git](https://sethrobertson.github.io/GitPostProduction/) also
+[TopGit](https://repo.or.cz/w/topgit.git) and
+[StGit](https://stacked-git.github.io/).
 
 Be sure you do all of this work *before* doing any non-squashed merges
 (not rebases: merges) and *before* pushing.  Your work becomes much
@@ -618,7 +618,7 @@ end-product.  <a href="#sausage">Back to footnote reference.</a>
 <a name="never_discover_how_sausages_are_made" />² If you do not
 understand why someone would want to hide the sausage making, and you
 enjoy eating sausage, never, ever, watch sausages being made, read <a
-href="http://en.wikipedia.org/wiki/The_Jungle">"The Jungle"</a>, or
+href="https://en.wikipedia.org/wiki/The_Jungle">"The Jungle"</a>, or
 otherwise try to expose yourself to any part of the sausage making
 process.  You will lead a much tastier (and perhaps shorter) life in
 your blissful ignorance.
@@ -680,7 +680,7 @@ these ideas (but they should!)
     You can make this the default with the "branch.&lt;name&gt;.rebase"
     configuration option (and more practically, by the
     "branch.autosetuprebase" configuration option).  See [man
-    git-config](http://jk.gs/git-config.html).
+    git-config](https://gitirc.eu/git-config.html).
 
 * Rebasing (when possible)
 
@@ -774,8 +774,7 @@ reject commits that don't follow the standards.  You can also
 chide the user for not using the standard client-side hook to
 begin with (if you recommend that approach).
 
-See [Puppet Version
-Control](http://projects.puppetlabs.com/projects/1/wiki/Puppet_Version_Control)
+See [Enforcing Coding Standards in Husky](https://www.wisdomgeek.com/development/web-development/javascript/enforcing-coding-standards-husky-pre-commit-hooks/)
 for an example for a "Git Update Hook" and "Git Pre-Commit Hook" that
 enforces certain standards.  Note that the update hook is examining
 files individually instead of providing whole-repository testing.
@@ -797,13 +796,13 @@ practice!
     We already mentioned gitolite above, but it forms a great git
     server intermediary for access control.
 
-* [gitslave](http://gitslave.sf.net)
+* [gitslave](https://gitslave.sf.net)
 
     We already mentioned gitslave above, but it forms a great
     alternative to git-submodules when forming superprojects out of
     repositories you control.
 
-* [gerrit](http://code.google.com/p/gerrit/)
+* [gerrit](https://code.google.com/p/gerrit/)
 
     To quote the website: Gerrit is a web based code review system,
     facilitating online code reviews for projects using the Git
@@ -821,8 +820,7 @@ do it.
 * Web views
 
     This is pretty standard stuff, but still a best practice.  Setting up
-    a tool like [gitweb](http://jk.gs/gitweb.html) (or
-    [cgit](http://hjemli.net/git/cgit/) or whatever) to allow URL
+    a tool like [gitweb](https://gitirc.eu/gitweb.html) to allow URL
     reference to commits (among other visualization interfaces it
     provides) gives people a great way to refer to commits in email and
     conversations.  If someone can click on a link vs having to fire up
@@ -876,7 +874,7 @@ do it.
 
     If you use github, github provides an "IRC" "Service Hook" that lets
     you get git announcements for free.  Said robot will not provide any
-    additional value added services you might want.  [CIA](http://cia.vc)
+    additional value added services you might want.  [NodeBot](https://github.com/thwarted/nodebot)
     is another packaged commit announcement system and of course many IRC
     robot frameworks can be found with simple web searches.
 
@@ -1063,9 +1061,9 @@ negative effects of each and why they might be in a best practices
     Yes it can be done in a sufficiently simple/non-critical
     environment with something like [Abhijit Menon-Sen's document on
     using git to manage a web
-    site](http://toroid.org/ams/git-website-howto) to help, though
+    site](https://toroid.org/ams/git-website-howto) to help, though
     there are [other](https://gist.github.com/1714235)
-    [examples](http://joemaller.com/990/a-web-focused-git-workflow/).
+    [examples](https://joemaller.com/990/a-web-focused-git-workflow/).
     However, this does not give you atomic updates, synchronized db
     updates, or other accouterments of an industrial deployment
     system.
@@ -1089,7 +1087,8 @@ git verify-pack -v .git/objects/pack/pack-*.idx |
   done
 ```
 
-    Consider using [Git annex](http://git-annex.branchable.com/) or
+    Consider using [Git annex](https://git-annex.branchable.com/),
+    [Git LFS](https://git-lfs.github.com/) or
     [Git media](https://github.com/schacon/git-media) if you plan
     on having large binary files and your workflow allows.
 
@@ -1121,7 +1120,8 @@ git verify-pack -v .git/objects/pack/pack-*.idx |
     very few samples and it could be drastically wrong.
 
     Support for large repositories is an active git topic, so
-    watch for changes.
+    watch for changes.  Some very large companies are now using
+    enormously large monorepos.
 
 * use `reset` (`--hard | --merge`) without committing/stashing
 
@@ -1163,7 +1163,7 @@ git verify-pack -v .git/objects/pack/pack-*.idx |
     Git was not written as a dedicated backup tool, and such tools do
     exist. Yes people have done it successfully, but usually with lots
     of scripts or modifications around it.  One successful example of
-    integration/modifications is [bup](http://github.com/apenwarr/bup).
+    integration/modifications is [bup](https://github.com/apenwarr/bup).
 
 * rewrite public history
 
@@ -1197,7 +1197,7 @@ git verify-pack -v .git/objects/pack/pack-*.idx |
 
     This can lead to problems for non-normal git actions, or if the
     other repository is deleted/moved.  See [git-clone manual
-    page](http://jk.gs/gitworkflows.html).
+    page](https://gitirc.eu/gitworkflows.html).
 
 * use `git-grafts`
 
@@ -1228,17 +1228,17 @@ related to any and all matters described.
 Copyright ⓒ 2012 Seth Robertson
 
 Creative Commons Attribution-ShareAlike 3.0 Generic (CC BY-SA 3.0)
-http://creativecommons.org/licenses/by-sa/3.0/
+https://creativecommons.org/licenses/by-sa/3.0/
 
 OR
 
 GNU Free Documentation v1.3 with no Invariant, Front, or Back Cover texts.
-http://www.gnu.org/licenses/fdl.html
+https://www.gnu.org/licenses/fdl.html
 
 I would appreciate changes being sent back to me, being notified if
 this is used or highlighted in some special way, and links being
 maintained back to the [authoritative
-source](http://sethrobertson.github.com/GitBestPractices/).  Thanks.
+source](https://sethrobertson.github.io/GitBestPractices/).  Thanks.
 
 
 <a name="thanks" />
